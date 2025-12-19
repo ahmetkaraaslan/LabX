@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "B1: Su Sentezi",
+    "difficulty": "Kolay",
+    "description": "Yaşamın kaynağı olan suyu (H₂O) elementlerinden üreteceğiz. Bu tepkime oldukça enerjiktir, dikkatli ol!",
+    "allChemicals": ["H₂", "O₂", "N₂", "CO₂", "Cl₂", "C", "S", "Fe", "Mg"],
+    "correctChemicals": ["H₂", "O₂"],
+    "correctRatio": { "H₂": 2.0, "O₂": 1.0 },
+    "tempRange": { "start": 550.0, "endInclusive": 650.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 5.0 },
+    "successMessage": "Başardın! Hidrojen ve Oksijeni ateşleyerek saf su (H₂O) buharı elde ettin.",
+    "failureMessages": {
+      "chemicals": "Su (H₂O) oluşturmak için Hidrojen (H₂) ve Oksijen (O₂) gereklidir.",
+      "ratio": "Oranlar tutmuyor. Su molekülü 2 birim Hidrojen ve 1 birim Oksijen içerir.",
+      "temperature": "Tepkime başlamadı. Hidrojen ve Oksijenin birleşmesi için yüksek bir tutuşma sıcaklığı (550°C üzeri) gerekir.",
+      "pressure": "Basınç bu tepkime için kritik değil."
+    }
+  },
+  {
+    "id": 2,
+    "title": "B2: Sofra Tuzu Üretimi",
+    "difficulty": "Kolay",
+    "description": "Bir asit ve bir bazın tepkimesiyle sofra tuzu (NaCl) ve su oluşturacağız.",
+    "allChemicals": ["HCl", "NaOH", "H₂SO₄", "KOH", "KCl", "Na₂SO₄", "H₂O", "AgNO₃", "CaCO₃"],
+    "correctChemicals": ["HCl", "NaOH"],
+    "correctRatio": { "HCl": 1.0, "NaOH": 1.0 },
+    "tempRange": { "start": 15.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Harika! Hidroklorik asit ve Sodyum hidroksiti nötrleştirerek sofra tuzu (NaCl) ve su elde ettin.",
+    "failureMessages": {
+      "chemicals": "Sofra tuzu üretimi için Hidroklorik asit (HCl) ve Sodyum hidroksit (NaOH) kullanmalısın.",
+      "ratio": "Nötralleşme için asit ve baz miktarları eşit olmalı. 1'e 1 oranını dene.",
+      "temperature": "Sıcaklık bu tepkime için kritik değil, oda sıcaklığı yeterli.",
+      "pressure": "Basınç bu tepkime için bir etken değil."
+    }
+  },
+  {
+    "id": 3,
+    "title": "B3: Sirke & Karbonat",
+    "difficulty": "Kolay",
+    "description": "Asetik asit (CH₃COOH) ve Sodyum bikarbonatı (NaHCO₃) birleştirerek köpürme tepkimesini gözlemle.",
+    "allChemicals": ["CH₃COOH", "NaHCO₃", "H₂O", "NaCl", "HCl", "C₆H₁₂O₆", "O₂", "N₂", "Ar"],
+    "correctChemicals": ["CH₃COOH", "NaHCO₃"],
+    "correctRatio": { "CH₃COOH": 1.0, "NaHCO₃": 1.0 },
+    "tempRange": { "start": 10.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Köpükler içinde zafer! Sirke ve karbonatı birleştirerek sodyum asetat, su ve karbondioksit gazı çıkışını sağladın.",
+    "failureMessages": {
+      "chemicals": "Bu klasik köpürme deneyi için Sirke (Asetik asit) ve Karbonat (Sodyum bikarbonat) gereklidir.",
+      "ratio": "Tepkimenin tam olarak gerçekleşmesi için 1'e 1 oranında reaktif kullanmalısın.",
+      "temperature": "Bu tepkime oda sıcaklığında kendiliğinden gerçekleşir.",
+      "pressure": "Basıncın bu tepkimede bir etkisi yoktur."
+    }
+  },
+    {
+    "id": 4,
+    "title": "B4: Amonyak Sentezi",
+    "difficulty": "Orta",
+    "description": "Sanayinin en önemli tepkimelerinden olan Haber-Bosch süreci ile amonyak (NH₃) üret.",
+    "allChemicals": ["N₂", "H₂", "O₂", "Ar", "CH₄", "He", "Ne", "Cl₂", "H₂S"],
+    "correctChemicals": ["N₂", "H₂"],
+    "correctRatio": { "N₂": 1.0, "H₂": 3.0 },
+    "tempRange": { "start": 400.0, "endInclusive": 450.0 },
+    "pressureRange": { "start": 200.0, "endInclusive": 250.0 },
+    "successMessage": "Tebrikler! Azot ve hidrojeni doğru oran, sıcaklık ve basınçta birleştirerek amonyak (NH₃) elde ettin.",
+    "failureMessages": {
+      "chemicals": "Amonyak (NH₃) sentezi için sadece Azot (N₂) ve Hidrojen (H₂) seçmelisin.",
+      "ratio": "Tepkime için yaklaşık 1 birim Azot (N₂) ve 3 birim Hidrojen (H₂) kullanmalısın.",
+      "temperature": "Doğru sonuç için sıcaklığı 400-450°C aralığına ayarlamalısın.",
+      "pressure": "Yüksek verim için basıncı 200-250 atm aralığına getirmelisin."
+    }
+  },
+  {
+    "id": 5,
+    "title": "B5: Metan Yanması",
+    "difficulty": "Orta",
+    "description": "Doğal gazın ana bileşeni olan metanı (CH₄) yakarak karbondioksit ve su buharı üret.",
+    "allChemicals": ["CH₄", "O₂", "CO", "N₂", "H₂", "C₂H₆", "Ar", "Cl₂", "SO₂"],
+    "correctChemicals": ["CH₄", "O₂"],
+    "correctRatio": { "CH₄": 1.0, "O₂": 2.0 },
+    "tempRange": { "start": 600.0, "endInclusive": 700.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 5.0 },
+    "successMessage": "Alevler içinde başarı! Metanı oksijenle tam yakarak karbondioksit ve su buharı oluşturdun.",
+    "failureMessages": {
+      "chemicals": "Metan (CH₄) yanması için reaktif olarak Oksijen (O₂) gereklidir.",
+      "ratio": "Oksijen miktarı yetersiz! Tam yanma için 1 birim metana karşılık 2 birim oksijen gerekir.",
+      "temperature": "Yanma tepkimesi başlamadı. Metanı ateşlemek için sıcaklığı 600°C üzerine çıkarmalısın.",
+      "pressure": "Basıncın bu tepkimede büyük bir etkisi yok."
+    }
+  },
+  {
+    "id": 6,
+    "title": "B6: Demirin Paslanması",
+    "difficulty": "Orta",
+    "description": "Demirin (Fe) nemli ortamda oksijenle tepkimeye girerek pas (Fe₂O₃) oluşturmasını gözlemle.",
+    "allChemicals": ["Fe", "O₂", "H₂O", "N₂", "Cu", "Zn", "Au", "Ag", "Al"],
+    "correctChemicals": ["Fe", "O₂"],
+    "correctRatio": { "Fe": 4.0, "O₂": 3.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 50.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Zamanı hızlandırdın! Demiri başarıyla oksitleyerek pas (Demir(III) oksit) oluşturdun.",
+    "failureMessages": {
+      "chemicals": "Paslanma için Demir (Fe) ve Oksijen (O₂) gereklidir. Su (H₂O) bu tepkimede katalizör görevi görür.",
+      "ratio": "Doğru oran önemli. Yaklaşık 4 birim demir, 3 birim oksijen ile tepkimeye girer.",
+      "temperature": "Sıcaklık paslanmayı hızlandırır ama bu deneyde ana faktör değil.",
+      "pressure": "Basınç bu tepkime için bir etken değil."
+    }
+  },
+  {
+    "id": 7,
+    "title": "B7: Gümüş Klorür Çökeltisi",
+    "difficulty": "Orta",
+    "description": "Gümüş nitrat (AgNO₃) ve Sodyum klorür (NaCl) çözeltilerini karıştırarak suda çözünmeyen beyaz Gümüş klorür (AgCl) katısını çökelt.",
+    "allChemicals": ["AgNO₃", "NaCl", "AgCl", "NaNO₃", "H₂O", "HCl", "NaOH", "CuSO₄", "Zn"],
+    "correctChemicals": ["AgNO₃", "NaCl"],
+    "correctRatio": { "AgNO₃": 1.0, "NaCl": 1.0 },
+    "tempRange": { "start": 10.0, "endInclusive": 30.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 1.0 },
+    "successMessage": "Katı başarı! Çözeltileri karıştırarak beyaz gümüş klorür (AgCl) katısını başarıyla çökeltmeyi başardın.",
+    "failureMessages": {
+      "chemicals": "Bu çökeltiyi oluşturmak için Gümüş nitrat (AgNO₃) ve Sodyum klorür (NaCl) çözeltilerini kullanmalısın.",
+      "ratio": "Tepkimenin tam verimle gerçekleşmesi için 1'e 1 oranında karıştırmalısın.",
+      "temperature": "Bu tepkime oda sıcaklığında kolayca gerçekleşir.",
+      "pressure": "Basıncın bu tepkimede bir etkisi yoktur."
+    }
+  },
+  {
+    "id": 8,
+    "title": "B8: Kireç Taşı Bozunması",
+    "difficulty": "Zor",
+    "description": "Kalsiyum karbonatı (CaCO₃) ısıtarak sönmemiş kireç (CaO) ve karbondioksit gazı elde et.",
+    "allChemicals": ["CaCO₃", "CaO", "CO₂", "H₂O", "HCl", "NaOH", "C", "S", "Fe"],
+    "correctChemicals": ["CaCO₃"],
+    "correctRatio": { "CaCO₃": 1.0 },
+    "tempRange": { "start": 900.0, "endInclusive": 1000.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 5.0 },
+    "successMessage": "Başarılı! Kireç taşını yüksek sıcaklıkta bozundurarak sönmemiş kireç ve karbondioksit elde ettin.",
+    "failureMessages": {
+      "chemicals": "Bu bir bozunma tepkimesi. Sadece Kalsiyum karbonat (CaCO₃) seçmelisin.",
+      "ratio": "Tek bir reaktif olduğu için oran kontrolüne gerek yok.",
+      "temperature": "Kireç taşının bozunması için çok yüksek sıcaklık (900°C üzeri) gerekir.",
+      "pressure": "Basınç bu tepkimede önemli bir etken değil."
+    }
+  },
+  {
+    "id": 9,
+    "title": "B9: Fotosentez (Basit)",
+    "difficulty": "Zor",
+    "description": "Karbondioksit (CO₂) ve suyu (H₂O) ışık enerjisiyle birleştirerek glikoz (C₆H₁₂O₆) ve oksijen üretmeyi simüle et.",
+    "allChemicals": ["CO₂", "H₂O", "Işık", "Klorofil", "N₂", "C₆H₁₂O₆", "O₂", "Fe", "Mg"],
+    "correctChemicals": ["CO₂", "H₂O"],
+    "correctRatio": { "CO₂": 6.0, "H₂O": 6.0 },
+    "tempRange": { "start": 25.0, "endInclusive": 35.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 1.0 },
+    "successMessage": "Yaşasın fotosentez! Karbondioksit ve suyu, ışık varlığında başarıyla glikoz ve oksijene dönüştürdün.",
+    "failureMessages": {
+      "chemicals": "Fotosentezin ana hammaddeleri Karbondioksit (CO₂) ve Sudur (H₂O). Işık ve klorofil ise reaktif değil, koşuldur.",
+      "ratio": "Bu karmaşık tepkimenin denklemine göre 6 birim karbondioksite karşılık 6 birim su gerekir. 1'e 1 oranını koru.",
+      "temperature": "Fotosentez için ideal sıcaklık aralığı genellikle 25-35°C arasıdır.",
+      "pressure": "Standart atmosfer basıncı bu simülasyon için yeterlidir."
+    }
+  },
+  {
+    "id": 10,
+    "title": "B10: Sülfürik Asit Üretimi",
+    "difficulty": "Zor",
+    "description": "Kontakt prosesinin son adımını simüle ederek, sülfür trioksit (SO₃) gazını su (H₂O) ile tepkimeye sokarak sülfürik asit (H₂SO₄) üret.",
+    "allChemicals": ["SO₃", "H₂O", "H₂SO₄", "SO₂", "O₂", "V₂O₅", "Fe", "S", "H₂S"],
+    "correctChemicals": ["SO₃", "H₂O"],
+    "correctRatio": { "SO₃": 1.0, "H₂O": 1.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 50.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Endüstriyel başarı! Sülfür trioksit ve suyu birleştirerek sülfürik asiti (H₂SO₄) ürettin.",
+    "failureMessages": {
+      "chemicals": "Sülfürik asit üretmek için Sülfür trioksit (SO₃) ve Su (H₂O) gereklidir.",
+      "ratio": "Bu tepkime için reaktifleri 1'e 1 oranında birleştirmelisin.",
+      "temperature": "Bu tepkime ekzotermiktir, bu yüzden çok yüksek sıcaklıklara gerek yoktur.",
+      "pressure": "Standart atmosfer basıncı bu tepkime için yeterlidir."
+    }
+  }
+]

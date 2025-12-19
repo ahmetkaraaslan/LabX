@@ -1,0 +1,562 @@
+[
+  {
+    "id": 1,
+    "title": "Test 1: Temel Kavramlar",
+    "questions": [
+      {
+        "questionText": "Aşağıdakilerden hangisi bir elementin atom numarasını belirler?",
+        "options": ["Nötron sayısı", "Proton sayısı", "Elektron sayısı", "Kütle numarası"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Periyodik tabloda yatay sıralara ne ad verilir?",
+        "options": ["Grup", "Blok", "Periyot", "Seri"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "pH değeri 7 olan bir çözelti ne tür bir özellik gösterir?",
+        "options": ["Asidik", "Bazik", "Nötr", "Tuzlu"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Suyun kimyasal formülü nedir?",
+        "options": ["CO₂", "O₂", "H₂O₂", "H₂O"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Hangi gaz, yanma tepkimeleri için gereklidir?",
+        "options": ["Azot (N₂)", "Karbondioksit (CO₂)", "Oksijen (O₂)", "Hidrojen (H₂)"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdaki metallerden hangisi oda sıcaklığında sıvıdır?",
+        "options": ["Demir", "Altın", "Cıva", "Bakır"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Bir kimyasal tepkimede kütlenin korunumu yasasını kim ortaya koymuştur?",
+        "options": ["Dalton", "Lavoisier", "Boyle", "Avogadro"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Sofra tuzunun kimyasal adı nedir?",
+        "options": ["Potasyum Klorür", "Sodyum Karbonat", "Sodyum Klorür", "Kalsiyum Sülfat"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Proton ve nötronların bulunduğu atomun merkezi kısmına ne denir?",
+        "options": ["Yörünge", "Elektron bulutu", "Çekirdek", "Valans kabuğu"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi bir soygazdır?",
+        "options": ["Oksijen", "Hidrojen", "Helyum", "Klor"],
+        "correctAnswerIndex": 2
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Test 2: Tepkimeler ve Bileşikler",
+    "questions": [
+      {
+        "questionText": "Haber-Bosch süreci ile hangi önemli endüstriyel kimyasal üretilir?",
+        "options": ["Sülfürik Asit", "Amonyak", "Nitrik Asit", "Etanol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Asit ve bazların tepkimeye girerek tuz ve su oluşturduğu tepkime türü nedir?",
+        "options": ["Yanma", "Sentez", "Nötralleşme", "Analiz"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi bir hidrokarbondur?",
+        "options": ["Su (H₂O)", "Amonyak (NH₃)", "Metan (CH₄)", "Karbondioksit (CO₂)"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Fotosentez tepkimesinin ürünleri nelerdir?",
+        "options": ["CO₂ ve H₂O", "Glikoz ve Oksijen", "Sadece Oksijen", "Sadece Glikoz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Demirin paslanması hangi tür bir tepkimedir?",
+        "options": ["Nötralleşme", "Çökelti Oluşumu", "Oksitlenme (Yanma)", "Bozunma"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Bir maddenin oksijenle hızla tepkimeye girmesi olayına ne ad verilir?",
+        "options": ["Paslanma", "Çürüme", "Yanma", "Erime"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Sıvı bir maddenin katı hale geçmesine ne denir?",
+        "options": ["Donma", "Erime", "Buharlaşma", "Yoğuşma"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Aşağıdaki bileşiklerden hangisi organik bir bileşiktir?",
+        "options": ["NaCl", "CO₂", "C₆H₁₂O₆ (Glikoz)", "H₂SO₄"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Bir tepkimeyi hızlandıran ancak kendisi harcanmayan maddeye ne denir?",
+        "options": ["Reaktif", "Ürün", "İnhibitör", "Katalizör"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Sabun üretiminde kullanılan temel tepkime nedir?",
+        "options": ["Esterleşme", "Sabunlaşma", "Polimerleşme", "Hidroliz"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Test 3: Periyodik Tablo",
+    "questions": [
+      {
+        "questionText": "Periyodik tabloda dikey sütunlara ne ad verilir?",
+        "options": ["Periyot", "Seri", "Blok", "Grup"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Halojenler periyodik tablonun hangi grubunda yer alır?",
+        "options": ["1A", "8A", "7A", "2A"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi bir alkali metaldir?",
+        "options": ["Kalsiyum (Ca)", "Sodyum (Na)", "Alüminyum (Al)", "Bakır (Cu)"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Atom yarıçapı bir periyotta soldan sağa doğru nasıl değişir?",
+        "options": ["Artar", "Azalır", "Değişmez", "Önce artar, sonra azalır"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Elektronegatifliği en yüksek olan element hangisidir?",
+        "options": ["Oksijen", "Klor", "Flor", "Azot"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi bir geçiş metalidir?",
+        "options": ["Magnezyum (Mg)", "Demir (Fe)", "Potasyum (K)", "Kükürt (S)"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Soygazların en dış yörüngesinde genellikle kaç elektron bulunur?",
+        "options": ["1", "2", "7", "8"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Lantanitler ve Aktinitler hangi blokta yer alır?",
+        "options": ["s bloku", "p bloku", "d bloku", "f bloku"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi bir yarı metaldir?",
+        "options": ["Silisyum (Si)", "Karbon (C)", "Fosfor (P)", "Alüminyum (Al)"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Toprak alkali metaller hangi grupta yer alır?",
+        "options": ["1A", "2A", "3A", "4A"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Test 4: Kimyasal Bağlar",
+    "questions": [
+      {
+        "questionText": "İki ametal atomu arasında elektron ortaklaşmasıyla kurulan bağ türü nedir?",
+        "options": ["İyonik Bağ", "Kovalent Bağ", "Metalik Bağ", "Hidrojen Bağı"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "NaCl (Sodyum Klorür) bileşiğindeki bağ türü nedir?",
+        "options": ["Kovalent Bağ", "İyonik Bağ", "Metalik Bağ", "Van der Waals"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "H₂O (Su) molekülü içindeki bağlar ne tür kovalent bağlardır?",
+        "options": ["Apolar Kovalent", "Polar Kovalent", "Koordine Kovalent", "İyonik"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Metal atomlarını bir arada tutan kuvvet nedir?",
+        "options": ["Elektron ortaklaşması", "Elektron alışverişi", "Elektron denizi", "Çekirdek çekim kuvveti"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisinde moleküller arası hidrojen bağı bulunur?",
+        "options": ["CH₄", "H₂O", "CO₂", "O₂"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Farklı cins ametal atomları arasında oluşan kovalent bağa ne denir?",
+        "options": ["Apolar kovalent bağ", "Polar kovalent bağ", "Metalik bağ", "İyonik bağ"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Lewis yapısında, bir atomun son yörüngesindeki elektronlar ne ile gösterilir?",
+        "options": ["Çizgi", "Ok", "Nokta", "Harf"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "İyonik bağlı bileşiklerin en küçük yapı birimi nedir?",
+        "options": ["Molekül", "Atom", "Birim hücre", "Element"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "O₂ molekülünde oksijen atomları arasında kaçlı bağ bulunur?",
+        "options": ["Tekli bağ", "İkili bağ", "Üçlü bağ", "Bağ yoktur"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi zayıf etkileşimlerden biridir?",
+        "options": ["İyonik bağ", "Kovalent bağ", "Hidrojen bağı", "Metalik bağ"],
+        "correctAnswerIndex": 2
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Test 5: Çözeltiler ve Derişim",
+    "questions": [
+      {
+        "questionText": "Bir çözeltide, genellikle miktarı çok olan bileşene ne ad verilir?",
+        "options": ["Çözünen", "Çözücü", "Çökelti", "Süspansiyon"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Molarite (M) birimi nedir?",
+        "options": ["mol/kg", "g/L", "mol/L", "mL/L"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Su ve yağ karışımı ne tür bir karışımdır?",
+        "options": ["Homojen", "Çözelti", "Süspansiyon", "Emülsiyon"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Daha fazla madde çözemeyen bir çözeltiye ne denir?",
+        "options": ["Doymamış", "Doymuş", "Aşırı doymuş", "Seyreltik"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Tuzlu su aşağıdakilerden hangisine bir örnektir?",
+        "options": ["Süspansiyon", "Kolloit", "Heterojen Karışım", "Çözelti (Homojen Karışım)"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Çözünürlük genellikle sıcaklık arttıkça nasıl değişir (katılar için)?",
+        "options": ["Azalır", "Artar", "Değişmez", "Sıfır olur"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "100 gram çözeltide çözünmüş madde miktarına ne denir?",
+        "options": ["Molarite", "Molalite", "Kütlece yüzde derişim", "Hacimce yüzde derişim"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi bir elektrolittir (suda çözündüğünde elektrik akımını iletir)?",
+        "options": ["Şeker (C₆H₁₂O₆)", "Tuz (NaCl)", "Alkol (C₂H₅OH)", "Saf su"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Gazların çözünürlüğü basınç arttıkça nasıl değişir?",
+        "options": ["Azalır", "Değişmez", "Artar", "Önce artar, sonra azalır"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Sis, ne tür bir kolloidal karışımdır?",
+        "options": ["Aerosol (Sıvı içinde gaz)", "Aerosol (Gaz içinde sıvı)", "Köpük", "Sol"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Test 6: Asitler ve Bazlar",
+    "questions": [
+      {
+        "questionText": "Aşağıdakilerden hangisi bir asidin özelliğidir?",
+        "options": ["Tadı acıdır", "Sulu çözeltisi OH⁻ iyonu verir", "Turnusol kağıdını maviye çevirir", "Sulu çözeltisi H⁺ iyonu verir"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "pH skalasında 0-7 arası değerler neyi ifade eder?",
+        "options": ["Baziklik", "Nötrlük", "Asidiklik", "Tuzluluk"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Mide asidinin ana bileşeni olan asit hangisidir?",
+        "options": ["Sülfürik Asit (H₂SO₄)", "Asetik Asit (CH₃COOH)", "Hidroklorik Asit (HCl)", "Nitrik Asit (HNO₃)"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi kuvvetli bir bazdır?",
+        "options": ["Amonyak (NH₃)", "Sodyum Hidroksit (NaOH)", "Su (H₂O)", "Metilamin (CH₃NH₂)"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Zeytinyağı asit midir, baz mıdır?",
+        "options": ["Asit", "Baz", "Nötr", "Tuz"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Bir maddenin asit mi baz mı olduğunu anlamak için kullanılan maddelere ne denir?",
+        "options": ["Katalizör", "İndikatör (Belirteç)", "İnhibitör", "Tampon"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "pH değeri 1 olan bir çözelti mi, yoksa pH değeri 5 olan bir çözelti mi daha asidiktir?",
+        "options": ["pH 5", "pH 1", "İkisi de eşittir", "Karşılaştırılamaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kireç suyu (Kalsiyum Hidroksit) ne tür bir maddedir?",
+        "options": ["Asit", "Tuz", "Baz", "Element"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Asit yağmurlarına neden olan temel gazlar hangileridir?",
+        "options": ["O₂ ve N₂", "CO₂ ve CH₄", "SO₂ ve NO₂", "He ve Ar"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Limon suyu ve sirke hangi tür maddelerdir?",
+        "options": ["Bazik", "Nötr", "Tuz", "Asidik"],
+        "correctAnswerIndex": 3
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Test 7: Kimyasal Denge",
+    "questions": [
+      {
+        "questionText": "Tersinir bir tepkimede ileri ve geri tepkime hızlarının eşit olduğu duruma ne denir?",
+        "options": ["Doygunluk", "Maksimum verim", "Kimyasal Denge", "Aktivasyon enerjisi"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Le Chatelier Prensibi neyi açıklar?",
+        "options": ["Kütlenin korunumu", "Sabit oranlar yasası", "Dengedeki bir sisteme yapılan etkiye tepkiyi", "Gazların davranışını"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Dengedeki bir tepkimeye katalizör eklenirse ne olur?",
+        "options": ["Denge ürünler yönüne kayar", "Denge girenler yönüne kayar", "Denge durumu değişmez, sadece dengeye ulaşma süresi kısalır", "Tepkime durur"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g) + ısı tepkimesinde sıcaklık artırılırsa denge ne yöne kayar?",
+        "options": ["Ürünler (sağ)", "Girenler (sol)", "Değişmez", "Tepkime hızı azalır"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Denge sabitinin (K) değeri 1'den çok büyükse, denge anında ortamda daha çok ne bulunur?",
+        "options": ["Girenler", "Ürünler", "Girenler ve ürünler eşit miktardadır", "Sadece katalizör"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "A(g) + B(g) ⇌ 2C(g) tepkimesinde basınç artırılırsa denge ne yöne kayar?",
+        "options": ["Ürünler (sağ)", "Girenler (sol)", "Değişmez", "Sıcaklığa bağlıdır"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi dengeyi etkileyen faktörlerden biri değildir?",
+        "options": ["Sıcaklık", "Derişim", "Basınç", "Katalizör"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Katı ve sıvıların denge bağıntısında yer almamasının nedeni nedir?",
+        "options": ["Çok hızlı hareket etmeleri", "Derişimlerinin sabit kabul edilmesi", "Tepkimeye girmemeleri", "Çok ağır olmaları"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Minimum enerji eğilimi her zaman ne yöne doğrudur?",
+        "options": ["Isı alan (endotermik) yöne", "Isı veren (ekzotermik) yöne", "Maksimum düzensizlik yönüne", "Minimum düzensizlik yönüne"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kimyasal denge hangi tür tepkimelerde görülür?",
+        "options": ["Sadece yanma tepkimelerinde", "Sadece tek yönlü tepkimelerde", "Sadece tersinir (çift yönlü) tepkimelerde", "Sadece sentez tepkimelerinde"],
+        "correctAnswerIndex": 2
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Test 8: Organik Kimya",
+    "questions": [
+      {
+        "questionText": "Organik kimya temel olarak hangi elementin bileşiklerini inceler?",
+        "options": ["Oksijen", "Hidrojen", "Azot", "Karbon"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Sadece karbon ve hidrojen içeren organik bileşiklere ne ad verilir?",
+        "options": ["Alkoller", "Ketonlar", "Hidrokarbonlar", "Esterler"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Propan (C₃H₈) hangi hidrokarbon sınıfına aittir?",
+        "options": ["Alkan", "Alken", "Alkin", "Aromatik"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "-OH fonksiyonel grubunu içeren organik bileşikler sınıfı hangisidir?",
+        "options": ["Eter", "Aldehit", "Karboksilik Asit", "Alkol"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Asetik asit, hangi fonksiyonel gruptan dolayı asidik özellik gösterir?",
+        "options": ["Hidroksil (-OH)", "Keton (>C=O)", "Karboksil (-COOH)", "Amino (-NH₂)"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Etilen (C₂H₄) molekülünde karbon atomları arasında ne tür bir bağ bulunur?",
+        "options": ["Tekli bağ", "İkili bağ", "Üçlü bağ", "İyonik bağ"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Benzen (C₆H₆) hangi bileşik sınıfının en basit üyesidir?",
+        "options": ["Sikloalkanlar", "Aromatik Bileşikler", "Alkinler", "Polimerler"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aynı kapalı formüle fakat farklı açık yapıya sahip bileşiklere ne denir?",
+        "options": ["İzotop", "İzomer", "Alotrop", "İzoton"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Plastiklerin çoğu hangi tür organik maddelerdir?",
+        "options": ["Tuzlar", "Polimerler", "Basit şekerler", "Yağlar"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Esterler genellikle ne ile tanınırlar?",
+        "options": ["Kötü kokuları", "Zehirli olmaları", "Hoş kokuları (meyve esansları)", "Renkleri"],
+        "correctAnswerIndex": 2
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Test 9: Elektrokimya",
+    "questions": [
+      {
+        "questionText": "Yükseltgenmenin (oksidasyon) tanımı nedir?",
+        "options": ["Elektron alma", "Elektron verme", "Proton alma", "Nötron verme"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "İndirgenmenin (redüksiyon) gerçekleştiği elektrota ne ad verilir?",
+        "options": ["Anot", "Katot", "Tuz köprüsü", "Elektrolit"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir elektrokimyasal pilde (galvanik hücre) elektronlar nereden nereye akar?",
+        "options": ["Katottan anota", "Anotdan katota", "Tuz köprüsünden", "Akım olmaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi bir redoks tepkimesidir?",
+        "options": ["NaCl + AgNO₃ → AgCl + NaNO₃", "HCl + NaOH → NaCl + H₂O", "Zn + CuSO₄ → ZnSO₄ + Cu", "CaCO₃ → CaO + CO₂"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Elektroliz olayında hangi tür enerji kullanılır?",
+        "options": ["Kimyasal enerji", "Isı enerjisi", "Elektrik enerjisi", "Mekanik enerji"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Korozyon, metallerin ne yapması sonucu oluşur?",
+        "options": ["İndirgenmesi", "Yükseltgenmesi (Oksitlenmesi)", "Nötrleşmesi", "Erimesi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir pilin potansiyeli hangi birimle ölçülür?",
+        "options": ["Amper", "Ohm", "Watt", "Volt"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Tuz köprüsünün görevi nedir?",
+        "options": ["Elektron taşımak", "Tepkimeyi yavaşlatmak", "İyon denkliğini sağlamak", "Pili soğutmak"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Suyun elektrolizinde anot ve katotta hangi gazlar toplanır?",
+        "options": ["Anot: H₂, Katot: O₂", "Anot: O₂, Katot: H₂", "İkisinde de H₂", "İkisinde de O₂"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aktif bir metal, pasif bir metalin iyonunu içeren çözeltiye batırıldığında ne olur?",
+        "options": ["Tepkime olmaz", "Aktif metal aşınır (yükseltgenir)", "Pasif metal aşınır", "Çözelti ısınır"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Test 10: Genel Kimya Tekrarı",
+    "questions": [
+      {
+        "questionText": "Avogadro sayısı kaçtır?",
+        "options": ["6.02x10²³", "3.14x10¹²", "9.8x10⁶", "1.6x10⁻¹⁹"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Normal koşullarda (N.K) 1 mol gaz kaç litre hacim kaplar?",
+        "options": ["1 L", "22.4 L", "100 L", "Gazın cinsine göre değişir"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir atomun izotopu, o atomla aynı ... sayısına sahiptir.",
+        "options": ["Nötron", "Kütle numarası", "Elektron", "Proton"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Kimyasal tepkimelerde ... sayısı ve türü her zaman korunur.",
+        "options": ["Molekül", "Atom", "Mol", "Hacim"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aynı cins atomlardan oluşan saf maddelere ne denir?",
+        "options": ["Bileşik", "Karışım", "Çözelti", "Element"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi fiziksel bir değişimdir?",
+        "options": ["Kağıdın yanması", "Demirin paslanması", "Buzun erimesi", "Sütün ekşimesi"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Entalpi (ΔH) değeri negatif olan tepkimelere ne denir?",
+        "options": ["Endotermik (Isı alan)", "Ekzotermik (Isı veren)", "İzotermik", "Denge tepkimesi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir maddenin birim hacminin kütlesine ne denir?",
+        "options": ["Ağırlık", "Hacim", "Özkütle (Yoğunluk)", "Mol sayısı"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "CH₃OH bileşiğinin adı nedir?",
+        "options": ["Etanol", "Metan", "Metanol", "Aseton"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aşağıdaki ışımalardan hangisinin nüfuz etme gücü en yüksektir?",
+        "options": ["Alfa (α)", "Beta (β)", "Gama (γ)", "Nötron"],
+        "correctAnswerIndex": 2
+      }
+    ]
+  }
+]
