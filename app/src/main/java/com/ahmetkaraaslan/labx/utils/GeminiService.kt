@@ -1,14 +1,13 @@
 package com.ahmetkaraaslan.labx.utils
 
 import com.google.ai.client.generativeai.GenerativeModel
-import com.ahmetkaraaslan.labx.BuildConfig
 
 object GeminiService {
 
     private val generativeModel by lazy {
         GenerativeModel(
-            modelName = "gemini-1.5-pro-latest",
-            apiKey = BuildConfig.GEMINI_API_KEY
+            modelName = "gemini-1.5-flash",
+            apiKey = "AIzaSyCfqu4gm7gT4yQiSTzE96ILnZCRgqwbpeY"
         )
     }
 
