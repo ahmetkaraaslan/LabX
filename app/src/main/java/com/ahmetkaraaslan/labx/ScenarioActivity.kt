@@ -3,6 +3,7 @@ package com.ahmetkaraaslan.labx
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -164,6 +165,7 @@ fun ScenarioExperimentScreen(
     var dialogTitle by remember { mutableStateOf("") }
     var dialogMessage by remember { mutableStateOf("") }
     var showInputDialogFor by remember { mutableStateOf<String?>(null) }
+    var showReactionEquation by remember { mutableStateOf(false) }
 
     val shuffledChemicals = remember(scenario.id) { scenario.allChemicals.shuffled() }
 
@@ -230,14 +232,35 @@ fun ScenarioExperimentScreen(
                 showInputDialogFor = "pressure"
             })
             Slider(value = pressure, onValueChange = { pressure = it }, valueRange = 0f..500f)
+            
             Spacer(modifier = Modifier.weight(1f, fill = false))
+            
+            // Reveal Equation Area
+            AnimatedVisibility(visible = showReactionEquation) {
+                 Text(
+                    text = scenario.reactionEquation,
+                    color = Color.White,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(vertical = 8.dp)
+                )
+            }
+            
+            Button(
+                onClick = { showReactionEquation = !showReactionEquation },
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0x66FFFFFF))
+            ) {
+                Text(if(showReactionEquation) "Formülü Gizle" else "Formülü Göster", color = Color.White)
+            }
 
             Button(
                 onClick = {
                     vibrate(context, 50)
                     playSound(context, R.raw.click_sound)
 
-                    val areChemicalsCorrect = selectedChemicals == scenario.correctChemicals
+                    val areChemicalsCorrect = selectedChemicals == scenario.correctChemicals.toSet()
 
                     var isRatioCorrect = selectedChemicals.size == 1 && scenario.correctRatio.size == 1
                     if (scenario.correctRatio.size > 1) {
@@ -277,9 +300,9 @@ fun ScenarioExperimentScreen(
                     showResultDialog = true
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xAAFFFFFF)),
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp)
             ) {
-                Text("Tepkimeyi Başlat", color = Color.White, fontWeight = FontWeight.Bold)
+                Text("Tepkimeyi Başlat", color = Color(0xFF00586d), fontWeight = FontWeight.Bold)
             }
         }
 
