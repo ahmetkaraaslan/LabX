@@ -161,17 +161,20 @@ fun QuizScreen(quiz: Quiz, onComplete: () -> Unit) {
                 currentQuestion.options.forEachIndexed { index, option ->
                     val isCorrect = index == currentQuestion.correctAnswerIndex
                     val isSelected = index == selectedOptionIndex
-                    val borderColor = when {
-                        !isAnswered -> Color.White.copy(alpha = 0.5f)
-                        isSelected && isCorrect -> Color(0xFF4CAF50)
-                        isSelected && !isCorrect -> Color.Red
-                        else -> Color.White.copy(alpha = 0.5f)
-                    }
-                    val backgroundColor = when {
-                        !isAnswered -> Color.Transparent
-                        isSelected && isCorrect -> Color(0x334CAF50)
-                        isSelected && !isCorrect -> Color(0x33FF0000)
-                        else -> Color.Transparent
+
+                    val (borderColor, backgroundColor) = when {
+                        !isAnswered -> {
+                            Color.White.copy(alpha = 0.5f) to Color.Transparent
+                        }
+                        isSelected && !isCorrect -> {
+                            Color.Red to Color(0x33FF0000)
+                        }
+                        isCorrect -> { // Always show correct answer in green when answered
+                            Color(0xFF4CAF50) to Color(0x334CAF50)
+                        }
+                        else -> {
+                            Color.White.copy(alpha = 0.5f) to Color.Transparent
+                        }
                     }
 
                     Row(
