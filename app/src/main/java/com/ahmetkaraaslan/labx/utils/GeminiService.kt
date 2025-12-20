@@ -7,8 +7,8 @@ object GeminiService {
 
     private val generativeModel by lazy {
         GenerativeModel(
-            modelName = "gemini-pro",
-            apiKey = BuildConfig.GEMINI_API_KEY // Correctly access the key from BuildConfig
+            modelName = "gemini-1.5-flash",
+            apiKey = com.ahmetkaraaslan.labx.BuildConfig.GEMINI_API_KEY
         )
     }
 
