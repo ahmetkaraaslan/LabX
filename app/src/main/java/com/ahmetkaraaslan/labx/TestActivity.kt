@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -148,7 +148,7 @@ fun QuizScreen(quiz: Quiz, onComplete: () -> Unit) {
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 LinearProgressIndicator(
-                    progress = { (currentQuestionIndex + 1) / quiz.questions.size.toFloat() },
+                    progress = (currentQuestionIndex + 1) / quiz.questions.size.toFloat(),
                     modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
                 )
                 Text(
@@ -169,7 +169,7 @@ fun QuizScreen(quiz: Quiz, onComplete: () -> Unit) {
                         isSelected && !isCorrect -> {
                             Color.Red to Color(0x33FF0000)
                         }
-                        isCorrect -> { // Always show correct answer in green when answered
+                        isCorrect -> {
                             Color(0xFF4CAF50) to Color(0x334CAF50)
                         }
                         else -> {

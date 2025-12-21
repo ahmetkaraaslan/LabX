@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://jitpack.io") } // Repository for SceneView and other community libraries
+        maven { url = uri("https://jitpack.io") }
     }
 }
 

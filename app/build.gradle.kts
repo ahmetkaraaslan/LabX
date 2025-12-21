@@ -1,7 +1,16 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+}
+
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 android {
@@ -21,6 +30,36 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            val keystoreFile = keystoreProperties["KEYSTORE_FILE"]?.toString() 
+                ?: System.getenv("KEYSTORE_FILE") 
+                ?: "keystore/labx-release.jks"
+            
+            val keystorePassword = keystoreProperties["KEYSTORE_PASSWORD"]?.toString() 
+                ?: System.getenv("KEYSTORE_PASSWORD") 
+                ?: ""
+            
+            val keyAlias = keystoreProperties["KEY_ALIAS"]?.toString() 
+                ?: System.getenv("KEY_ALIAS") 
+                ?: "labx"
+            
+            val keyPassword = keystoreProperties["KEY_PASSWORD"]?.toString() 
+                ?: System.getenv("KEY_PASSWORD") 
+                ?: ""
+
+            val keystoreFileObj = rootProject.file(keystoreFile)
+            if (!keystoreFileObj.exists()) {
+                throw GradleException("Keystore file not found: $keystoreFile")
+            }       
+            
+            storeFile = keystoreFileObj
+            storePassword = keystorePassword
+            this.keyAlias = keyAlias
+            this.keyPassword = keyPassword
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -28,6 +67,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
+        }
+        debug {
+            isMinifyEnabled = false
         }
     }
     compileOptions {

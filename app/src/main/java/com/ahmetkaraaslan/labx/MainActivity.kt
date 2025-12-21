@@ -1,8 +1,5 @@
 package com.ahmetkaraaslan.labx
 
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -61,11 +58,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(
-    viewModel: MainViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-) {
-    val state by viewModel.uiState.collectAsState()
-
+fun MainScreen() {
     val verticalGradientBrush = Brush.verticalGradient(
         colors = listOf(Color(0xFF00586d), Color(0xFF009b97))
     )
@@ -127,18 +120,18 @@ fun MainScreen(
                         title = "Serbest Mod",
                         subtitle = "Kimyasallarla özgürce deney yap"
                     ) {
-                         vibrate(context, 50)
-                         playSound(context, R.raw.click_sound)
-                         context.startActivity(Intent(context, FreeModeActivity::class.java))
+                        vibrate(context, 50)
+                        playSound(context, R.raw.click_sound)
+                        context.startActivity(Intent(context, FreeModeActivity::class.java))
                     }
                     ModeButton(
                         icon = painterResource(id = R.drawable.ic_quiz),
                         title = "Test Modu",
                         subtitle = "Bilgini test et"
                     ) {
-                         vibrate(context, 50)
-                         playSound(context, R.raw.click_sound)
-                         context.startActivity(Intent(context, TestActivity::class.java))
+                        vibrate(context, 50)
+                        playSound(context, R.raw.click_sound)
+                        context.startActivity(Intent(context, TestActivity::class.java))
                     }
                 }
             }
@@ -175,7 +168,6 @@ fun ModeButton(icon: Painter, title: String, subtitle: String, onClick: () -> Un
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable

@@ -5,7 +5,7 @@ data class Scenario(
     val title: String,
     val difficulty: String,
     val description: String,
-    val reactionEquation: String, // The equation to be revealed
+    val reactionEquation: String,
     val allChemicals: List<String>,
     val correctChemicals: List<String>,
     val correctRatio: Map<String, Float>,

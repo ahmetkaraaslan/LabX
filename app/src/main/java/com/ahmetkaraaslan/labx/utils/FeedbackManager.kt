@@ -14,19 +14,19 @@ import java.io.InputStreamReader
 
 // --- Settings Read/Write ---
 fun saveVibrationSetting(context: Context, isEnabled: Boolean) {
-    context.getSharedPreferences("kimyasal_settings", Context.MODE_PRIVATE).edit().putBoolean("vibration_enabled", isEnabled).apply()
+    context.getSharedPreferences("labx_settings", Context.MODE_PRIVATE).edit().putBoolean("vibration_enabled", isEnabled).apply()
 }
 
 fun loadVibrationSetting(context: Context): Boolean {
-    return context.getSharedPreferences("kimyasal_settings", Context.MODE_PRIVATE).getBoolean("vibration_enabled", true)
+    return context.getSharedPreferences("labx_settings", Context.MODE_PRIVATE).getBoolean("vibration_enabled", true)
 }
 
 fun saveSoundSetting(context: Context, isEnabled: Boolean) {
-    context.getSharedPreferences("kimyasal_settings", Context.MODE_PRIVATE).edit().putBoolean("sound_enabled", isEnabled).apply()
+    context.getSharedPreferences("labx_settings", Context.MODE_PRIVATE).edit().putBoolean("sound_enabled", isEnabled).apply()
 }
 
 fun loadSoundSetting(context: Context): Boolean {
-    return context.getSharedPreferences("kimyasal_settings", Context.MODE_PRIVATE).getBoolean("sound_enabled", true)
+    return context.getSharedPreferences("labx_settings", Context.MODE_PRIVATE).getBoolean("sound_enabled", true)
 }
 
 // --- Data Loading ---
@@ -46,7 +46,7 @@ fun loadQuizzesFromJson(context: Context): List<Quiz> {
 
 // --- Progress Read/Write ---
 fun saveCompletedScenarios(context: Context, completedIds: Set<Int>) {
-    val sharedPref = context.getSharedPreferences("kimyasal_progress", Context.MODE_PRIVATE)
+    val sharedPref = context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE)
     val completedStrings = completedIds.map { "scenario_$it" }.toSet()
     with(sharedPref.edit()) {
         putStringSet("completed_scenarios", completedStrings)
@@ -55,13 +55,13 @@ fun saveCompletedScenarios(context: Context, completedIds: Set<Int>) {
 }
 
 fun loadCompletedScenarios(context: Context): Set<Int> {
-    val sharedPref = context.getSharedPreferences("kimyasal_progress", Context.MODE_PRIVATE)
+    val sharedPref = context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE)
     val completedStrings = sharedPref.getStringSet("completed_scenarios", emptySet()) ?: emptySet()
     return completedStrings.mapNotNull { it.removePrefix("scenario_").toIntOrNull() }.toSet()
 }
 
 fun saveCompletedQuizzes(context: Context, completedIds: Set<Int>) {
-    val sharedPref = context.getSharedPreferences("kimyasal_progress", Context.MODE_PRIVATE)
+    val sharedPref = context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE)
     with(sharedPref.edit()) {
         val completedStrings = completedIds.map { "quiz_$it" }.toSet()
         putStringSet("completed_quizzes", completedStrings)
@@ -70,7 +70,7 @@ fun saveCompletedQuizzes(context: Context, completedIds: Set<Int>) {
 }
 
 fun loadCompletedQuizzes(context: Context): Set<Int> {
-    val sharedPref = context.getSharedPreferences("kimyasal_progress", Context.MODE_PRIVATE)
+    val sharedPref = context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE)
     val completedStrings = sharedPref.getStringSet("completed_quizzes", emptySet()) ?: emptySet()
     return completedStrings.mapNotNull { it.removePrefix("quiz_").toIntOrNull() }.toSet()
 }

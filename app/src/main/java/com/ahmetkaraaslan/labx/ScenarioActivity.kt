@@ -186,7 +186,7 @@ fun ScenarioExperimentScreen(
         ) {
             Text(text = scenario.description, color = Color.White, textAlign = TextAlign.Center, fontSize = 16.sp)
             
-            Text("Gerekli Kimyasallar:", color = Color.White, fontSize = 18.sp, modifier = Modifier.padding(end = 8.dp))
+            Text("Gerekli Kimyasallar:", color = Color.White, fontSize = 18.sp)
             
             Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 shuffledChemicals.chunked(3).forEach { rowChemicals ->
@@ -208,7 +208,11 @@ fun ScenarioExperimentScreen(
             }
 
             if (selectedChemicals.isNotEmpty()) {
-                Text("Madde Miktarları (mol):", color = Color.White, fontSize = 18.sp)
+                Text(
+                    text = "Madde Miktarları (mol):",
+                    color = Color.White,
+                    fontSize = 18.sp
+                )
                 selectedChemicals.forEach { chemical ->
                     val amount = chemicalAmounts[chemical] ?: 0f
                     Text(text = "$chemical Miktarı: ${String.format("%.2f", amount)} mol", color = Color.White, modifier = Modifier.clickable {
@@ -235,7 +239,6 @@ fun ScenarioExperimentScreen(
             
             Spacer(modifier = Modifier.weight(1f, fill = false))
             
-            // Reveal Equation Area
             AnimatedVisibility(visible = showReactionEquation) {
                  Text(
                     text = scenario.reactionEquation,

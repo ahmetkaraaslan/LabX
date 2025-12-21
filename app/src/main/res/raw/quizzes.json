@@ -558,5 +558,1125 @@
         "correctAnswerIndex": 2
       }
     ]
+  },
+  {
+    "id": 11,
+    "title": "Test 11: Gazlar ve Basınç",
+    "questions": [
+      {
+        "questionText": "Ideal gaz denklemi nedir?",
+        "options": ["PV = nRT", "E = mc²", "F = ma", "V = IR"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Boyle Kanunu neyi açıklar?",
+        "options": ["Basınç-hacim ilişkisini (sabit sıcaklıkta)", "Sıcaklık-hacim ilişkisini", "Basınç-sıcaklık ilişkisini", "Gazların çözünürlüğünü"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Charles Kanunu neyi açıklar?",
+        "options": ["Basınç-hacim ilişkisini", "Sıcaklık-hacim ilişkisini (sabit basınçta)", "Gaz yoğunluğunu", "Gaz karışımlarını"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir gazın basıncını artırmak için ne yapılabilir?",
+        "options": ["Hacmi artır", "Sıcaklığı düşür", "Hacmi azalt veya sıcaklığı artır", "Sadece hacmi azalt"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "1 atm kaç mmHg (milimetre cıva) eşittir?",
+        "options": ["760 mmHg", "1013 mmHg", "100 mmHg", "273 mmHg"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Dalton'un Kısmi Basınçlar Kanunu neyi açıklar?",
+        "options": ["Gazların çözünürlüğünü", "Bir gaz karışımının toplam basıncı, her gazın kısmi basınçlarının toplamıdır", "Gazların yoğunluğunu", "Gazların viskozitesini"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Sıcaklık arttıkça gazların çözünürlüğü genellikle nasıl değişir?",
+        "options": ["Artar", "Azalır", "Değişmez", "Önce artar sonra azalır"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Graham'ın Difüzyon Kanunu'na göre, hafif gazlar ağır gazlara göre nasıl davranır?",
+        "options": ["Daha yavaş yayılır", "Daha hızlı yayılır", "Aynı hızda yayılır", "Yayılmaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Normal koşullar (N.K) ne anlama gelir?",
+        "options": ["0°C ve 1 atm", "25°C ve 1 atm", "0°C ve 760 mmHg", "Hem 0 hem de 1 doğru"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Bir gazın sıcaklığı artırıldığında moleküllerin ortalama kinetik enerjisi nasıl değişir?",
+        "options": ["Azalır", "Değişmez", "Artar", "Önce artar sonra azalır"],
+        "correctAnswerIndex": 2
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Test 12: Nükleer Kimya",
+    "questions": [
+      {
+        "questionText": "Bir atom çekirdeğindeki proton ve nötron sayılarının toplamına ne denir?",
+        "options": ["Atom numarası", "Kütle numarası", "Elektron sayısı", "İzotop numarası"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aynı atom numarasına fakat farklı kütle numarasına sahip atomlara ne denir?",
+        "options": ["İzomer", "İzotop", "Alotrop", "İzoelektronik"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Alfa (α) ışınları nedir?",
+        "options": ["Yüksek enerjili elektronlar", "Pozitronlar", "Helyum çekirdekleri (2 proton, 2 nötron)", "Yüksek enerjili fotonlar"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Beta (β) ışınları nedir?",
+        "options": ["Helyum çekirdekleri", "Yüksek enerjili elektronlar veya pozitronlar", "Fotonlar", "Protonlar"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Radyoaktif bozunma nedir?",
+        "options": ["Atomun elektron kaybetmesi", "Kararsız çekirdeğin daha kararlı hale geçmesi", "Atomun kimyasal bağ yapması", "Elektron alması"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Yarı ömür (half-life) neyi ifade eder?",
+        "options": ["Bir radyoaktif izotopun yarısının bozunması için geçen süre", "Bir atomun ömrü", "Çekirdeğin boyutu", "Elektron sayısı"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Nükleer füzyon nedir?",
+        "options": ["Büyük çekirdeklerin parçalanması", "Küçük çekirdeklerin birleşerek büyük çekirdek oluşturması", "Elektron kaybı", "Proton kaybı"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Nükleer fisyon nedir?",
+        "options": ["Küçük çekirdeklerin birleşmesi", "Büyük çekirdeğin parçalara ayrılması", "Elektron alışverişi", "Kimyasal bağ oluşumu"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Radyoaktif izotoplar hangi alanlarda kullanılır?",
+        "options": ["Sadece nükleer silahlarda", "Tıp (görüntüleme ve tedavi), tarihleme, endüstri", "Sadece tıpta", "Hiçbir alanda"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "C-14 izotopu hangi amaçla kullanılır?",
+        "options": ["Kanser tedavisi", "Radyoaktif tarihleme (karbon dating)", "X-ışını üretimi", "Elektrik üretimi"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Test 13: Termodinamik",
+    "questions": [
+      {
+        "questionText": "Termodinamiğin birinci yasası neyi ifade eder?",
+        "options": ["Enerji yoktan var edilemez, vardan yok edilemez (korunur)", "Entropi her zaman artar", "Mutlak sıfırda enerji sıfırdır", "Isı her zaman sıcaktan soğuğa akar"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Entalpi (H) nedir?",
+        "options": ["Sistemin iç enerjisi", "Sistemin iç enerjisi + (basınç x hacim)", "Sistemin sıcaklığı", "Sistemin basıncı"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Ekzotermik tepkime nedir?",
+        "options": ["Isı alan tepkime (ΔH > 0)", "Isı veren tepkime (ΔH < 0)", "Isı değişimi olmayan tepkime", "Sadece gaz üreten tepkime"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Endotermik tepkime nedir?",
+        "options": ["Isı veren tepkime", "Isı alan tepkime (ΔH > 0)", "Denge tepkimesi", "Tersinir tepkime"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Entropi (S) nedir?",
+        "options": ["Sistemin düzensizlik ölçüsü", "Sistemin enerjisi", "Sistemin hacmi", "Sistemin basıncı"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Termodinamiğin ikinci yasası neyi söyler?",
+        "options": ["Enerji korunur", "Evrenin toplam entropisi artar", "Sıcaklık mutlak sıfır olamaz", "Basınç sıfır olamaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Serbest enerji (Gibbs) değişimi (ΔG) negatif ise tepkime ne türdür?",
+        "options": ["Kendiliğinden gerçekleşmeyen", "Kendiliğinden gerçekleşen", "Denge halinde", "Hızlı"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Isı kapasitesi nedir?",
+        "options": ["Bir maddenin sıcaklığını 1°C artırmak için gereken ısı miktarı", "Bir maddenin kütlesi", "Bir maddenin hacmi", "Bir maddenin yoğunluğu"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Standart oluşum entalpisi (ΔH°f) nedir?",
+        "options": ["Bir bileşiğin elementlerinden oluşurken açığa çıkan veya alınan ısı", "Bir maddenin erime ısısı", "Bir maddenin kaynama ısısı", "Bir tepkimenin hızı"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Hess Kanunu neyi söyler?",
+        "options": ["Tepkime hızı sıcaklıkla artar", "Tepkime entalpisi, ara basamaklardan bağımsızdır", "Basınç hacimle ters orantılıdır", "Gazlar karıştırılabilir"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Test 14: Kinetik ve Reaksiyon Hızı",
+    "questions": [
+      {
+        "questionText": "Reaksiyon hızı nedir?",
+        "options": ["Tepkime sırasında oluşan ürün miktarı", "Birim zamanda reaktif veya ürün konsantrasyonundaki değişim", "Tepkimenin gerçekleştiği sıcaklık", "Tepkimenin gerçekleştiği basınç"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Reaksiyon hızını artıran ancak kendisi tükenmeyen maddeye ne denir?",
+        "options": ["Reaktif", "Ürün", "Katalizör", "İnhibitör"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Aktivasyon enerjisi nedir?",
+        "options": ["Tepkimenin toplam enerjisi", "Tepkimenin başlaması için gereken minimum enerji", "Tepkimenin sonundaki enerji", "Ürünlerin enerjisi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Sıcaklık artışı reaksiyon hızını nasıl etkiler?",
+        "options": ["Yavaşlatır", "Hızlandırır", "Etkilemez", "Önce hızlandırır sonra yavaşlatır"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Reaktif konsantrasyonu artırıldığında reaksiyon hızı genellikle nasıl değişir?",
+        "options": ["Azalır", "Artar", "Değişmez", "Önce artar sonra azalır"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Arrhenius denklemi neyi açıklar?",
+        "options": ["Basınç-hacim ilişkisini", "Sıcaklık ve reaksiyon hızı sabiti arasındaki ilişkiyi", "pH değerini", "Çözünürlüğü"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir tepkimenin derecesi nedir?",
+        "options": ["Tepkimenin sıcaklığı", "Reaktif konsantrasyonlarının hız ifadesindeki üslerinin toplamı", "Tepkimenin verimi", "Ürün miktarı"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Sıfırıncı dereceden bir tepkimede hız neye bağlıdır?",
+        "options": ["Reaktif konsantrasyonuna", "Reaktif konsantrasyonundan bağımsızdır (sabittir)", "Sıcaklığa", "Basınca"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Katalizör aktivasyon enerjisini nasıl etkiler?",
+        "options": ["Artırır", "Azaltır", "Etkilemez", "Sıfırlar"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Enzimler ne tür katalizörlerdir?",
+        "options": ["İnorganik katalizörler", "Biyolojik katalizörler (organik)", "Metal katalizörler", "Asit katalizörler"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Test 15: Kimya ve Çevre",
+    "questions": [
+      {
+        "questionText": "Asit yağmurlarına neden olan temel gazlar hangileridir?",
+        "options": ["CO₂ ve O₂", "SO₂ ve NO₂", "H₂ ve N₂", "He ve Ar"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Ozon tabakasının incelmesine neden olan maddeler hangileridir?",
+        "options": ["CO₂", "CFC (Kloroflorokarbonlar)", "O₂", "N₂"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Sera etkisine en çok katkıda bulunan gaz hangisidir?",
+        "options": ["Oksijen (O₂)", "Azot (N₂)", "Karbondioksit (CO₂)", "Helyum (He)"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "pH değeri 5.6'dan düşük yağmurlara ne denir?",
+        "options": ["Asit yağmuru", "Bazik yağmur", "Nötr yağmur", "Normal yağmur"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Fotokimyasal smog nasıl oluşur?",
+        "options": ["Sadece güneş ışığı ile", "Güneş ışığı, NOx ve hidrokarbonların etkileşimi ile", "Sadece karbondioksit ile", "Sadece oksijen ile"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Eutrofikasyon nedir?",
+        "options": ["Su kütlelerinde besin maddesi artışı sonucu alg patlaması", "Su kaynaklarının kuruması", "Toprağın tuzlanması", "Hava kirliliği"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Biyobozunur (biodegradable) madde ne demektir?",
+        "options": ["Hiç bozunmayan madde", "Doğada mikroorganizmalar tarafından parçalanabilen madde", "Sadece kimyasallarla bozunabilen madde", "Sadece yüksek sıcaklıkta bozunan madde"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Ağır metaller çevre için neden tehlikelidir?",
+        "options": ["Sadece pahalıdırlar", "Biyolojik olarak birikebilir ve zehirli olabilirler", "Sadece kokuludurlar", "Sadece renkli değildirler"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Yenilenebilir enerji kaynakları hangileridir?",
+        "options": ["Sadece kömür", "Güneş, rüzgar, hidroelektrik, biyokütle", "Sadece petrol", "Sadece doğal gaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Karbon ayak izi nedir?",
+        "options": ["Bir kişi veya faaliyetin atmosfere saldığı CO₂ miktarının ölçüsü", "Karbon atomunun boyutu", "CO₂ molekülünün ağırlığı", "Karbonun erime noktası"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Test 16: Stokiyometri ve Mol Hesaplamaları",
+    "questions": [
+      {
+        "questionText": "1 mol su (H₂O) kaç gramdır? (H=1, O=16)",
+        "options": ["16 g", "17 g", "18 g", "20 g"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "2 mol CO₂ kaç gramdır? (C=12, O=16)",
+        "options": ["44 g", "88 g", "22 g", "66 g"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "36 gram su kaç moldür? (H₂O = 18 g/mol)",
+        "options": ["1 mol", "2 mol", "3 mol", "4 mol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "2H₂ + O₂ → 2H₂O tepkimesinde 4 mol H₂ ile kaç mol H₂O oluşur?",
+        "options": ["2 mol", "4 mol", "6 mol", "8 mol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "N₂ + 3H₂ → 2NH₃ tepkimesinde 2 mol N₂ ile kaç mol NH₃ oluşur?",
+        "options": ["2 mol", "4 mol", "6 mol", "8 mol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Avogadro sayısı kaçtır?",
+        "options": ["6.02 x 10²²", "6.02 x 10²³", "6.02 x 10²⁴", "6.02 x 10²⁵"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Normal koşullarda (N.K) 1 mol gaz kaç litre hacim kaplar?",
+        "options": ["11.2 L", "22.4 L", "44.8 L", "67.2 L"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "CH₄ + 2O₂ → CO₂ + 2H₂O tepkimesinde 1 mol CH₄ için kaç mol O₂ gerekir?",
+        "options": ["1 mol", "2 mol", "3 mol", "4 mol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir bileşiğin formül kütlesi nedir?",
+        "options": ["Atomların toplam kütlesi", "Bir mol bileşiğin gram cinsinden kütlesi", "Molekül sayısı", "Atom sayısı"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "2Al + 3Cl₂ → 2AlCl₃ tepkimesinde 54 gram Al (27 g/mol) ile kaç gram AlCl₃ (133.5 g/mol) oluşur?",
+        "options": ["133.5 g", "267 g", "400.5 g", "534 g"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Test 17: Redoks Tepkimeleri",
+    "questions": [
+      {
+        "questionText": "Yükseltgenme (oksidasyon) nedir?",
+        "options": ["Elektron alma", "Elektron verme", "Proton alma", "Nötron verme"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "İndirgenme (redüksiyon) nedir?",
+        "options": ["Elektron verme", "Elektron alma", "Proton verme", "Nötron alma"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Bir redoks tepkimesinde elektron veren maddeye ne denir?",
+        "options": ["İndirgen", "Yükseltgen", "Katalizör", "Tampon"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Bir redoks tepkimesinde elektron alan maddeye ne denir?",
+        "options": ["İndirgen", "Yükseltgen", "Elektrolit", "İyon"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Zn + Cu²⁺ → Zn²⁺ + Cu tepkimesinde hangi element yükseltgenir?",
+        "options": ["Çinko", "Bakır", "Her ikisi de", "Hiçbiri"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Fe²⁺ → Fe³⁺ + e⁻ tepkimesinde demir ne yapar?",
+        "options": ["İndirgenir", "Yükseltgenir", "Nötrleşir", "Çözünür"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Yükseltgenme sayısı (yükseltgenme basamağı) nedir?",
+        "options": ["Atomun kütlesi", "Bir atomun bir bileşikteki yükü (gerçek veya varsayılan)", "Atomun çapı", "Elektron sayısı"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Serbest elementlerin (O₂, H₂, Cl₂ vb.) yükseltgenme sayısı nedir?",
+        "options": ["+1", "-1", "0", "Değişkendir"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Oksijenin çoğu bileşikteki yükseltgenme sayısı nedir?",
+        "options": ["+1", "-1", "-2", "+2"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Hidrojenin çoğu bileşikteki yükseltgenme sayısı nedir?",
+        "options": ["+1", "-1", "0", "+2"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Test 18: Çözeltiler ve Derişim",
+    "questions": [
+      {
+        "questionText": "Molarite (M) nedir?",
+        "options": ["1 litre çözeltide çözünen maddenin mol sayısı", "1 kg çözücüde çözünen maddenin mol sayısı", "Çözünen maddenin kütlesi", "Çözücünün hacmi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Molalite (m) nedir?",
+        "options": ["1 litre çözeltide çözünen maddenin mol sayısı", "1 kg çözücüde çözünen maddenin mol sayısı", "Çözünen maddenin kütlesi", "Çözeltinin hacmi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "1 M NaCl çözeltisinde 1 litre çözeltide kaç mol NaCl vardır?",
+        "options": ["0.5 mol", "1 mol", "2 mol", "58.5 mol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Seyreltik çözelti nedir?",
+        "options": ["Az miktarda çözünen içeren çözelti", "Çok miktarda çözünen içeren çözelti", "Sıcak çözelti", "Soğuk çözelti"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Doymuş çözelti nedir?",
+        "options": ["Daha fazla madde çözemeyen çözelti", "Hiç çözünen içermeyen çözelti", "Çok sıcak çözelti", "Çok soğuk çözelti"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Çözünürlük genellikle sıcaklık arttıkça nasıl değişir (katılar için)?",
+        "options": ["Azalır", "Artar", "Değişmez", "Önce artar sonra azalır"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Henry Kanunu neyi açıklar?",
+        "options": ["Katıların çözünürlüğünü", "Gazların çözünürlüğünün basınçla ilişkisini", "Sıvıların kaynama noktasını", "Katıların erime noktasını"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Elektrolit nedir?",
+        "options": ["Suda çözünmeyen madde", "Suda çözündüğünde elektrik akımını ileten madde", "Sadece katı madde", "Sadece gaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi kuvvetli bir elektrolittir?",
+        "options": ["Şeker (C₆H₁₂O₆)", "Etanol (C₂H₅OH)", "Sodyum klorür (NaCl)", "Saf su"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Kolligatif özellik nedir?",
+        "options": ["Çözünen maddenin türüne bağlı özellik", "Çözünen maddenin sayısına bağlı, türüne bağlı olmayan özellik", "Sadece sıcaklığa bağlı özellik", "Sadece basınca bağlı özellik"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Test 19: Asit-Baz Dengesi",
+    "questions": [
+      {
+        "questionText": "pH nedir?",
+        "options": ["Hidrojen iyonu konsantrasyonunun negatif logaritması", "Hidroksil iyonu konsantrasyonu", "Çözeltinin sıcaklığı", "Çözeltinin basıncı"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "pOH nedir?",
+        "options": ["Hidrojen iyonu konsantrasyonu", "Hidroksil iyonu konsantrasyonunun negatif logaritması", "Çözeltinin yoğunluğu", "Çözeltinin viskozitesi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "pH + pOH = ?",
+        "options": ["7", "10", "14", "0"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Kuvvetli asit nedir?",
+        "options": ["Suda tamamen iyonlaşan asit", "Suda kısmen iyonlaşan asit", "Suda iyonlaşmayan asit", "Sadece organik asit"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Zayıf asit nedir?",
+        "options": ["Suda tamamen iyonlaşan asit", "Suda kısmen iyonlaşan asit", "Suda iyonlaşmayan asit", "Sadece inorganik asit"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi kuvvetli bir asittir?",
+        "options": ["Asetik asit (CH₃COOH)", "Hidroklorik asit (HCl)", "Karbonik asit (H₂CO₃)", "Fosforik asit (H₃PO₄)"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Aşağıdakilerden hangisi kuvvetli bir bazdır?",
+        "options": ["Amonyak (NH₃)", "Sodyum hidroksit (NaOH)", "Kalsiyum hidroksit (Ca(OH)₂)", "Metilamin (CH₃NH₂)"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Tampon çözelti nedir?",
+        "options": ["pH değişimine dirençli çözelti", "Sadece asit içeren çözelti", "Sadece baz içeren çözelti", "Nötr çözelti"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Ka (asit iyonlaşma sabiti) değeri küçük olan asit nasıldır?",
+        "options": ["Kuvvetli", "Zayıf", "Nötr", "Bazik"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Henderson-Hasselbalch denklemi ne için kullanılır?",
+        "options": ["Gazların basıncını hesaplamak", "Tampon çözeltilerin pH'sını hesaplamak", "Çözünürlüğü hesaplamak", "Sıcaklığı hesaplamak"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Test 20: Koordinasyon Kimyası",
+    "questions": [
+      {
+        "questionText": "Koordinasyon bileşiği nedir?",
+        "options": ["Sadece karbon içeren bileşik", "Merkez atom ve ligandlardan oluşan kompleks", "Sadece metal içeren bileşik", "Sadece organik bileşik"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Ligand nedir?",
+        "options": ["Merkez atom", "Merkez atoma bağlanan iyon veya molekül", "Kompleksin dışındaki iyon", "Çözücü"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Koordinasyon sayısı nedir?",
+        "options": ["Merkez atomun yükü", "Merkez atoma bağlı ligand sayısı", "Ligandın yükü", "Kompleksin kütlesi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "[Cu(NH₃)₄]²⁺ kompleksinde bakırın koordinasyon sayısı nedir?",
+        "options": ["2", "3", "4", "6"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Hemisfer ligand nedir?",
+        "options": ["İki bağlanma noktası olan ligand", "Tek bağlanma noktası olan ligand", "Üç bağlanma noktası olan ligand", "Dört bağlanma noktası olan ligand"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "EDTA (Etilendiamintetraasetik asit) kaç bağlanma noktasına sahiptir?",
+        "options": ["2", "4", "6", "8"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Kristal alan teorisi neyi açıklar?",
+        "options": ["Organik bileşiklerin yapısını", "Koordinasyon komplekslerinin renk ve manyetik özelliklerini", "Gazların davranışını", "Sıvıların özelliklerini"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Geçiş metalleri neden renkli kompleksler oluşturur?",
+        "options": ["Çok ağır oldukları için", "d orbital elektronlarının geçişleri nedeniyle", "Çok hafif oldukları için", "Manyetik olmadıkları için"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kolligatif özellikler hangi özellikleri içerir?",
+        "options": ["Kaynama noktası yükselmesi, donma noktası düşmesi", "Renk, koku", "Yoğunluk, viskozite", "Sıcaklık, basınç"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "[Fe(CN)₆]⁴⁻ kompleksinde demirin yükseltgenme sayısı nedir?",
+        "options": ["+2", "+3", "+4", "+6"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Test 21: Polimerler ve Makromoleküller",
+    "questions": [
+      {
+        "questionText": "Polimer nedir?",
+        "options": ["Küçük molekül", "Çok sayıda monomer biriminden oluşan büyük molekül", "Tek atom", "İyon"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Monomer nedir?",
+        "options": ["Polimerin yapı taşı", "Kompleks molekül", "İyon", "Atom"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Polietilen hangi monomerdan oluşur?",
+        "options": ["Etilen (C₂H₄)", "Propen (C₃H₆)", "Stiren (C₈H₈)", "Vinil klorür (C₂H₃Cl)"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Polimerleşme nedir?",
+        "options": ["Polimerin parçalanması", "Monomerlerin birleşerek polimer oluşturması", "Polimerin çözünmesi", "Polimerin erimesi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Katılma polimerleşmesi nedir?",
+        "options": ["Monomerlerin çift bağlarını açarak birleşmesi", "Monomerlerin su kaybederek birleşmesi", "Monomerlerin oksijen alarak birleşmesi", "Monomerlerin hidrojen kaybederek birleşmesi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Yoğuşma polimerleşmesi nedir?",
+        "options": ["Monomerlerin çift bağlarını açarak birleşmesi", "Fonksiyonel grupların tepkimeye girerek küçük molekül (genellikle su) çıkışıyla birleşmesi", "Monomerlerin oksijen alarak birleşmesi", "Monomerlerin hidrojen alarak birleşmesi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "DNA ve RNA hangi tür makromoleküllerdir?",
+        "options": ["Polisakkaritler", "Nükleik asitler", "Proteinler", "Lipitler"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Proteinler hangi monomerlerden oluşur?",
+        "options": ["Nükleotitler", "Amino asitler", "Monosakkaritler", "Yağ asitleri"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Nişasta ve selüloz hangi tür makromoleküllerdir?",
+        "options": ["Proteinler", "Polisakkaritler", "Nükleik asitler", "Lipitler"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Termoplastik polimer nedir?",
+        "options": ["Isıtıldığında eriyen ve soğutulduğunda tekrar katılaşan polimer", "Isıtıldığında yanıp kül olan polimer", "Hiç erimeyen polimer", "Sadece soğukta şekil alan polimer"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Test 22: Spektroskopi ve Analitik Kimya",
+    "questions": [
+      {
+        "questionText": "Spektroskopi nedir?",
+        "options": ["Maddenin kütlesini ölçme", "Maddenin elektromanyetik radyasyonla etkileşimini inceleme", "Maddenin sıcaklığını ölçme", "Maddenin basıncını ölçme"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "UV-Vis spektroskopisi neyi ölçer?",
+        "options": ["Mikrodalga absorpsiyonu", "Ultraviyole ve görünür ışık absorpsiyonu", "X-ışını absorpsiyonu", "Radyo dalgası absorpsiyonu"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "IR (İnfrared) spektroskopisi neyi ölçer?",
+        "options": ["Görünür ışık", "Kızılötesi ışık", "Ultraviyole ışık", "X-ışını"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "NMR (Nükleer Manyetik Rezonans) spektroskopisi neyi ölçer?",
+        "options": ["Atom çekirdeklerinin manyetik özelliklerini", "Elektronların yükünü", "Moleküllerin kütlesini", "Moleküllerin rengini"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Kütle spektrometrisi neyi ölçer?",
+        "options": ["Moleküllerin kütle/yük oranını", "Moleküllerin rengini", "Moleküllerin sıcaklığını", "Moleküllerin basıncını"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Beer-Lambert yasası neyi açıklar?",
+        "options": ["Gazların basıncını", "Çözeltideki maddenin konsantrasyonu ile ışık absorpsiyonu arasındaki ilişkiyi", "Sıvıların kaynama noktasını", "Katıların erime noktasını"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kromatografi nedir?",
+        "options": ["Karışımları ayırma tekniği", "Molekülleri birleştirme tekniği", "Molekülleri parçalama tekniği", "Molekülleri ısıtma tekniği"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Titrasyon nedir?",
+        "options": ["Bir çözeltideki maddenin konsantrasyonunu belirleme yöntemi", "Maddeyi ısıtma yöntemi", "Maddeyi soğutma yöntemi", "Maddeyi karıştırma yöntemi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Eşdeğerlik noktası (endpoint) nedir?",
+        "options": ["Titrasyonda reaktiflerin eşit miktarda olduğu nokta", "Titrasyonun başlangıç noktası", "Titrasyonun yarısı", "Titrasyonun sonu"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "pH indikatörü nedir?",
+        "options": ["pH değişiminde renk değiştiren madde", "pH'yı değiştiren madde", "pH'yı sabit tutan madde", "pH'yı ölçen cihaz"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Test 23: Biyokimya Temelleri",
+    "questions": [
+      {
+        "questionText": "Biyokimya nedir?",
+        "options": ["Sadece inorganik maddeleri inceleyen bilim", "Canlı organizmalardaki kimyasal süreçleri inceleyen bilim", "Sadece mineralleri inceleyen bilim", "Sadece metalleri inceleyen bilim"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Enzim nedir?",
+        "options": ["Biyolojik katalizör", "İnorganik katalizör", "Elektrolit", "İyon"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "ATP nedir?",
+        "options": ["Adenozin trifosfat - hücrelerde enerji taşıyan molekül", "Protein", "Karbonhidrat", "Lipit"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Fotosentez nedir?",
+        "options": ["Bitkilerin güneş ışığını kullanarak glikoz ve oksijen üretmesi", "Hayvanların beslenmesi", "Bakterilerin çoğalması", "Mantarların büyümesi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Fotosentez tepkimesinin genel formülü nedir?",
+        "options": ["6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂", "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O", "2H₂ + O₂ → 2H₂O", "CH₄ + 2O₂ → CO₂ + 2H₂O"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Hücresel solunum nedir?",
+        "options": ["Glikozun oksijenle yakılarak enerji üretilmesi", "Glikozun üretilmesi", "Oksijenin üretilmesi", "Karbondioksitin üretilmesi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Glikoliz nedir?",
+        "options": ["Glikozun parçalanarak pirüvata dönüştürülmesi", "Glikozun üretilmesi", "Protein sentezi", "DNA sentezi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "DNA'nın yapı taşları nedir?",
+        "options": ["Amino asitler", "Nükleotitler", "Monosakkaritler", "Yağ asitleri"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Proteinlerde kaç çeşit amino asit vardır?",
+        "options": ["10", "15", "20", "25"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Enzim-substrat kompleksi nedir?",
+        "options": ["Enzim ve substratın geçici olarak birleşmesi", "Enzimin parçalanması", "Substratın parçalanması", "Enzimin üretilmesi"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Test 24: İnorganik Kimya",
+    "questions": [
+      {
+        "questionText": "İnorganik kimya nedir?",
+        "options": ["Sadece karbon bileşiklerini inceleyen bilim", "Karbon dışındaki elementlerin bileşiklerini inceleyen bilim", "Sadece organik bileşikleri inceleyen bilim", "Sadece metalleri inceleyen bilim"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Geçiş metalleri hangi blokta yer alır?",
+        "options": ["s bloku", "p bloku", "d bloku", "f bloku"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Lantanitler ve aktinitler hangi blokta yer alır?",
+        "options": ["s bloku", "p bloku", "d bloku", "f bloku"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Karbonat nedir?",
+        "options": ["CO₃²⁻ iyonu içeren bileşik", "Sadece karbon içeren bileşik", "Sadece oksijen içeren bileşik", "Sadece hidrojen içeren bileşik"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Sülfat nedir?",
+        "options": ["SO₄²⁻ iyonu içeren bileşik", "Sadece kükürt içeren bileşik", "Sadece oksijen içeren bileşik", "Sadece hidrojen içeren bileşik"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Nitrat nedir?",
+        "options": ["NO₃⁻ iyonu içeren bileşik", "Sadece azot içeren bileşik", "Sadece oksijen içeren bileşik", "Sadece hidrojen içeren bileşik"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Fosfat nedir?",
+        "options": ["PO₄³⁻ iyonu içeren bileşik", "Sadece fosfor içeren bileşik", "Sadece oksijen içeren bileşik", "Sadece hidrojen içeren bileşik"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Hidroksit nedir?",
+        "options": ["OH⁻ iyonu içeren bileşik", "Sadece hidrojen içeren bileşik", "Sadece oksijen içeren bileşik", "Sadece su içeren bileşik"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Oksit nedir?",
+        "options": ["Oksijen içeren bileşik (genellikle O²⁻)", "Sadece oksijen gazı", "Sadece su", "Sadece karbondioksit"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Halojenür nedir?",
+        "options": ["Halojen iyonu (F⁻, Cl⁻, Br⁻, I⁻) içeren bileşik", "Sadece halojen gazı", "Sadece metal", "Sadece ametal"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Test 25: Yüzey Kimyası ve Kataliz",
+    "questions": [
+      {
+        "questionText": "Katalizör nedir?",
+        "options": ["Tepkimeyi yavaşlatan madde", "Tepkimeyi hızlandıran ancak kendisi tükenmeyen madde", "Tepkimeyi durduran madde", "Tepkimeye girmeyen madde"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Heterojen kataliz nedir?",
+        "options": ["Katalizör ve reaktiflerin aynı fazda olduğu kataliz", "Katalizör ve reaktiflerin farklı fazlarda olduğu kataliz", "Katalizörün olmadığı tepkime", "Katalizörün çok olduğu tepkime"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Homojen kataliz nedir?",
+        "options": ["Katalizör ve reaktiflerin farklı fazlarda olduğu kataliz", "Katalizör ve reaktiflerin aynı fazda olduğu kataliz", "Katalizörün olmadığı tepkime", "Katalizörün çok olduğu tepkime"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Enzimler hangi tür katalizörlerdir?",
+        "options": ["İnorganik katalizörler", "Biyolojik katalizörler", "Metal katalizörler", "Asit katalizörler"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Yüzey alanı artırıldığında heterojen katalizörün etkinliği nasıl değişir?",
+        "options": ["Azalır", "Artar", "Değişmez", "Sıfır olur"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Otomobil katalitik konvertöründe hangi metaller kullanılır?",
+        "options": ["Sadece demir", "Platin, paladyum, rodyum gibi geçiş metalleri", "Sadece bakır", "Sadece altın"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Katalizör aktivasyon enerjisini nasıl etkiler?",
+        "options": ["Artırır", "Azaltır", "Etkilemez", "Sıfırlar"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Otokataliz nedir?",
+        "options": ["Tepkime ürününün katalizör olarak görev yaptığı durum", "Katalizörün olmadığı tepkime", "Çok yavaş tepkime", "Çok hızlı tepkime"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Zeolit nedir?",
+        "options": ["Organik bileşik", "Gözenekli inorganik katalizör", "Metal", "Gaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Katalizör seçiciliği nedir?",
+        "options": ["Katalizörün belirli tepkimeleri tercih etmesi", "Katalizörün hiç çalışmaması", "Katalizörün çok çalışması", "Katalizörün yavaş çalışması"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Test 26: Kristal Yapılar ve Katılar",
+    "questions": [
+      {
+        "questionText": "Kristal nedir?",
+        "options": ["Düzensiz yapılı katı", "Düzenli, tekrarlayan yapıya sahip katı", "Sadece sıvı", "Sadece gaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Birim hücre nedir?",
+        "options": ["Kristalin en küçük tekrarlayan birimi", "Kristalin tamamı", "Sadece atom", "Sadece iyon"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Kübik kristal sisteminde kaç tip birim hücre vardır?",
+        "options": ["1", "2", "3", "4"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "İyonik kristal nedir?",
+        "options": ["Sadece kovalent bağlı kristal", "İyonlar arası elektrostatik çekimle bir arada tutulan kristal", "Sadece metalik bağlı kristal", "Sadece van der Waals bağlı kristal"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kovalent kristal nedir?",
+        "options": ["Kovalent bağlarla bir arada tutulan kristal", "İyonik bağlı kristal", "Metalik bağlı kristal", "Zayıf bağlı kristal"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Metalik kristal nedir?",
+        "options": ["Metal atomlarının elektron denizi ile bir arada tutulduğu kristal", "Sadece iyonik bağlı kristal", "Sadece kovalent bağlı kristal", "Sadece zayıf bağlı kristal"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Elmas hangi tür kristaldir?",
+        "options": ["İyonik kristal", "Kovalent kristal", "Metalik kristal", "Moleküler kristal"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "NaCl (sofra tuzu) hangi tür kristaldir?",
+        "options": ["Kovalent kristal", "İyonik kristal", "Metalik kristal", "Moleküler kristal"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Amorf katı nedir?",
+        "options": ["Düzenli yapılı katı", "Düzensiz, kristal olmayan katı", "Sadece sıvı", "Sadece gaz"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Koordinasyon sayısı nedir (katılar için)?",
+        "options": ["Bir atomun çevresindeki en yakın komşu atom sayısı", "Atomun yükü", "Atomun kütlesi", "Atomun çapı"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Test 27: Faz Geçişleri",
+    "questions": [
+      {
+        "questionText": "Faz geçişi nedir?",
+        "options": ["Maddenin bir fazdan diğerine geçmesi", "Maddenin sadece katı kalması", "Maddenin sadece sıvı kalması", "Maddenin sadece gaz kalması"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Erime nedir?",
+        "options": ["Katının sıvıya geçmesi", "Sıvının gaza geçmesi", "Gazın sıvıya geçmesi", "Sıvının katıya geçmesi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Buharlaşma nedir?",
+        "options": ["Katının sıvıya geçmesi", "Sıvının gaza geçmesi", "Gazın sıvıya geçmesi", "Sıvının katıya geçmesi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Yoğuşma nedir?",
+        "options": ["Katının sıvıya geçmesi", "Sıvının gaza geçmesi", "Gazın sıvıya geçmesi", "Sıvının katıya geçmesi"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Donma nedir?",
+        "options": ["Katının sıvıya geçmesi", "Sıvının gaza geçmesi", "Gazın sıvıya geçmesi", "Sıvının katıya geçmesi"],
+        "correctAnswerIndex": 3
+      },
+      {
+        "questionText": "Süblimleşme nedir?",
+        "options": ["Katının doğrudan gaza geçmesi", "Sıvının doğrudan gaza geçmesi", "Gazın doğrudan katıya geçmesi", "Sıvının doğrudan katıya geçmesi"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Erime noktası nedir?",
+        "options": ["Katının eridiği sıcaklık", "Sıvının kaynadığı sıcaklık", "Gazın yoğuştuğu sıcaklık", "Sıvının donduğu sıcaklık"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Kaynama noktası nedir?",
+        "options": ["Katının eridiği sıcaklık", "Sıvının kaynadığı sıcaklık (buhar basıncı = atmosfer basıncı)", "Gazın yoğuştuğu sıcaklık", "Sıvının donduğu sıcaklık"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Triple point (üçlü nokta) nedir?",
+        "options": ["Bir maddenin üç fazının (katı, sıvı, gaz) dengede olduğu sıcaklık ve basınç noktası", "Sadece katı fazın olduğu nokta", "Sadece sıvı fazın olduğu nokta", "Sadece gaz fazın olduğu nokta"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Kritik sıcaklık nedir?",
+        "options": ["Gazın sıvılaştırılabileceği en yüksek sıcaklık", "Katının eridiği sıcaklık", "Sıvının donduğu sıcaklık", "Gazın yoğuştuğu sıcaklık"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Test 28: Kuantum Kimyası Temelleri",
+    "questions": [
+      {
+        "questionText": "Kuantum mekaniği nedir?",
+        "options": ["Klasik fizik", "Atomik ve moleküler düzeydeki parçacıkların davranışını açıklayan teori", "Sadece makroskopik olayları açıklayan teori", "Sadece gazları açıklayan teori"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Heisenberg Belirsizlik İlkesi neyi söyler?",
+        "options": ["Bir parçacığın konumu ve momentumunu aynı anda kesin olarak bilemeyiz", "Her şeyi kesin bilebiliriz", "Sadece konumu bilebiliriz", "Sadece momentumu bilebiliriz"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Orbital nedir?",
+        "options": ["Elektronun kesin yörüngesi", "Elektronun bulunma olasılığının yüksek olduğu bölge", "Protonun yeri", "Nötronun yeri"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "s orbitali kaç elektron tutabilir?",
+        "options": ["1", "2", "4", "6"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "p orbitali kaç elektron tutabilir?",
+        "options": ["2", "4", "6", "8"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "d orbitali kaç elektron tutabilir?",
+        "options": ["6", "8", "10", "12"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Pauli Dışlama İlkesi neyi söyler?",
+        "options": ["Aynı orbitalde en fazla 2 elektron bulunabilir ve zıt spinli olmalıdır", "Aynı orbitalde sınırsız elektron bulunabilir", "Orbitaller boş kalmalıdır", "Elektronlar hareket etmemelidir"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Hund Kuralı neyi söyler?",
+        "options": ["Eş enerjili orbitallere elektronlar önce tekil olarak yerleşir, sonra eşleşir", "Elektronlar her zaman eşleşmelidir", "Orbitaller boş kalmalıdır", "Elektronlar sadece s orbitaline yerleşir"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Elektron konfigürasyonu nedir?",
+        "options": ["Atomdaki elektronların orbitallere dağılımı", "Atomun kütlesi", "Atomun çapı", "Atomun yükü"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Valans elektronları nedir?",
+        "options": ["En iç yörüngedeki elektronlar", "En dış yörüngedeki elektronlar (kimyasal bağlarda rol oynayan)", "Protonlar", "Nötronlar"],
+        "correctAnswerIndex": 1
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Test 29: Endüstriyel Kimya",
+    "questions": [
+      {
+        "questionText": "Haber-Bosch süreci ne üretir?",
+        "options": ["Sülfürik asit", "Amonyak", "Nitrik asit", "Etanol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kontak süreci ne üretir?",
+        "options": ["Amonyak", "Sülfürik asit", "Nitrik asit", "Etanol"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Ostwald süreci ne üretir?",
+        "options": ["Sülfürik asit", "Amonyak", "Nitrik asit", "Etanol"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Solvay süreci ne üretir?",
+        "options": ["Sodyum karbonat (soda)", "Sülfürik asit", "Amonyak", "Nitrik asit"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Hall-Héroult süreci ne üretir?",
+        "options": ["Demir", "Alüminyum", "Bakır", "Çinko"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Petrol rafinasyonunda kullanılan temel işlem nedir?",
+        "options": ["Elektroliz", "Damıtma (distilasyon)", "Filtrasyon", "Kristalleştirme"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kraking nedir?",
+        "options": ["Büyük hidrokarbon moleküllerinin küçük moleküllere parçalanması", "Hidrokarbonların birleşmesi", "Hidrokarbonların çözünmesi", "Hidrokarbonların donması"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Reformlama nedir?",
+        "options": ["Hidrokarbonların yapısının değiştirilerek daha yüksek oktanlı yakıt üretilmesi", "Hidrokarbonların parçalanması", "Hidrokarbonların çözünmesi", "Hidrokarbonların donması"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Polimerizasyon endüstrisinde en çok üretilen polimer hangisidir?",
+        "options": ["Polietilen", "Polipropilen", "PVC", "Polistiren"],
+        "correctAnswerIndex": 0
+      },
+      {
+        "questionText": "Gübre endüstrisinde en çok kullanılan azotlu gübre hangisidir?",
+        "options": ["Amonyum nitrat", "Sodyum klorür", "Kalsiyum karbonat", "Demir oksit"],
+        "correctAnswerIndex": 0
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Test 30: Kimya ve Yaşam",
+    "questions": [
+      {
+        "questionText": "İnsan vücudunda en çok bulunan element hangisidir?",
+        "options": ["Karbon", "Oksijen", "Hidrojen", "Azot"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Hemoglobin nedir?",
+        "options": ["Karbonhidrat", "Oksijen taşıyan protein", "Lipit", "Nükleik asit"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kemiklerin ana mineral bileşeni nedir?",
+        "options": ["Demir", "Kalsiyum fosfat", "Sodyum klorür", "Potasyum"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Vitamin C (askorbik asit) hangi tür bir bileşiktir?",
+        "options": ["Protein", "Organik asit", "Mineral", "Lipit"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "İnsülin nedir?",
+        "options": ["Karbonhidrat", "Hormon (protein)", "Lipit", "Mineral"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "DNA'nın yapısı nedir?",
+        "options": ["Tek sarmal", "Çift sarmal", "Üç sarmal", "Dört sarmal"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Kolesterol hangi tür bir bileşiktir?",
+        "options": ["Protein", "Karbonhidrat", "Steroid (lipit)", "Nükleik asit"],
+        "correctAnswerIndex": 2
+      },
+      {
+        "questionText": "Enzimlerin çalışması için optimum pH genellikle nedir?",
+        "options": ["Asidik (pH < 7)", "Nötr veya hafif bazik (pH 6-8)", "Çok bazik (pH > 10)", "Çok asidik (pH < 2)"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Adenozin trifosfat (ATP) hücrelerde ne için kullanılır?",
+        "options": ["Yapısal destek", "Enerji depolama ve transferi", "Genetik bilgi taşıma", "Hormon üretimi"],
+        "correctAnswerIndex": 1
+      },
+      {
+        "questionText": "Fotosentez hangi organelde gerçekleşir?",
+        "options": ["Mitokondri", "Kloroplast", "Çekirdek", "Ribozom"],
+        "correctAnswerIndex": 1
+      }
+    ]
   }
 ]

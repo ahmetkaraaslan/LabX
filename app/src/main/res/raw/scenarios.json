@@ -93,5 +93,860 @@
       "temperature": "Yanma tepkimesi başlamadı. Metanı ateşlemek için sıcaklığı 600°C üzerine çıkarmalısın.",
       "pressure": "Basıncın bu tepkimede büyük bir etkisi yok."
     }
+  },
+  {
+    "id": 6,
+    "title": "B6: Karbondioksit Üretimi",
+    "difficulty": "Kolay",
+    "description": "Karbonat ve asit tepkimesiyle karbondioksit gazı üret. Bu gaz solunumun bir yan ürünüdür.",
+    "reactionEquation": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂",
+    "allChemicals": ["CaCO₃", "HCl", "NaOH", "H₂SO₄", "NaCl", "H₂O", "CO₂", "O₂", "N₂"],
+    "correctChemicals": ["CaCO₃", "HCl"],
+    "correctRatio": { "CaCO₃": 1.0, "HCl": 2.0 },
+    "tempRange": { "start": 15.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Harika! Kalsiyum karbonat ve hidroklorik asidi birleştirerek karbondioksit gazı çıkışını gözlemledin.",
+    "failureMessages": {
+      "chemicals": "Karbondioksit üretimi için Kalsiyum karbonat ve Hidroklorik asit gereklidir.",
+      "ratio": "Tepkime için 1 birim kalsiyum karbonata karşı 2 birim hidroklorik asit gerekir.",
+      "temperature": "Bu tepkime oda sıcaklığında gerçekleşir.",
+      "pressure": "Basınç bu tepkime için önemli değildir."
+    }
+  },
+  {
+    "id": 7,
+    "title": "B7: Hidrojen Peroksit Ayrışması",
+    "difficulty": "Kolay",
+    "description": "Hidrojen peroksiti ayrıştırarak su ve oksijen üret. Bu tepkime katalizör gerektirebilir.",
+    "reactionEquation": "2H₂O₂ → 2H₂O + O₂",
+    "allChemicals": ["H₂O₂", "H₂O", "O₂", "H₂", "MnO₂", "Fe", "NaCl", "KCl", "Ag"],
+    "correctChemicals": ["H₂O₂"],
+    "correctRatio": { "H₂O₂": 1.0 },
+    "tempRange": { "start": 50.0, "endInclusive": 100.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Başardın! Hidrojen peroksiti ayrıştırarak su ve oksijen gazı elde ettin.",
+    "failureMessages": {
+      "chemicals": "Hidrojen peroksit ayrışması için sadece H₂O₂ seçmelisin.",
+      "ratio": "Tek reaktif olduğu için oran kontrolü gerekmez.",
+      "temperature": "Ayrışma için sıcaklığı 50-100°C aralığına ayarlamalısın.",
+      "pressure": "Basınç bu tepkime için kritik değildir."
+    }
+  },
+  {
+    "id": 8,
+    "title": "B8: Çinko ve Asit Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Çinko metalini asit ile tepkimeye sokarak hidrojen gazı üret. Dikkatli ol, gaz patlayıcı olabilir!",
+    "reactionEquation": "Zn + 2HCl → ZnCl₂ + H₂",
+    "allChemicals": ["Zn", "HCl", "Fe", "Cu", "Mg", "Al", "H₂SO₄", "NaOH", "NaCl"],
+    "correctChemicals": ["Zn", "HCl"],
+    "correctRatio": { "Zn": 1.0, "HCl": 2.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 50.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Mükemmel! Çinkoyu asit ile tepkimeye sokarak çinko klorür ve hidrojen gazı elde ettin.",
+    "failureMessages": {
+      "chemicals": "Hidrojen üretimi için Çinko ve Hidroklorik asit kullanmalısın.",
+      "ratio": "1 birim çinko için 2 birim hidroklorik asit gerekir.",
+      "temperature": "Tepkime oda sıcaklığında gerçekleşir.",
+      "pressure": "Basınç normal atmosferik basınç yeterlidir."
+    }
+  },
+  {
+    "id": 9,
+    "title": "B9: Sülfürik Asit Üretimi",
+    "difficulty": "Zor",
+    "description": "Endüstriyel öneme sahip bir tepkime: Kükürt dioksit ve oksijeni kullanarak sülfürik asit üret.",
+    "reactionEquation": "2SO₂ + O₂ + 2H₂O → 2H₂SO₄",
+    "allChemicals": ["SO₂", "O₂", "H₂O", "S", "SO₃", "H₂", "N₂", "CO₂", "H₂SO₄"],
+    "correctChemicals": ["SO₂", "O₂", "H₂O"],
+    "correctRatio": { "SO₂": 2.0, "O₂": 1.0, "H₂O": 2.0 },
+    "tempRange": { "start": 400.0, "endInclusive": 500.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 5.0 },
+    "successMessage": "Harika! Kontak sürecini başarıyla tamamlayarak sülfürik asit ürettin. Bu endüstrinin temel kimyasallarından biridir.",
+    "failureMessages": {
+      "chemicals": "Sülfürik asit üretimi için Kükürt dioksit, Oksijen ve Su gereklidir.",
+      "ratio": "Tepkime için 2 birim SO₂, 1 birim O₂ ve 2 birim H₂O kullanmalısın.",
+      "temperature": "Kontak süreci için 400-500°C sıcaklık gereklidir.",
+      "pressure": "Basınç normal koşullarda yeterlidir."
+    }
+  },
+  {
+    "id": 10,
+    "title": "B10: Kalsiyum Karbonat Çözünmesi",
+    "difficulty": "Kolay",
+    "description": "Kireçtaşını asit ile çözerek karbondioksit çıkışını gözlemle. Bu tepkime doğada da gerçekleşir.",
+    "reactionEquation": "CaCO₃ + 2CH₃COOH → Ca(CH₃COO)₂ + H₂O + CO₂",
+    "allChemicals": ["CaCO₃", "CH₃COOH", "HCl", "H₂SO₄", "NaCl", "H₂O", "CO₂", "NaOH", "KOH"],
+    "correctChemicals": ["CaCO₃", "CH₃COOH"],
+    "correctRatio": { "CaCO₃": 1.0, "CH₃COOH": 2.0 },
+    "tempRange": { "start": 15.0, "endInclusive": 35.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Başardın! Kireçtaşını sirke asidi ile çözerek kalsiyum asetat, su ve karbondioksit elde ettin.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Kalsiyum karbonat ve Asetik asit (sirke) gereklidir.",
+      "ratio": "1 birim kalsiyum karbonata karşı 2 birim asetik asit kullanmalısın.",
+      "temperature": "Oda sıcaklığı bu tepkime için yeterlidir.",
+      "pressure": "Basınç normal koşullarda yeterlidir."
+    }
+  },
+  {
+    "id": 11,
+    "title": "B11: Bakır Oksit İndirgeme",
+    "difficulty": "Orta",
+    "description": "Bakır oksiti hidrojen ile indirgeyerek saf bakır elde et. Bu metalurjik bir tepkimedir.",
+    "reactionEquation": "CuO + H₂ → Cu + H₂O",
+    "allChemicals": ["CuO", "H₂", "O₂", "Cu", "Fe₂O₃", "Zn", "CO", "H₂O", "N₂"],
+    "correctChemicals": ["CuO", "H₂"],
+    "correctRatio": { "CuO": 1.0, "H₂": 1.0 },
+    "tempRange": { "start": 300.0, "endInclusive": 400.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Mükemmel! Bakır oksiti hidrojen ile indirgeyerek saf bakır metal elde ettin.",
+    "failureMessages": {
+      "chemicals": "Bakır üretimi için Bakır oksit ve Hidrojen gereklidir.",
+      "ratio": "Tepkime 1:1 oranında gerçekleşir.",
+      "temperature": "İndirgeme için 300-400°C sıcaklık gereklidir.",
+      "pressure": "Basınç hafif artırılabilir ama kritik değildir."
+    }
+  },
+  {
+    "id": 12,
+    "title": "B12: Etanol Yanması",
+    "difficulty": "Orta",
+    "description": "Etanolü yakarak yanma tepkimesini gözlemle. Bu alkol yakıt olarak kullanılabilir.",
+    "reactionEquation": "C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O",
+    "allChemicals": ["C₂H₅OH", "O₂", "CO₂", "H₂O", "CH₄", "C₃H₈", "N₂", "H₂", "Ar"],
+    "correctChemicals": ["C₂H₅OH", "O₂"],
+    "correctRatio": { "C₂H₅OH": 1.0, "O₂": 3.0 },
+    "tempRange": { "start": 350.0, "endInclusive": 450.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Ateş başarıyla yandı! Etanolü tam yanma ile karbondioksit ve su buharına dönüştürdün.",
+    "failureMessages": {
+      "chemicals": "Yanma için Etanol ve Oksijen gereklidir.",
+      "ratio": "Tam yanma için 1 birim etanola karşı 3 birim oksijen gerekir.",
+      "temperature": "Tutuşma için 350-450°C sıcaklık gereklidir.",
+      "pressure": "Basınç normal koşullarda yeterlidir."
+    }
+  },
+  {
+    "id": 13,
+    "title": "B13: Magnezyum Yanması",
+    "difficulty": "Orta",
+    "description": "Magnezyum metali oksijenle parlak bir alevle yanar. Bu tepkime çok enerjiktir!",
+    "reactionEquation": "2Mg + O₂ → 2MgO",
+    "allChemicals": ["Mg", "O₂", "MgO", "H₂", "N₂", "Fe", "Al", "Zn", "Ca"],
+    "correctChemicals": ["Mg", "O₂"],
+    "correctRatio": { "Mg": 2.0, "O₂": 1.0 },
+    "tempRange": { "start": 500.0, "endInclusive": 650.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Parlak alevle yandı! Magnezyum oksit oluşturdun.",
+    "failureMessages": {
+      "chemicals": "Yanma için Magnezyum ve Oksijen gereklidir.",
+      "ratio": "2 birim magnezyuma karşı 1 birim oksijen gerekir.",
+      "temperature": "Tutuşma için 500-650°C sıcaklık gereklidir.",
+      "pressure": "Normal atmosferik basınç yeterlidir."
+    }
+  },
+  {
+    "id": 14,
+    "title": "B14: Kalsiyum ve Su Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Kalsiyum metali su ile şiddetli tepkimeye girerek hidrojen açığa çıkarır.",
+    "reactionEquation": "Ca + 2H₂O → Ca(OH)₂ + H₂",
+    "allChemicals": ["Ca", "H₂O", "Ca(OH)₂", "H₂", "O₂", "Na", "K", "Mg", "Al"],
+    "correctChemicals": ["Ca", "H₂O"],
+    "correctRatio": { "Ca": 1.0, "H₂O": 2.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Başardın! Kalsiyum hidroksit ve hidrojen gazı elde ettin.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Kalsiyum ve Su gereklidir.",
+      "ratio": "1 birim kalsiyuma karşı 2 birim su gerekir.",
+      "temperature": "Oda sıcaklığı yeterlidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 15,
+    "title": "B15: Demir Paslanması",
+    "difficulty": "Orta",
+    "description": "Demir oksijen ve su ile tepkimeye girerek pas (demir oksit) oluşturur.",
+    "reactionEquation": "4Fe + 3O₂ + 6H₂O → 4Fe(OH)₃",
+    "allChemicals": ["Fe", "O₂", "H₂O", "Fe(OH)₃", "Fe₂O₃", "CO₂", "N₂", "H₂", "Cl₂"],
+    "correctChemicals": ["Fe", "O₂", "H₂O"],
+    "correctRatio": { "Fe": 4.0, "O₂": 3.0, "H₂O": 6.0 },
+    "tempRange": { "start": 15.0, "endInclusive": 30.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Demir paslandı! Demir hidroksit oluştu.",
+    "failureMessages": {
+      "chemicals": "Paslanma için Demir, Oksijen ve Su gereklidir.",
+      "ratio": "4 birim demir, 3 birim oksijen ve 6 birim su gerekir.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal atmosferik basınç yeterlidir."
+    }
+  },
+  {
+    "id": 16,
+    "title": "B16: Sodyum ve Klor Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Sodyum metali klor gazı ile şiddetli tepkimeye girerek sofra tuzu oluşturur.",
+    "reactionEquation": "2Na + Cl₂ → 2NaCl",
+    "allChemicals": ["Na", "Cl₂", "NaCl", "HCl", "NaOH", "H₂", "O₂", "N₂", "Br₂"],
+    "correctChemicals": ["Na", "Cl₂"],
+    "correctRatio": { "Na": 2.0, "Cl₂": 1.0 },
+    "tempRange": { "start": 100.0, "endInclusive": 200.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Şiddetli alevle yandı! Sodyum klorür (sofra tuzu) elde ettin.",
+    "failureMessages": {
+      "chemicals": "Sodyum klorür için Sodyum ve Klor gereklidir.",
+      "ratio": "2 birim sodyuma karşı 1 birim klor gerekir.",
+      "temperature": "100-200°C sıcaklık aralığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 17,
+    "title": "B17: Karbonat ve Asit Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Sodyum karbonat asit ile tepkimeye girerek karbondioksit açığa çıkarır.",
+    "reactionEquation": "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂",
+    "allChemicals": ["Na₂CO₃", "HCl", "NaCl", "H₂O", "CO₂", "H₂SO₄", "NaOH", "CH₃COOH", "CaCO₃"],
+    "correctChemicals": ["Na₂CO₃", "HCl"],
+    "correctRatio": { "Na₂CO₃": 1.0, "HCl": 2.0 },
+    "tempRange": { "start": 15.0, "endInclusive": 35.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Karbondioksit çıkışı gözlemlendi! Sodyum klorür ve su oluştu.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Sodyum karbonat ve Hidroklorik asit gereklidir.",
+      "ratio": "1 birim sodyum karbonata karşı 2 birim asit gerekir.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 18,
+    "title": "B18: Potasyum Permanganat İndirgeme",
+    "difficulty": "Orta",
+    "description": "Potasyum permanganat oksidasyon ajanı olarak kullanılır. Hidrojen peroksit ile indirgenir.",
+    "reactionEquation": "2KMnO₄ + 5H₂O₂ + 3H₂SO₄ → 2MnSO₄ + K₂SO₄ + 8H₂O + 5O₂",
+    "allChemicals": ["KMnO₄", "H₂O₂", "H₂SO₄", "MnSO₄", "K₂SO₄", "H₂O", "O₂", "KOH", "NaCl"],
+    "correctChemicals": ["KMnO₄", "H₂O₂", "H₂SO₄"],
+    "correctRatio": { "KMnO₄": 2.0, "H₂O₂": 5.0, "H₂SO₄": 3.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Oksijen gazı çıkışı gözlemlendi! Mangan sülfat oluştu.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Potasyum permanganat, Hidrojen peroksit ve Sülfürik asit gereklidir.",
+      "ratio": "2:5:3 oranında kullanmalısın (KMnO₄:H₂O₂:H₂SO₄).",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 19,
+    "title": "B19: Alüminyum ve Demir Oksit Tepkimesi",
+    "difficulty": "Zor",
+    "description": "Termit tepkimesi: Alüminyum demir oksidi indirgeyerek ergimiş demir üretir. Çok yüksek sıcaklık gerektirir.",
+    "reactionEquation": "2Al + Fe₂O₃ → Al₂O₃ + 2Fe",
+    "allChemicals": ["Al", "Fe₂O₃", "Al₂O₃", "Fe", "O₂", "Mg", "Zn", "CuO", "H₂"],
+    "correctChemicals": ["Al", "Fe₂O₃"],
+    "correctRatio": { "Al": 2.0, "Fe₂O₃": 1.0 },
+    "tempRange": { "start": 2300.0, "endInclusive": 2500.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Termit tepkimesi başarılı! Erimiş demir üretildi. Sıcaklık 2000°C'nin üzerine çıktı!",
+    "failureMessages": {
+      "chemicals": "Termit tepkimesi için Alüminyum ve Demir oksit gereklidir.",
+      "ratio": "2 birim alüminyuma karşı 1 birim demir oksit gerekir.",
+      "temperature": "Bu tepkime çok yüksek sıcaklık gerektirir (2300-2500°C).",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 20,
+    "title": "B20: Bakır Sülfat ve Çinko Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Çinko bakır sülfat çözeltisinden bakırı açığa çıkarır. Redoks tepkimesidir.",
+    "reactionEquation": "Zn + CuSO₄ → ZnSO₄ + Cu",
+    "allChemicals": ["Zn", "CuSO₄", "ZnSO₄", "Cu", "Fe", "Mg", "AgNO₃", "H₂SO₄", "NaCl"],
+    "correctChemicals": ["Zn", "CuSO₄"],
+    "correctRatio": { "Zn": 1.0, "CuSO₄": 1.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 50.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Bakır metal açığa çıktı! Çinko sülfat oluştu. Renk değişimi gözlemlendi.",
+    "failureMessages": {
+      "chemicals": "Bu redoks tepkimesi için Çinko ve Bakır sülfat gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Oda sıcaklığında veya hafif ısıtılmışta gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 21,
+    "title": "B21: Nitrik Asit ve Bakır Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Nitrik asit bakır ile tepkimeye girerek azot dioksit gazı ve bakır nitrat oluşturur.",
+    "reactionEquation": "Cu + 4HNO₃ → Cu(NO₃)₂ + 2NO₂ + 2H₂O",
+    "allChemicals": ["Cu", "HNO₃", "Cu(NO₃)₂", "NO₂", "H₂O", "H₂SO₄", "HCl", "O₂", "N₂"],
+    "correctChemicals": ["Cu", "HNO₃"],
+    "correctRatio": { "Cu": 1.0, "HNO₃": 4.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 60.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Kahverengi azot dioksit gazı çıkışı gözlemlendi! Bakır nitrat oluştu.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Bakır ve Nitrik asit gereklidir.",
+      "ratio": "1 birim bakıra karşı 4 birim nitrik asit gerekir.",
+      "temperature": "Oda sıcaklığında gerçekleşir, hafif ısıtma hızlandırır.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 22,
+    "title": "B22: Kalsiyum Karbür ve Su Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Kalsiyum karbür su ile tepkimeye girerek asetilen (etilen) gazı üretir. Kaynakçılıkta kullanılır.",
+    "reactionEquation": "CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂",
+    "allChemicals": ["CaC₂", "H₂O", "Ca(OH)₂", "C₂H₂", "CH₄", "C₂H₄", "O₂", "H₂", "CO₂"],
+    "correctChemicals": ["CaC₂", "H₂O"],
+    "correctRatio": { "CaC₂": 1.0, "H₂O": 2.0 },
+    "tempRange": { "start": 15.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Asetilen gazı üretildi! Kalsiyum hidroksit oluştu.",
+    "failureMessages": {
+      "chemicals": "Asetilen üretimi için Kalsiyum karbür ve Su gereklidir.",
+      "ratio": "1 birim kalsiyum karbüre karşı 2 birim su gerekir.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 23,
+    "title": "B23: Kükürt Dioksit ve Oksijen Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Kontak süreci: Kükürt dioksit oksijen ile birleşerek kükürt trioksit oluşturur. Katalizör gerekir.",
+    "reactionEquation": "2SO₂ + O₂ ⇌ 2SO₃",
+    "allChemicals": ["SO₂", "O₂", "SO₃", "H₂O", "H₂SO₄", "S", "H₂", "N₂", "CO₂"],
+    "correctChemicals": ["SO₂", "O₂"],
+    "correctRatio": { "SO₂": 2.0, "O₂": 1.0 },
+    "tempRange": { "start": 400.0, "endInclusive": 500.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 5.0 },
+    "successMessage": "Kükürt trioksit oluştu! Bu sülfürik asit üretiminin ilk adımıdır.",
+    "failureMessages": {
+      "chemicals": "Kükürt trioksit için Kükürt dioksit ve Oksijen gereklidir.",
+      "ratio": "2 birim kükürt dioksite karşı 1 birim oksijen gerekir.",
+      "temperature": "Kontak süreci için 400-500°C sıcaklık gereklidir.",
+      "pressure": "Hafif yüksek basınç verimi artırır."
+    }
+  },
+  {
+    "id": 24,
+    "title": "B24: Sodyum ve Su Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Sodyum metali su ile şiddetli tepkimeye girerek hidrojen açığa çıkarır. Dikkatli ol, patlayıcı olabilir!",
+    "reactionEquation": "2Na + 2H₂O → 2NaOH + H₂",
+    "allChemicals": ["Na", "H₂O", "NaOH", "H₂", "O₂", "K", "Ca", "Mg", "Al"],
+    "correctChemicals": ["Na", "H₂O"],
+    "correctRatio": { "Na": 2.0, "H₂O": 2.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 100.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Hidrojen gazı çıkışı ve ısı açığa çıktı! Sodyum hidroksit oluştu.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Sodyum ve Su gereklidir.",
+      "ratio": "2:2 oranında kullanmalısın (Na:H₂O).",
+      "temperature": "Oda sıcaklığında gerçekleşir, tepkime kendisi ısı üretir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 25,
+    "title": "B25: Karbon Monoksit Yanması",
+    "difficulty": "Kolay",
+    "description": "Karbon monoksit zehirli bir gazdır. Oksijenle yanarak karbondioksite dönüşür.",
+    "reactionEquation": "2CO + O₂ → 2CO₂",
+    "allChemicals": ["CO", "O₂", "CO₂", "H₂", "N₂", "CH₄", "H₂O", "C", "S"],
+    "correctChemicals": ["CO", "O₂"],
+    "correctRatio": { "CO": 2.0, "O₂": 1.0 },
+    "tempRange": { "start": 600.0, "endInclusive": 800.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Karbon monoksit tamamen yandı! Güvenli karbondioksite dönüştü.",
+    "failureMessages": {
+      "chemicals": "Yanma için Karbon monoksit ve Oksijen gereklidir.",
+      "ratio": "2 birim karbon monoksite karşı 1 birim oksijen gerekir.",
+      "temperature": "Yanma için 600-800°C sıcaklık gereklidir.",
+      "pressure": "Normal veya hafif yüksek basınç yeterlidir."
+    }
+  },
+  {
+    "id": 26,
+    "title": "B26: Gümüş Nitrat ve Sodyum Klorür",
+    "difficulty": "Kolay",
+    "description": "Çift yer değiştirme tepkimesi: Gümüş nitrat ve sodyum klorür tepkimeye girerek beyaz gümüş klorür çökeltisi oluşturur.",
+    "reactionEquation": "AgNO₃ + NaCl → AgCl + NaNO₃",
+    "allChemicals": ["AgNO₃", "NaCl", "AgCl", "NaNO₃", "KCl", "CaCl₂", "H₂O", "Na₂SO₄", "BaCl₂"],
+    "correctChemicals": ["AgNO₃", "NaCl"],
+    "correctRatio": { "AgNO₃": 1.0, "NaCl": 1.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Beyaz çökelti oluştu! Gümüş klorür çöktü.",
+    "failureMessages": {
+      "chemicals": "Çökelti oluşumu için Gümüş nitrat ve Sodyum klorür gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 27,
+    "title": "B27: Propan Yanması",
+    "difficulty": "Orta",
+    "description": "Propan (C₃H₈) LPG'nin ana bileşenidir. Oksijenle yanarak enerji üretir.",
+    "reactionEquation": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
+    "allChemicals": ["C₃H₈", "O₂", "CO₂", "H₂O", "CH₄", "C₂H₆", "H₂", "N₂", "CO"],
+    "correctChemicals": ["C₃H₈", "O₂"],
+    "correctRatio": { "C₃H₈": 1.0, "O₂": 5.0 },
+    "tempRange": { "start": 450.0, "endInclusive": 550.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Propan tam yandı! Karbondioksit ve su buharı oluştu.",
+    "failureMessages": {
+      "chemicals": "Yanma için Propan ve Oksijen gereklidir.",
+      "ratio": "1 birim propana karşı 5 birim oksijen gerekir.",
+      "temperature": "Tutuşma için 450-550°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 28,
+    "title": "B28: Alüminyum Oksit Elektrolizi",
+    "difficulty": "Zor",
+    "description": "Hall-Héroult süreci: Alüminyum oksit elektroliz ile alüminyum metali üretir. Çok yüksek sıcaklık ve enerji gerektirir.",
+    "reactionEquation": "2Al₂O₃ → 4Al + 3O₂",
+    "allChemicals": ["Al₂O₃", "Al", "O₂", "Na₃AlF₆", "C", "Fe₂O₃", "H₂O", "H₂", "N₂"],
+    "correctChemicals": ["Al₂O₃"],
+    "correctRatio": { "Al₂O₃": 1.0 },
+    "tempRange": { "start": 950.0, "endInclusive": 1000.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Elektroliz başarılı! Alüminyum metali üretildi. Oksijen gazı açığa çıktı.",
+    "failureMessages": {
+      "chemicals": "Elektroliz için sadece Alüminyum oksit gereklidir.",
+      "ratio": "Tek reaktif olduğu için oran kontrolü gerekmez.",
+      "temperature": "Elektroliz için 950-1000°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 29,
+    "title": "B29: Potasyum ve Su Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Potasyum sodyumdan daha aktif bir metaldir. Su ile şiddetli tepkimeye girer ve patlayabilir!",
+    "reactionEquation": "2K + 2H₂O → 2KOH + H₂",
+    "allChemicals": ["K", "H₂O", "KOH", "H₂", "O₂", "Na", "Ca", "Li", "Mg"],
+    "correctChemicals": ["K", "H₂O"],
+    "correctRatio": { "K": 2.0, "H₂O": 2.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 100.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Şiddetli patlama! Potasyum hidroksit ve hidrojen gazı oluştu.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Potasyum ve Su gereklidir.",
+      "ratio": "2:2 oranında kullanmalısın (K:H₂O).",
+      "temperature": "Oda sıcaklığında gerçekleşir, tepkime kendisi ısı üretir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 30,
+    "title": "B30: Karbondioksit ve Su Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Karbondioksit su ile birleşerek karbonik asit oluşturur. Bu asitli içeceklerdeki köpürmeyi sağlar.",
+    "reactionEquation": "CO₂ + H₂O ⇌ H₂CO₃",
+    "allChemicals": ["CO₂", "H₂O", "H₂CO₃", "O₂", "H₂", "N₂", "HCl", "NaOH", "NaCl"],
+    "correctChemicals": ["CO₂", "H₂O"],
+    "correctRatio": { "CO₂": 1.0, "H₂O": 1.0 },
+    "tempRange": { "start": 0.0, "endInclusive": 30.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 5.0 },
+    "successMessage": "Karbonik asit oluştu! Bu tepkime tersinirdir.",
+    "failureMessages": {
+      "chemicals": "Karbonik asit için Karbondioksit ve Su gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Düşük sıcaklık daha iyi çözünürlük sağlar (0-30°C).",
+      "pressure": "Yüksek basınç çözünürlüğü artırır."
+    }
+  },
+  {
+    "id": 31,
+    "title": "B31: Amonyum Nitrat Ayrışması",
+    "difficulty": "Zor",
+    "description": "Amonyum nitrat yüksek sıcaklıkta ayrışarak dinitrojen monoksit ve su buharı oluşturur. Patlayıcı olabilir!",
+    "reactionEquation": "NH₄NO₃ → N₂O + 2H₂O",
+    "allChemicals": ["NH₄NO₃", "N₂O", "H₂O", "NH₃", "HNO₃", "O₂", "N₂", "H₂", "CO₂"],
+    "correctChemicals": ["NH₄NO₃"],
+    "correctRatio": { "NH₄NO₃": 1.0 },
+    "tempRange": { "start": 200.0, "endInclusive": 250.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Dinitrojen monoksit gazı çıkışı gözlemlendi! Su buharı oluştu.",
+    "failureMessages": {
+      "chemicals": "Ayrışma için sadece Amonyum nitrat gereklidir.",
+      "ratio": "Tek reaktif olduğu için oran kontrolü gerekmez.",
+      "temperature": "Ayrışma için 200-250°C sıcaklık gereklidir.",
+      "pressure": "Normal veya hafif yüksek basınç yeterlidir."
+    }
+  },
+  {
+    "id": 32,
+    "title": "B32: Bakır Oksit ve Hidrojen Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Bakır oksit hidrojen ile indirgenerek bakır metali elde edilir. Redoks tepkimesidir.",
+    "reactionEquation": "CuO + H₂ → Cu + H₂O",
+    "allChemicals": ["CuO", "H₂", "Cu", "H₂O", "O₂", "Fe₂O₃", "ZnO", "CO", "N₂"],
+    "correctChemicals": ["CuO", "H₂"],
+    "correctRatio": { "CuO": 1.0, "H₂": 1.0 },
+    "tempRange": { "start": 250.0, "endInclusive": 350.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Bakır metali açığa çıktı! Su oluştu. İndirgeme başarılı.",
+    "failureMessages": {
+      "chemicals": "İndirgeme için Bakır oksit ve Hidrojen gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "İndirgeme için 250-350°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 33,
+    "title": "B33: Metanol Yanması",
+    "difficulty": "Orta",
+    "description": "Metanol (CH₃OH) yakıt olarak kullanılabilen bir alkoldür. Oksijenle yanar.",
+    "reactionEquation": "2CH₃OH + 3O₂ → 2CO₂ + 4H₂O",
+    "allChemicals": ["CH₃OH", "O₂", "CO₂", "H₂O", "C₂H₅OH", "CH₄", "H₂", "CO", "N₂"],
+    "correctChemicals": ["CH₃OH", "O₂"],
+    "correctRatio": { "CH₃OH": 2.0, "O₂": 3.0 },
+    "tempRange": { "start": 400.0, "endInclusive": 500.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Metanol tam yandı! Karbondioksit ve su buharı oluştu.",
+    "failureMessages": {
+      "chemicals": "Yanma için Metanol ve Oksijen gereklidir.",
+      "ratio": "2 birim metanole karşı 3 birim oksijen gerekir.",
+      "temperature": "Tutuşma için 400-500°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 34,
+    "title": "B34: Kalsiyum Oksit ve Su Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Sönmemiş kireç (CaO) su ile şiddetli tepkimeye girerek sönmüş kireç (Ca(OH)₂) oluşturur. Isı açığa çıkarır.",
+    "reactionEquation": "CaO + H₂O → Ca(OH)₂",
+    "allChemicals": ["CaO", "H₂O", "Ca(OH)₂", "CO₂", "CaCO₃", "HCl", "NaOH", "NaCl", "H₂SO₄"],
+    "correctChemicals": ["CaO", "H₂O"],
+    "correctRatio": { "CaO": 1.0, "H₂O": 1.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 100.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Şiddetli ısı açığa çıktı! Sönmüş kireç (kalsiyum hidroksit) oluştu.",
+    "failureMessages": {
+      "chemicals": "Sönmüş kireç için Kalsiyum oksit ve Su gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Tepkime oda sıcaklığında gerçekleşir ve kendisi ısı üretir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 35,
+    "title": "B35: Karbon ve Oksijen Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Karbon (kömür, grafit) oksijenle yanarak karbondioksit oluşturur. Eksik oksijende karbon monoksit oluşur.",
+    "reactionEquation": "C + O₂ → CO₂",
+    "allChemicals": ["C", "O₂", "CO₂", "CO", "H₂", "N₂", "H₂O", "S", "Fe"],
+    "correctChemicals": ["C", "O₂"],
+    "correctRatio": { "C": 1.0, "O₂": 1.0 },
+    "tempRange": { "start": 700.0, "endInclusive": 900.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Karbon tam yandı! Karbondioksit oluştu.",
+    "failureMessages": {
+      "chemicals": "Yanma için Karbon ve Oksijen gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Yanma için 700-900°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 36,
+    "title": "B36: Demir ve Kükürt Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Demir tozu ve kükürt tozu ısıtıldığında demir sülfür oluşturur. Kırmızı ışıltılı bir tepkimedir.",
+    "reactionEquation": "Fe + S → FeS",
+    "allChemicals": ["Fe", "S", "FeS", "Fe₂O₃", "H₂S", "O₂", "H₂", "C", "Cu"],
+    "correctChemicals": ["Fe", "S"],
+    "correctRatio": { "Fe": 1.0, "S": 1.0 },
+    "tempRange": { "start": 600.0, "endInclusive": 700.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Kırmızı ışıltı ve ısı açığa çıktı! Demir sülfür oluştu.",
+    "failureMessages": {
+      "chemicals": "Demir sülfür için Demir ve Kükürt gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Tepkime için 600-700°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 37,
+    "title": "B37: Etilen Yanması",
+    "difficulty": "Orta",
+    "description": "Etilen (C₂H₄) bitkilerde doğal olarak üretilen bir gazdır. Oksijenle yanar.",
+    "reactionEquation": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
+    "allChemicals": ["C₂H₄", "O₂", "CO₂", "H₂O", "CH₄", "C₃H₈", "H₂", "CO", "N₂"],
+    "correctChemicals": ["C₂H₄", "O₂"],
+    "correctRatio": { "C₂H₄": 1.0, "O₂": 3.0 },
+    "tempRange": { "start": 490.0, "endInclusive": 540.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Etilen tam yandı! Karbondioksit ve su buharı oluştu.",
+    "failureMessages": {
+      "chemicals": "Yanma için Etilen ve Oksijen gereklidir.",
+      "ratio": "1 birim etilene karşı 3 birim oksijen gerekir.",
+      "temperature": "Tutuşma için 490-540°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 38,
+    "title": "B38: Baryum Klorür ve Sodyum Sülfat",
+    "difficulty": "Kolay",
+    "description": "Çift yer değiştirme tepkimesi: Baryum klorür ve sodyum sülfat tepkimeye girerek beyaz baryum sülfat çökeltisi oluşturur.",
+    "reactionEquation": "BaCl₂ + Na₂SO₄ → BaSO₄ + 2NaCl",
+    "allChemicals": ["BaCl₂", "Na₂SO₄", "BaSO₄", "NaCl", "KCl", "CaCl₂", "H₂O", "AgNO₃", "CuSO₄"],
+    "correctChemicals": ["BaCl₂", "Na₂SO₄"],
+    "correctRatio": { "BaCl₂": 1.0, "Na₂SO₄": 1.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 40.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Beyaz baryum sülfat çökeltisi oluştu! Bu çökelti X-ışını çalışmalarında kullanılır.",
+    "failureMessages": {
+      "chemicals": "Çökelti oluşumu için Baryum klorür ve Sodyum sülfat gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 39,
+    "title": "B39: Azot ve Hidrojen Tepkimesi (Haber-Bosch)",
+    "difficulty": "Zor",
+    "description": "Haber-Bosch süreci: Endüstride amonyak üretiminde kullanılan temel tepkime. Yüksek basınç ve katalizör gerektirir.",
+    "reactionEquation": "N₂ + 3H₂ ⇌ 2NH₃",
+    "allChemicals": ["N₂", "H₂", "NH₃", "O₂", "Ar", "He", "Ne", "CH₄", "CO₂"],
+    "correctChemicals": ["N₂", "H₂"],
+    "correctRatio": { "N₂": 1.0, "H₂": 3.0 },
+    "tempRange": { "start": 400.0, "endInclusive": 500.0 },
+    "pressureRange": { "start": 150.0, "endInclusive": 300.0 },
+    "successMessage": "Haber-Bosch süreci başarılı! Amonyak üretildi. Gübre endüstrisinin temeli.",
+    "failureMessages": {
+      "chemicals": "Amonyak sentezi için Azot ve Hidrojen gereklidir.",
+      "ratio": "1 birim azota karşı 3 birim hidrojen gerekir.",
+      "temperature": "Katalizör ile 400-500°C sıcaklık gereklidir.",
+      "pressure": "Yüksek basınç gereklidir (150-300 atm)."
+    }
+  },
+  {
+    "id": 40,
+    "title": "B40: Kalsiyum Karbonat Ayrışması",
+    "difficulty": "Orta",
+    "description": "Kireçtaşı (CaCO₃) ısıtıldığında kalsiyum oksit ve karbondioksit oluşturur. Kireç üretiminde kullanılır.",
+    "reactionEquation": "CaCO₃ → CaO + CO₂",
+    "allChemicals": ["CaCO₃", "CaO", "CO₂", "H₂O", "Ca(OH)₂", "HCl", "H₂SO₄", "O₂", "N₂"],
+    "correctChemicals": ["CaCO₃"],
+    "correctRatio": { "CaCO₃": 1.0 },
+    "tempRange": { "start": 825.0, "endInclusive": 900.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Ayrışma başarılı! Kalsiyum oksit (sönmemiş kireç) ve karbondioksit oluştu.",
+    "failureMessages": {
+      "chemicals": "Ayrışma için sadece Kalsiyum karbonat gereklidir.",
+      "ratio": "Tek reaktif olduğu için oran kontrolü gerekmez.",
+      "temperature": "Ayrışma için 825-900°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 41,
+    "title": "B41: Magnezyum ve Asit Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Magnezyum metali asit ile tepkimeye girerek hidrojen gazı açığa çıkarır. Aktif bir metaldir.",
+    "reactionEquation": "Mg + 2HCl → MgCl₂ + H₂",
+    "allChemicals": ["Mg", "HCl", "MgCl₂", "H₂", "H₂SO₄", "Fe", "Zn", "Al", "Cu"],
+    "correctChemicals": ["Mg", "HCl"],
+    "correctRatio": { "Mg": 1.0, "HCl": 2.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 60.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Hidrojen gazı çıkışı gözlemlendi! Magnezyum klorür oluştu.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Magnezyum ve Hidroklorik asit gereklidir.",
+      "ratio": "1 birim magnezyuma karşı 2 birim asit gerekir.",
+      "temperature": "Oda sıcaklığında gerçekleşir, hafif ısıtma hızlandırır.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 42,
+    "title": "B42: Kükürt ve Demir Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Kükürt ve demir tozu ısıtıldığında demir sülfür oluşturur. Ekzotermik bir tepkimedir.",
+    "reactionEquation": "Fe + S → FeS",
+    "allChemicals": ["Fe", "S", "FeS", "Fe₂O₃", "H₂S", "SO₂", "O₂", "H₂", "C"],
+    "correctChemicals": ["Fe", "S"],
+    "correctRatio": { "Fe": 1.0, "S": 1.0 },
+    "tempRange": { "start": 600.0, "endInclusive": 700.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Kırmızı parıltı ve ısı açığa çıktı! Demir sülfür oluştu.",
+    "failureMessages": {
+      "chemicals": "Demir sülfür için Demir ve Kükürt gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Tepkime için 600-700°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 43,
+    "title": "B43: Karbon Disülfit Yanması",
+    "difficulty": "Orta",
+    "description": "Karbon disülfit (CS₂) kükürt ve karbondan oluşan bir bileşiktir. Oksijenle yanar.",
+    "reactionEquation": "CS₂ + 3O₂ → CO₂ + 2SO₂",
+    "allChemicals": ["CS₂", "O₂", "CO₂", "SO₂", "S", "C", "H₂", "N₂", "CO"],
+    "correctChemicals": ["CS₂", "O₂"],
+    "correctRatio": { "CS₂": 1.0, "O₂": 3.0 },
+    "tempRange": { "start": 90.0, "endInclusive": 120.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Karbon disülfit yandı! Karbondioksit ve kükürt dioksit oluştu.",
+    "failureMessages": {
+      "chemicals": "Yanma için Karbon disülfit ve Oksijen gereklidir.",
+      "ratio": "1 birim CS₂'ye karşı 3 birim oksijen gerekir.",
+      "temperature": "Tutuşma için 90-120°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 44,
+    "title": "B44: Amonyak ve Asit Tepkimesi",
+    "difficulty": "Kolay",
+    "description": "Amonyak gazı asit ile tepkimeye girerek amonyum tuzu oluşturur. Tersine çevrilebilir bir tepkimedir.",
+    "reactionEquation": "NH₃ + HCl → NH₄Cl",
+    "allChemicals": ["NH₃", "HCl", "NH₄Cl", "H₂SO₄", "HNO₃", "NaOH", "NaCl", "H₂O", "O₂"],
+    "correctChemicals": ["NH₃", "HCl"],
+    "correctRatio": { "NH₃": 1.0, "HCl": 1.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 50.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Amonyum klorür oluştu! Beyaz duman gözlemlendi.",
+    "failureMessages": {
+      "chemicals": "Amonyum tuzu için Amonyak ve Hidroklorik asit gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 45,
+    "title": "B45: Hidrojen ve Oksijen Tepkimesi (Su Sentezi)",
+    "difficulty": "Orta",
+    "description": "Hidrojen ve oksijen birleşerek su oluşturur. Bu tepkime çok enerjiktir ve patlayıcı olabilir!",
+    "reactionEquation": "2H₂ + O₂ → 2H₂O",
+    "allChemicals": ["H₂", "O₂", "H₂O", "N₂", "Ar", "He", "Ne", "CO₂", "CH₄"],
+    "correctChemicals": ["H₂", "O₂"],
+    "correctRatio": { "H₂": 2.0, "O₂": 1.0 },
+    "tempRange": { "start": 550.0, "endInclusive": 650.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 5.0 },
+    "successMessage": "Şiddetli patlama! Su buharı oluştu. Bu roket yakıtı olarak kullanılabilir.",
+    "failureMessages": {
+      "chemicals": "Su sentezi için Hidrojen ve Oksijen gereklidir.",
+      "ratio": "2 birim hidrojene karşı 1 birim oksijen gerekir.",
+      "temperature": "Tutuşma için 550-650°C sıcaklık gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 46,
+    "title": "B46: Bakır ve Nitrik Asit (Seyreltik)",
+    "difficulty": "Orta",
+    "description": "Seyreltik nitrik asit bakır ile tepkimeye girerek azot monoksit ve bakır nitrat oluşturur.",
+    "reactionEquation": "3Cu + 8HNO₃ → 3Cu(NO₃)₂ + 2NO + 4H₂O",
+    "allChemicals": ["Cu", "HNO₃", "Cu(NO₃)₂", "NO", "H₂O", "NO₂", "H₂SO₄", "HCl", "O₂"],
+    "correctChemicals": ["Cu", "HNO₃"],
+    "correctRatio": { "Cu": 3.0, "HNO₃": 8.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 50.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Renksiz azot monoksit gazı çıkışı gözlemlendi! Bakır nitrat çözeltisi oluştu.",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Bakır ve Seyreltik nitrik asit gereklidir.",
+      "ratio": "3 birim bakıra karşı 8 birim nitrik asit gerekir.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 47,
+    "title": "B47: Potasyum Permanganat ve Gliserol",
+    "difficulty": "Zor",
+    "description": "Potasyum permanganat gliserol ile şiddetli tepkimeye girerek alevlenmeye neden olur. Dikkatli ol!",
+    "reactionEquation": "14KMnO₄ + 4C₃H₈O₃ → 7K₂CO₃ + 7Mn₂O₃ + 5CO₂ + 16H₂O",
+    "allChemicals": ["KMnO₄", "C₃H₈O₃", "K₂CO₃", "Mn₂O₃", "CO₂", "H₂O", "O₂", "H₂SO₄", "NaOH"],
+    "correctChemicals": ["KMnO₄", "C₃H₈O₃"],
+    "correctRatio": { "KMnO₄": 14.0, "C₃H₈O₃": 4.0 },
+    "tempRange": { "start": 50.0, "endInclusive": 100.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Şiddetli alevlenme! Karbondioksit ve su buharı oluştu. Tepkime çok ekzotermiktir!",
+    "failureMessages": {
+      "chemicals": "Bu tepkime için Potasyum permanganat ve Gliserol gereklidir.",
+      "ratio": "14:4 oranında kullanmalısın (KMnO₄:C₃H₈O₃).",
+      "temperature": "Başlangıç için 50-100°C, tepkime kendisi ısı üretir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 48,
+    "title": "B48: Alüminyum ve Bakır Sülfat",
+    "difficulty": "Orta",
+    "description": "Alüminyum bakır sülfat çözeltisinden bakırı açığa çıkarır. Aktiflik sırasına göre bir redoks tepkimesidir.",
+    "reactionEquation": "2Al + 3CuSO₄ → Al₂(SO₄)₃ + 3Cu",
+    "allChemicals": ["Al", "CuSO₄", "Al₂(SO₄)₃", "Cu", "Fe", "Zn", "Mg", "AgNO₃", "NaCl"],
+    "correctChemicals": ["Al", "CuSO₄"],
+    "correctRatio": { "Al": 2.0, "CuSO₄": 3.0 },
+    "tempRange": { "start": 20.0, "endInclusive": 50.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 2.0 },
+    "successMessage": "Bakır metali açığa çıktı! Alüminyum sülfat oluştu. Renk değişimi gözlemlendi.",
+    "failureMessages": {
+      "chemicals": "Bu redoks tepkimesi için Alüminyum ve Bakır sülfat gereklidir.",
+      "ratio": "2 birim alüminyuma karşı 3 birim bakır sülfat gerekir.",
+      "temperature": "Oda sıcaklığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 49,
+    "title": "B49: Metan ve Klor Tepkimesi",
+    "difficulty": "Zor",
+    "description": "Metan klor ile yer değiştirme tepkimesine girer. UV ışığı veya ısı katalizör olarak etki eder.",
+    "reactionEquation": "CH₄ + Cl₂ → CH₃Cl + HCl",
+    "allChemicals": ["CH₄", "Cl₂", "CH₃Cl", "HCl", "CH₂Cl₂", "CCl₄", "H₂", "O₂", "CO₂"],
+    "correctChemicals": ["CH₄", "Cl₂"],
+    "correctRatio": { "CH₄": 1.0, "Cl₂": 1.0 },
+    "tempRange": { "start": 400.0, "endInclusive": 500.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Klorlama tepkimesi başarılı! Metil klorür ve hidroklorik asit oluştu.",
+    "failureMessages": {
+      "chemicals": "Klorlama için Metan ve Klor gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın (ilk aşama için).",
+      "temperature": "Tepkime için 400-500°C veya UV ışığı gereklidir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
+  },
+  {
+    "id": 50,
+    "title": "B50: Kükürt Trioksit ve Su Tepkimesi",
+    "difficulty": "Orta",
+    "description": "Kükürt trioksit su ile birleşerek sülfürik asit oluşturur. Bu kontak sürecinin son adımıdır.",
+    "reactionEquation": "SO₃ + H₂O → H₂SO₄",
+    "allChemicals": ["SO₃", "H₂O", "H₂SO₄", "SO₂", "O₂", "H₂", "HCl", "HNO₃", "CO₂"],
+    "correctChemicals": ["SO₃", "H₂O"],
+    "correctRatio": { "SO₃": 1.0, "H₂O": 1.0 },
+    "tempRange": { "start": 50.0, "endInclusive": 100.0 },
+    "pressureRange": { "start": 1.0, "endInclusive": 3.0 },
+    "successMessage": "Sülfürik asit üretildi! Bu dünyada en çok üretilen kimyasal maddelerden biridir.",
+    "failureMessages": {
+      "chemicals": "Sülfürik asit için Kükürt trioksit ve Su gereklidir.",
+      "ratio": "1:1 oranında kullanmalısın.",
+      "temperature": "50-100°C sıcaklık aralığında gerçekleşir.",
+      "pressure": "Normal basınç yeterlidir."
+    }
   }
 ]
