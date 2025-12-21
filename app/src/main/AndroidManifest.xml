@@ -13,6 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kimyasal">
+
+        <!-- =============================================================== -->
+        <!-- ==  Manufacturer-specific fullscreen/cutout support tags     == -->
+        <!-- =============================================================== -->
+        <!-- General Notch Support (Huawei, etc.) -->
+        <meta-data android:name="android.notch_support" android:value="true" />
+        <!-- Oppo -->
+        <meta-data android:name="oppo_support_fullscreen" android:value="true" />
+        <!-- Vivo -->
+        <meta-data android:name="vivo_notch_support" android:value="true"/>
+        <!-- Xiaomi -->
+        <meta-data android:name="notch.config" android:value="portrait|landscape" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -20,7 +33,6 @@
             android:theme="@style/Theme.Kimyasal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

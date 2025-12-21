@@ -1,12 +1,12 @@
 package com.ahmetkaraaslan.labx
 
-import android.content.Context
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -65,12 +65,17 @@ fun TestNavigator() {
                 playSound(context, R.raw.click_sound)
                 currentQuiz = quiz
             },
-            onBackPressed = { (context as? ComponentActivity)?.finish() }
+            onBackPressed = { (context as? Activity)?.finish() }
         )
     } else {
         QuizScreen(
             quiz = currentQuiz!!,
-            onComplete = { onQuizComplete(currentQuiz!!.id) }
+            onComplete = { onQuizComplete(currentQuiz!!.id) },
+            onBackPressed = {
+                vibrate(context, 50)
+                playSound(context, R.raw.click_sound)
+                currentQuiz = null
+            }
         )
     }
 }
@@ -92,10 +97,11 @@ fun TestSelectionScreen(quizzes: List<Quiz>, completedIds: Set<Int>, onQuizSelec
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
-        containerColor = Color.Transparent
+        containerColor = Color.Transparent,
+        modifier = Modifier.background(verticalGradientBrush)
     ) { padding ->
         LazyColumn(
-            modifier = Modifier.fillMaxSize().background(verticalGradientBrush).padding(padding).padding(16.dp),
+            modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(quizzes, key = { it.id }) { quiz ->
@@ -127,8 +133,9 @@ fun TestSelectionScreen(quizzes: List<Quiz>, completedIds: Set<Int>, onQuizSelec
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun QuizScreen(quiz: Quiz, onComplete: () -> Unit) {
+fun QuizScreen(quiz: Quiz, onComplete: () -> Unit, onBackPressed: () -> Unit) {
     var currentQuestionIndex by remember { mutableStateOf(0) }
     var selectedOptionIndex by remember { mutableStateOf<Int?>(null) }
     var isAnswered by remember { mutableStateOf(false) }
@@ -141,81 +148,85 @@ fun QuizScreen(quiz: Quiz, onComplete: () -> Unit) {
     if (showResultScreen) {
         ResultScreen(score = score, totalQuestions = quiz.questions.size, onDone = onComplete)
     } else {
-        Column(
-            modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(colors = listOf(Color(0xFF00586d), Color(0xFF009b97)))).padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                LinearProgressIndicator(
-                    progress = (currentQuestionIndex + 1) / quiz.questions.size.toFloat(),
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text(quiz.title, color = Color.White, fontSize = 18.sp) },
+                    navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Geri", tint = Color.White) } },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
                 )
-                Text(
-                    text = currentQuestion.questionText,
-                    color = Color.White, 
-                    fontSize = 20.sp, 
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(vertical = 24.dp)
-                )
-                currentQuestion.options.forEachIndexed { index, option ->
-                    val isCorrect = index == currentQuestion.correctAnswerIndex
-                    val isSelected = index == selectedOptionIndex
+            },
+            containerColor = Color.Transparent,
+            modifier = Modifier.background(Brush.verticalGradient(colors = listOf(Color(0xFF00586d), Color(0xFF009b97))))
+        ) { padding ->
+            Column(
+                modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    LinearProgressIndicator(
+                        progress = { (currentQuestionIndex + 1) / quiz.questions.size.toFloat() },
+                        modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+                    )
+                    Text(
+                        text = currentQuestion.questionText,
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(vertical = 24.dp)
+                    )
+                    currentQuestion.options.forEachIndexed { index, option ->
+                        val isCorrect = index == currentQuestion.correctAnswerIndex
+                        val isSelected = index == selectedOptionIndex
 
-                    val (borderColor, backgroundColor) = when {
-                        !isAnswered -> {
-                            Color.White.copy(alpha = 0.5f) to Color.Transparent
+                        val (borderColor, backgroundColor) = when {
+                            !isAnswered -> Color.White.copy(alpha = 0.5f) to Color.Transparent
+                            isSelected && !isCorrect -> Color.Red to Color(0x33FF0000)
+                            isCorrect -> Color(0xFF4CAF50) to Color(0x334CAF50)
+                            else -> Color.White.copy(alpha = 0.5f) to Color.Transparent
                         }
-                        isSelected && !isCorrect -> {
-                            Color.Red to Color(0x33FF0000)
-                        }
-                        isCorrect -> {
-                            Color(0xFF4CAF50) to Color(0x334CAF50)
-                        }
-                        else -> {
-                            Color.White.copy(alpha = 0.5f) to Color.Transparent
-                        }
-                    }
 
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 6.dp)
-                            .border(2.dp, borderColor, RoundedCornerShape(12.dp))
-                            .background(backgroundColor, RoundedCornerShape(12.dp))
-                            .clickable(enabled = !isAnswered) { 
-                                selectedOptionIndex = index
-                                isAnswered = true
-                                if (isCorrect) {
-                                    score++
-                                    playSound(context, R.raw.success_sound)
-                                    vibrate(context, 500)
-                                } else {
-                                    playSound(context, R.raw.error_sound)
-                                    vibrate(context, 1000)
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 6.dp)
+                                .border(2.dp, borderColor, RoundedCornerShape(12.dp))
+                                .background(backgroundColor, RoundedCornerShape(12.dp))
+                                .clickable(enabled = !isAnswered) {
+                                    selectedOptionIndex = index
+                                    isAnswered = true
+                                    if (isCorrect) {
+                                        score++
+                                        playSound(context, R.raw.success_sound)
+                                        vibrate(context, 500)
+                                    } else {
+                                        playSound(context, R.raw.error_sound)
+                                        vibrate(context, 1000)
+                                    }
                                 }
-                            }
-                            .padding(16.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(option, color = Color.White, fontSize = 16.sp)
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(option, color = Color.White, fontSize = 16.sp)
+                        }
                     }
                 }
-            }
-            Button(
-                onClick = {
-                    if (currentQuestionIndex < quiz.questions.size - 1) {
-                        currentQuestionIndex++
-                        isAnswered = false
-                        selectedOptionIndex = null
-                    } else {
-                        showResultScreen = true
-                    }
-                },
-                enabled = isAnswered,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(if (currentQuestionIndex < quiz.questions.size - 1) "Sonraki Soru" else "Testi Bitir")
+                Button(
+                    onClick = {
+                        if (currentQuestionIndex < quiz.questions.size - 1) {
+                            currentQuestionIndex++
+                            isAnswered = false
+                            selectedOptionIndex = null
+                        } else {
+                            showResultScreen = true
+                        }
+                    },
+                    enabled = isAnswered,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(if (currentQuestionIndex < quiz.questions.size - 1) "Sonraki Soru" else "Testi Bitir")
+                }
             }
         }
     }
@@ -224,22 +235,27 @@ fun QuizScreen(quiz: Quiz, onComplete: () -> Unit) {
 @Composable
 fun ResultScreen(score: Int, totalQuestions: Int, onDone: () -> Unit) {
     val context = LocalContext.current
-    Column(
-        modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(colors = listOf(Color(0xFF00586d), Color(0xFF009b97)))).padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text("Test Tamamlandı!", fontSize = 32.sp, fontWeight = FontWeight.Bold, color = Color.White)
-        Spacer(modifier = Modifier.height(32.dp))
-        Text("Skorun:", fontSize = 24.sp, color = Color.White.copy(alpha = 0.8f))
-        Text("$score / $totalQuestions", fontSize = 48.sp, fontWeight = FontWeight.Bold, color = Color.White)
-        Spacer(modifier = Modifier.height(48.dp))
-        Button(onClick = {
-            vibrate(context, 50)
-            playSound(context, R.raw.click_sound)
-            onDone()
-        }, modifier = Modifier.fillMaxWidth()) {
-            Text("Menüye Dön")
+    Scaffold(
+        containerColor = Color.Transparent,
+        modifier = Modifier.background(Brush.verticalGradient(colors = listOf(Color(0xFF00586d), Color(0xFF009b97))))
+    ) { padding ->
+        Column(
+            modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text("Test Tamamlandı!", fontSize = 32.sp, fontWeight = FontWeight.Bold, color = Color.White)
+            Spacer(modifier = Modifier.height(32.dp))
+            Text("Skorun:", fontSize = 24.sp, color = Color.White.copy(alpha = 0.8f))
+            Text("$score / $totalQuestions", fontSize = 48.sp, fontWeight = FontWeight.Bold, color = Color.White)
+            Spacer(modifier = Modifier.height(48.dp))
+            Button(onClick = {
+                vibrate(context, 50)
+                playSound(context, R.raw.click_sound)
+                onDone()
+            }, modifier = Modifier.fillMaxWidth()) {
+                Text("Menüye Dön")
+            }
         }
     }
 }
