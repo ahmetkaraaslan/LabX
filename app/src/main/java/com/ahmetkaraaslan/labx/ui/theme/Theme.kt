@@ -10,11 +10,12 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -58,11 +59,16 @@ fun KimyasalTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            // Make the app edge-to-edge
+            val insetsController = WindowCompat.getInsetsController(window, view)
+            
+            // Enable edge-to-edge display
             WindowCompat.setDecorFitsSystemWindows(window, false)
-            // Make system bars transparent
-            window.statusBarColor = Color.Transparent.toArgb()
-            window.navigationBarColor = Color.Transparent.toArgb()
+
+            // Hide the system bars for an immersive experience
+            insetsController.hide(WindowInsetsCompat.Type.systemBars())
+            
+            // Set the behavior for showing system bars with a swipe gesture
+            insetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 
