@@ -1,5 +1,1 @@
-package com.ahmetkaraaslan.labx
-
-import androidx.lifecycle.ViewModel
-
-class MainViewModel : ViewModel()
+// This file is intentionally left blank to remove it from the project.

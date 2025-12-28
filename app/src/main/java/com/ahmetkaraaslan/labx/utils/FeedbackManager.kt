@@ -5,11 +5,11 @@ import android.media.MediaPlayer
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.ahmetkaraaslan.labx.R
 import com.ahmetkaraaslan.labx.model.Quiz
 import com.ahmetkaraaslan.labx.model.Scenario
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.io.InputStreamReader
 
 // --- Settings Read/Write ---
@@ -27,6 +27,22 @@ fun saveSoundSetting(context: Context, isEnabled: Boolean) {
 
 fun loadSoundSetting(context: Context): Boolean {
     return context.getSharedPreferences("labx_settings", Context.MODE_PRIVATE).getBoolean("sound_enabled", true)
+}
+
+// --- Avatar URL Read/Write ---
+fun saveAvatarUrl(context: Context, url: String) {
+    context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE).edit()
+        .putString("avatar_url", url).apply()
+}
+
+fun loadAvatarUrl(context: Context): String? {
+    return context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE)
+        .getString("avatar_url", null)
+}
+
+fun deleteAvatarUrl(context: Context) {
+    context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE).edit().remove("avatar_url")
+        .apply()
 }
 
 // --- Data Loading ---

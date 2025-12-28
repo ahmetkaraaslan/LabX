@@ -50,23 +50,18 @@ fun KimyasalTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            
-            // Step 1: Make the app edge-to-edge
-            WindowCompat.setDecorFitsSystemWindows(window, false)
+            val insetsController = WindowCompat.getInsetsController(window, view)
 
-            // Step 2: Make the system bars fully transparent
+            // Make the app edge-to-edge and system bars transparent
+            WindowCompat.setDecorFitsSystemWindows(window, false)
             window.statusBarColor = Color.Transparent.toArgb()
             window.navigationBarColor = Color.Transparent.toArgb()
 
-            // Step 3: Tell the system to hide the system bar icons
-            val insetsController = WindowCompat.getInsetsController(window, view)
-            insetsController.isAppearanceLightStatusBars = !darkTheme
-            window.statusBarColor = android.graphics.Color.TRANSPARENT
-            
-            // Step 4: Set the behavior for when the user swipes to show the bars
+            // Hide the system bar icons and define behavior
+            insetsController.hide(WindowInsetsCompat.Type.systemBars())
             insetsController.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 
-            // Step 5: Allow content to be drawn into the display cutout (notch) area
+            // Allow content to be drawn into the display cutout (notch) area
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
             }
