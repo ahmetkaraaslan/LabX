@@ -1,37 +1,19 @@
 package com.ahmetkaraaslan.labx
 
 import android.os.Bundle
+import android.webkit.CookieManager
+import android.webkit.WebStorage
+import android.webkit.WebView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -40,11 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ahmetkaraaslan.labx.ui.theme.KimyasalTheme
-import com.ahmetkaraaslan.labx.utils.deleteAvatarUrl
-import com.ahmetkaraaslan.labx.utils.loadSoundSetting
-import com.ahmetkaraaslan.labx.utils.loadVibrationSetting
-import com.ahmetkaraaslan.labx.utils.saveSoundSetting
-import com.ahmetkaraaslan.labx.utils.saveVibrationSetting
+import com.ahmetkaraaslan.labx.utils.*
 
 class SettingsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,14 +54,11 @@ fun SettingsScreen(onBackPressed: () -> Unit) {
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
-        containerColor = Color.Transparent
+        containerColor = Color.Transparent,
+        modifier = Modifier.background(verticalGradientBrush)
     ) { padding ->
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(verticalGradientBrush)
-                .padding(padding)
-                .padding(16.dp),
+            modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             SettingSwitch(title = "Uygulama Sesi", checked = soundEnabled, onCheckedChange = { 
@@ -95,16 +70,32 @@ fun SettingsScreen(onBackPressed: () -> Unit) {
                 vibrationEnabled = it 
                 saveVibrationSetting(context, it)
             })
-
+            
             Spacer(modifier = Modifier.weight(1f))
 
             // Danger Zone
-            Text("Tehlikeli Alan", color = Color.White.copy(alpha = 0.7f), fontSize = 12.sp)
+            Text("Veri Yönetimi", color = Color.White.copy(alpha = 0.7f), fontSize = 12.sp)
             Spacer(modifier = Modifier.height(8.dp))
             Button(
                 onClick = {
+                    // 1. Clear SharedPreferences
                     deleteAvatarUrl(context)
-                    Toast.makeText(context, "Avatar sıfırlandı!", Toast.LENGTH_SHORT).show()
+
+                    // 2. Clear all WebView data
+                    try {
+                        CookieManager.getInstance().removeAllCookies(null)
+                        CookieManager.getInstance().flush()
+                        WebStorage.getInstance().deleteAllData()
+                        val webView = WebView(context)
+                        webView.clearCache(true)
+                        webView.clearFormData()
+                        webView.clearHistory()
+                        webView.clearSslPreferences()
+                    } catch (e: Exception) {
+                        // Handle exceptions if necessary
+                    }
+
+                    Toast.makeText(context, "Tüm avatar verileri temizlendi!", Toast.LENGTH_SHORT).show()
                 },
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFB00020))
@@ -118,10 +109,7 @@ fun SettingsScreen(onBackPressed: () -> Unit) {
 @Composable
 fun SettingSwitch(title: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color(0x33FFFFFF), RoundedCornerShape(12.dp))
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.fillMaxWidth().background(Color(0x33FFFFFF), RoundedCornerShape(12.dp)).padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {

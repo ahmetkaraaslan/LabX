@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,18 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kimyasal">
 
-        <!-- Manufacturer-specific fullscreen/cutout support -->
-        <meta-data android:name="oppo_support_fullscreen" android:value="true" />
-        <meta-data
-            android:name="android.notch_support"
-            android:value="true" />
-        <meta-data android:name="vivo_notch_support" android:value="true"/>
-        <meta-data android:name="notch.config" android:value="portrait|landscape" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Kimyasal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +38,7 @@
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="Ayarlar"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Kimyasal" />
         <activity
             android:name=".FreeModeActivity"

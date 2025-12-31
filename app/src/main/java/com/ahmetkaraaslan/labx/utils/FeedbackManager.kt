@@ -41,8 +41,8 @@ fun loadAvatarUrl(context: Context): String? {
 }
 
 fun deleteAvatarUrl(context: Context) {
-    context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE).edit().remove("avatar_url")
-        .apply()
+    // The most direct and guaranteed way to remove a single key.
+    context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE).edit().remove("avatar_url").apply()
 }
 
 // --- Data Loading ---

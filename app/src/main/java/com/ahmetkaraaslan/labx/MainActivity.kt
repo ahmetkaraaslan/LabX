@@ -169,7 +169,6 @@ fun ModeButton(icon: Painter, title: String, subtitle: String, onClick: () -> Un
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {

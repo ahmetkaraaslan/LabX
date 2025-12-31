@@ -6,15 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -26,24 +18,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -58,11 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ahmetkaraaslan.labx.model.Scenario
 import com.ahmetkaraaslan.labx.ui.theme.KimyasalTheme
-import com.ahmetkaraaslan.labx.utils.loadCompletedScenarios
-import com.ahmetkaraaslan.labx.utils.loadScenariosFromJson
-import com.ahmetkaraaslan.labx.utils.playSound
-import com.ahmetkaraaslan.labx.utils.saveCompletedScenarios
-import com.ahmetkaraaslan.labx.utils.vibrate
+import com.ahmetkaraaslan.labx.utils.*
 
 class ScenarioActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -243,8 +215,8 @@ fun ScenarioExperimentScreen(
                 )
                 selectedChemicals.forEach { chemical ->
                     val amount = chemicalAmounts[chemical] ?: 0f
-                    Text(text = "$chemical Miktarı: ${ String.format( "%.2f" , amount) } mol" , color = Color.White, modifier = Modifier.clickable {
-                    vibrate(context, 50)
+                    Text(text = "$chemical Miktarı: ${String.format("%.2f", amount)} mol", color = Color.White, modifier = Modifier.clickable {
+                        vibrate(context, 50)
                         playSound(context, R.raw.click_sound)
                         showInputDialogFor = chemical
                     })
