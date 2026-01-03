@@ -10,9 +10,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
+        flatDir {
+            dirs("unityLibrary/libs")
+        }
     }
 }
 
 rootProject.name = "LabX"
+
 include(":app")
+include(":unityLibrary")
+project(":unityLibrary").projectDir = File("unityLibrary")

@@ -19,7 +19,7 @@ android {
 
     defaultConfig {
         applicationId = "com.ahmetkaraaslan.labx"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -28,31 +28,21 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        // APK hatasını çözmek için mimari desteğini ekliyoruz
+        ndk {
+            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a"))
+        }
     }
 
     signingConfigs {
         create("release") {
-            val keystoreFile = keystoreProperties["KEYSTORE_FILE"]?.toString() 
-                ?: System.getenv("KEYSTORE_FILE") 
-                ?: "keystore/labx-release.jks"
-            
-            val keystorePassword = keystoreProperties["KEYSTORE_PASSWORD"]?.toString() 
-                ?: System.getenv("KEYSTORE_PASSWORD") 
-                ?: ""
-            
-            val keyAlias = keystoreProperties["KEY_ALIAS"]?.toString() 
-                ?: System.getenv("KEY_ALIAS") 
-                ?: "labx"
-            
-            val keyPassword = keystoreProperties["KEY_PASSWORD"]?.toString() 
-                ?: System.getenv("KEY_PASSWORD") 
-                ?: ""
+            val keystoreFile = keystoreProperties["KEYSTORE_FILE"]?.toString() ?: "keystore/labx-release.jks"
+            val keystorePassword = keystoreProperties["KEYSTORE_PASSWORD"]?.toString() ?: ""
+            val keyAlias = keystoreProperties["KEY_ALIAS"]?.toString() ?: "labx"
+            val keyPassword = keystoreProperties["KEY_PASSWORD"]?.toString() ?: ""
 
             val keystoreFileObj = rootProject.file(keystoreFile)
-            if (!keystoreFileObj.exists()) {
-                throw GradleException("Keystore file not found: $keystoreFile")
-            }       
-            
             storeFile = keystoreFileObj
             storePassword = keystorePassword
             this.keyAlias = keyAlias
@@ -73,25 +63,32 @@ android {
             isMinifyEnabled = false
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
+
+
 
 dependencies {
     implementation(libs.androidx.core.ktx)
@@ -104,6 +101,10 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation(project(":unityLibrary"))
+    implementation(files("../unityLibrary/libs/unity-classes.jar"))
+    implementation(files("../unityLibrary/libs/common.aar"))
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
