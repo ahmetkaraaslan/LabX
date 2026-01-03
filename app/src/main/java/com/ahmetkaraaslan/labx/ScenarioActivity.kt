@@ -23,32 +23,47 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ahmetkaraaslan.labx.model.Scenario
-import com.ahmetkaraaslan.labx.ui.theme.KimyasalTheme
+import com.ahmetkaraaslan.labx.ui.theme.*
 import com.ahmetkaraaslan.labx.utils.*
+import kotlinx.coroutines.flow.collectLatest
+
+// ViewModel Factory to pass the scenario to the ViewModel
+class ScenarioViewModelFactory(private val scenario: Scenario) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(ScenarioViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return ScenarioViewModel(scenario) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
 
 class ScenarioActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             KimyasalTheme {
-                ScenarioNavigator()
+                ScenarioNavigator { finish() }
             }
         }
     }
 }
 
 @Composable
-fun ScenarioNavigator() {
+fun ScenarioNavigator(onFinishActivity: () -> Unit) {
     val context = LocalContext.current
     val allScenarios = remember { loadScenariosFromJson(context) }
     var completedScenarioIds by remember { mutableStateOf(loadCompletedScenarios(context)) }
@@ -58,28 +73,33 @@ fun ScenarioNavigator() {
         val newCompletedIds = completedScenarioIds + scenarioId
         saveCompletedScenarios(context, newCompletedIds)
         completedScenarioIds = newCompletedIds
-        currentScenario = null
+        currentScenario = null // Go back to selection screen
     }
 
-    if (currentScenario == null) {
+    val selectedScenario = currentScenario
+
+    if (selectedScenario == null) {
         ScenarioSelectionScreen(
             scenarios = allScenarios,
             completedIds = completedScenarioIds,
             onScenarioSelected = { scenario ->
-                vibrate(context, 50)
-                playSound(context, R.raw.click_sound)
+                playClickFeedback(context)
                 currentScenario = scenario
             },
-            onBackPressed = { (context as? ComponentActivity)?.finish() }
+            onBackPressed = {
+                playClickFeedback(context)
+                onFinishActivity()
+            }
         )
     } else {
+        val viewModel: ScenarioViewModel = viewModel(factory = ScenarioViewModelFactory(selectedScenario))
         ScenarioExperimentScreen(
-            scenario = currentScenario!!,
+            scenario = selectedScenario,
+            viewModel = viewModel,
             onComplete = onScenarioComplete,
             onBackPressed = {
-                vibrate(context, 50)
-                playSound(context, R.raw.click_sound)
-                currentScenario = null
+                playClickFeedback(context)
+                currentScenario = null // Go back to selection screen
             }
         )
     }
@@ -93,24 +113,26 @@ fun ScenarioSelectionScreen(
     onScenarioSelected: (Scenario) -> Unit,
     onBackPressed: () -> Unit
 ) {
-    val context = LocalContext.current
-    val verticalGradientBrush = Brush.verticalGradient(colors = listOf(Color(0xFF00586d), Color(0xFF009b97)))
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Senaryo Seçimi", color = Color.White) },
-                navigationIcon = { IconButton(onClick = {
-                    vibrate(context, 50)
-                    playSound(context, R.raw.click_sound)
-                    onBackPressed()
-                }) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Geri", tint = Color.White) } },
+                title = { Text(stringResource(id = R.string.scenario_selection), color = Color.White) },
+                navigationIcon = {
+                    IconButton(onClick = onBackPressed) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(id = R.string.back), tint = Color.White)
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
         containerColor = Color.Transparent
     ) { padding ->
         LazyColumn(
-            modifier = Modifier.fillMaxSize().background(verticalGradientBrush).padding(padding).padding(16.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(LabX_Background_Gradient)
+                .padding(padding)
+                .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(scenarios, key = { it.id }) { scenario ->
@@ -121,25 +143,25 @@ fun ScenarioSelectionScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .alpha(alpha)
-                        .background(Color(0x33FFFFFF), RoundedCornerShape(12.dp))
+                        .background(LabX_Button_Transparent, RoundedCornerShape(12.dp))
                         .clickable(enabled = isUnlocked) { onScenarioSelected(scenario) }
                         .padding(16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = scenario.title,
-                        color = Color.White, 
-                        fontSize = 18.sp, 
+                        color = Color.White,
+                        fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.weight(1f)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     when {
                         scenario.id in completedIds -> {
-                            Icon(imageVector = Icons.Default.CheckCircle, contentDescription = "Tamamlandı", tint = Color(0xFF4CAF50))
+                            Icon(imageVector = Icons.Default.CheckCircle, contentDescription = stringResource(id = R.string.completed), tint = LabX_Success)
                         }
                         !isUnlocked -> {
-                            Icon(imageVector = Icons.Default.Lock, contentDescription = "Kilitli", tint = Color.White, modifier = Modifier.size(20.dp))
+                            Icon(imageVector = Icons.Default.Lock, contentDescription = stringResource(id = R.string.locked), tint = Color.White, modifier = Modifier.size(20.dp))
                         }
                     }
                 }
@@ -148,58 +170,71 @@ fun ScenarioSelectionScreen(
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScenarioExperimentScreen(
     scenario: Scenario,
+    viewModel: ScenarioViewModel,
     onComplete: (Int) -> Unit,
     onBackPressed: () -> Unit
 ) {
     val context = LocalContext.current
-    val verticalGradientBrush = Brush.verticalGradient(colors = listOf(Color(0xFF00586d), Color(0xFF009b97)))
-    var temperature by remember { mutableStateOf(25f) }
-    var pressure by remember { mutableStateOf(1f) }
-    var selectedChemicals by remember { mutableStateOf(setOf<String>()) }
-    var chemicalAmounts by remember { mutableStateOf(mapOf<String, Float>()) }
-    var showResultDialog by remember { mutableStateOf(false) }
-    var dialogTitle by remember { mutableStateOf("") }
-    var dialogMessage by remember { mutableStateOf("") }
+    val uiState by viewModel.uiState.collectAsState()
+    var showResultDialog by remember { mutableStateOf<ReactionResult?>(null) }
     var showInputDialogFor by remember { mutableStateOf<String?>(null) }
-    var showReactionEquation by remember { mutableStateOf(false) }
 
-    val shuffledChemicals = remember(scenario.id) { scenario.allChemicals.shuffled() }
+    // Listen for reaction results from the ViewModel
+    LaunchedEffect(Unit) {
+        viewModel.reactionResult.collectLatest { result ->
+            when(result) {
+                is ReactionResult.Success -> playSuccessFeedback(context)
+                is ReactionResult.Failure -> playErrorFeedback(context)
+            }
+            showResultDialog = result
+        }
+    }
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(scenario.title, color = Color.White, fontSize = 18.sp) },
-                navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Geri", tint = Color.White) } },
+                navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(id = R.string.back), tint = Color.White) } },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
         containerColor = Color.Transparent
     ) { innerPadding ->
         Column(
-            modifier = Modifier.fillMaxSize().background(verticalGradientBrush).padding(innerPadding).padding(16.dp).verticalScroll(rememberScrollState()),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(LabX_Background_Gradient)
+                .padding(innerPadding)
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Text(text = scenario.description, color = Color.White, textAlign = TextAlign.Center, fontSize = 16.sp)
-            
-            Text("Gerekli Kimyasallar:", color = Color.White, fontSize = 18.sp)
-            
+
+            Text(stringResource(id = R.string.required_chemicals), color = Color.White, fontSize = 18.sp)
+
+            // Chemical Buttons
             Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                shuffledChemicals.chunked(3).forEach { rowChemicals ->
+                viewModel.shuffledChemicals.chunked(3).forEach { rowChemicals ->
                     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                       rowChemicals.forEach { chemical ->
+                        rowChemicals.forEach { chemical ->
                             ChemicalButton(
                                 modifier = Modifier.weight(1f),
                                 chemical = chemical,
-                                selectedChemicals = selectedChemicals,
-                                chemicalAmounts = chemicalAmounts,
-                                onSelect = { s, a -> selectedChemicals = s; chemicalAmounts = a }
+                                isSelected = chemical in uiState.selectedChemicals,
+                                onClick = {
+                                    playClickFeedback(context)
+                                    viewModel.onEvent(ScenarioEvent.ChemicalSelected(chemical))
+                                }
                             )
                         }
+                        // Add spacers to keep layout consistent
                         repeat(3 - rowChemicals.size) {
                             Spacer(modifier = Modifier.weight(1f).padding(horizontal = 4.dp))
                         }
@@ -207,40 +242,49 @@ fun ScenarioExperimentScreen(
                 }
             }
 
-            if (selectedChemicals.isNotEmpty()) {
+            // Sliders for selected chemicals
+            if (uiState.selectedChemicals.isNotEmpty()) {
                 Text(
-                    text = "Madde Miktarları (mol):",
+                    text = stringResource(id = R.string.substance_amounts_mol),
                     color = Color.White,
                     fontSize = 18.sp
                 )
-                selectedChemicals.forEach { chemical ->
-                    val amount = chemicalAmounts[chemical] ?: 0f
-                    Text(text = "$chemical Miktarı: ${String.format("%.2f", amount)} mol", color = Color.White, modifier = Modifier.clickable {
-                        vibrate(context, 50)
-                        playSound(context, R.raw.click_sound)
+                uiState.selectedChemicals.forEach { chemical ->
+                    val amount = uiState.chemicalAmounts[chemical] ?: 0f
+                    val textLabel = stringResource(id = R.string.amount_mol)
+                    Text(text = "$chemical: ${String.format("%.2f", amount)} $textLabel", color = Color.White, modifier = Modifier.clickable {
+                        playClickFeedback(context)
                         showInputDialogFor = chemical
                     })
-                    Slider(value = amount, onValueChange = { newAmount -> chemicalAmounts = chemicalAmounts + (chemical to newAmount) }, valueRange = 0f..5f)
+                    Slider(
+                        value = amount,
+                        onValueChange = { newAmount -> viewModel.onEvent(ScenarioEvent.ChemicalAmountChanged(chemical, newAmount)) },
+                        valueRange = 0f..5f
+                    )
                 }
             }
 
-            Text(text = "Sıcaklık: ${temperature.toInt()} °C", color = Color.White, modifier = Modifier.clickable {
-                vibrate(context, 50)
-                playSound(context, R.raw.click_sound)
+            // Temperature Slider
+            val tempLabel = stringResource(id = R.string.temperature)
+            Text(text = "$tempLabel: ${uiState.temperature.toInt()} °C", color = Color.White, modifier = Modifier.clickable {
+                playClickFeedback(context)
                 showInputDialogFor = "temperature"
             })
-            Slider(value = temperature, onValueChange = { temperature = it }, valueRange = 0f..1000f)
-            Text(text = "Basınç: ${pressure.toInt()} atm", color = Color.White, modifier = Modifier.clickable {
-                vibrate(context, 50)
-                playSound(context, R.raw.click_sound)
+            Slider(value = uiState.temperature, onValueChange = { viewModel.onEvent(ScenarioEvent.TemperatureChanged(it)) }, valueRange = 0f..1000f)
+
+            // Pressure Slider
+            val pressureLabel = stringResource(id = R.string.pressure)
+            Text(text = "$pressureLabel: ${uiState.pressure.toInt()} atm", color = Color.White, modifier = Modifier.clickable {
+                playClickFeedback(context)
                 showInputDialogFor = "pressure"
             })
-            Slider(value = pressure, onValueChange = { pressure = it }, valueRange = 0f..500f)
-            
+            Slider(value = uiState.pressure, onValueChange = { viewModel.onEvent(ScenarioEvent.PressureChanged(it)) }, valueRange = 0f..500f)
+
             Spacer(modifier = Modifier.weight(1f, fill = false))
-            
-            AnimatedVisibility(visible = showReactionEquation) {
-                 Text(
+
+            // Reaction Equation
+            AnimatedVisibility(visible = uiState.showReactionEquation) {
+                Text(
                     text = scenario.reactionEquation,
                     color = Color.White,
                     fontSize = 20.sp,
@@ -249,79 +293,46 @@ fun ScenarioExperimentScreen(
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
             }
-            
+
             Button(
-                onClick = { showReactionEquation = !showReactionEquation },
+                onClick = { viewModel.onEvent(ScenarioEvent.ToggleReactionEquation) },
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0x66FFFFFF))
+                colors = ButtonDefaults.buttonColors(containerColor = LabX_Button_Transparent_Dark)
             ) {
-                Text(if(showReactionEquation) "Formülü Gizle" else "Formülü Göster", color = Color.White)
+                Text(
+                    text = stringResource(if (uiState.showReactionEquation) R.string.hide_formula else R.string.show_formula),
+                    color = Color.White
+                )
             }
 
+            // Start Reaction Button
             Button(
                 onClick = {
-                    vibrate(context, 50)
-                    playSound(context, R.raw.click_sound)
-
-                    val areChemicalsCorrect = selectedChemicals == scenario.correctChemicals.toSet()
-
-                    var isRatioCorrect = selectedChemicals.size == 1 && scenario.correctRatio.size == 1
-                    if (scenario.correctRatio.size > 1) {
-                        val mainCorrectChemical = scenario.correctRatio.keys.first()
-                        val n2Amount = chemicalAmounts[mainCorrectChemical] ?: 0f
-                        isRatioCorrect = scenario.correctRatio.all { (key, ratio) ->
-                            val amount = chemicalAmounts[key] ?: 0f
-                            if (n2Amount == 0f) false
-                            else {
-                                val actualRatio = amount / n2Amount
-                                val expectedRatio = ratio / scenario.correctRatio.values.first()
-                                actualRatio in (expectedRatio * 0.9)..(expectedRatio * 1.1)
-                            }
-                        }
-                    }
-
-                    val isTempCorrect = temperature in scenario.tempRange.start..scenario.tempRange.endInclusive
-                    val isPressureCorrect = pressure in scenario.pressureRange.start..scenario.pressureRange.endInclusive
-
-                    if (areChemicalsCorrect && isRatioCorrect && isTempCorrect && isPressureCorrect) {
-                        dialogTitle = "Tepkime Başarılı!"
-                        dialogMessage = scenario.successMessage
-                        vibrate(context, 1000) 
-                        playSound(context, R.raw.success_sound) 
-                    } else {
-                        dialogTitle = "Tepkime Başarısız"
-                        vibrate(context, 2000)
-                        playSound(context, R.raw.error_sound)
-                        dialogMessage = when {
-                            !areChemicalsCorrect -> scenario.failureMessages["chemicals"]!!
-                            !isRatioCorrect -> scenario.failureMessages["ratio"]!!
-                            !isTempCorrect -> scenario.failureMessages["temperature"]!!
-                            !isPressureCorrect -> scenario.failureMessages["pressure"]!!
-                            else -> "Bir şeyler ters gitti."
-                        }
-                    }
-                    showResultDialog = true
+                    playClickFeedback(context)
+                    viewModel.onEvent(ScenarioEvent.StartReaction)
                 },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xAAFFFFFF)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp)
             ) {
-                Text("Tepkimeyi Başlat", color = Color(0xFF00586d), fontWeight = FontWeight.Bold)
+                Text(stringResource(id = R.string.start_reaction), color = LabX_Primary, fontWeight = FontWeight.Bold)
             }
         }
 
-        if (showInputDialogFor != null) {
-            val editingKey = showInputDialogFor!!
+        // --- Dialogs ---
+
+        // Input Dialog
+        showInputDialogFor?.let { editingKey ->
             val isDecimal = editingKey !in listOf("temperature", "pressure")
             InputDialog(
                 title = when (editingKey) {
-                    "temperature" -> "Sıcaklık Girin"
-                    "pressure" -> "Basınç Girin"
-                    else -> "$editingKey Miktarı Girin"
+                    "temperature" -> stringResource(R.string.enter_temperature)
+                    "pressure" -> stringResource(R.string.enter_pressure)
+                    else -> stringResource(R.string.enter_amount, editingKey)
                 },
                 label = when (editingKey) {
-                    "temperature" -> "Sıcaklık (°C)"
-                    "pressure" -> "Basınç (atm)"
-                    else -> "Miktar (mol)"
+                    "temperature" -> stringResource(R.string.temperature_celsius)
+                    "pressure" -> stringResource(R.string.pressure_atm)
+                    else -> stringResource(R.string.amount_mol)
                 },
                 keyboardType = if (isDecimal) KeyboardType.Decimal else KeyboardType.Number,
                 onDismiss = { showInputDialogFor = null },
@@ -329,9 +340,9 @@ fun ScenarioExperimentScreen(
                     val floatValue = it.toFloatOrNull()
                     if (floatValue != null) {
                         when (editingKey) {
-                            "temperature" -> temperature = floatValue
-                            "pressure" -> pressure = floatValue
-                            else -> chemicalAmounts = chemicalAmounts + (editingKey to floatValue)
+                            "temperature" -> viewModel.onEvent(ScenarioEvent.TemperatureChanged(floatValue))
+                            "pressure" -> viewModel.onEvent(ScenarioEvent.PressureChanged(floatValue))
+                            else -> viewModel.onEvent(ScenarioEvent.ChemicalAmountChanged(editingKey, floatValue))
                         }
                     }
                     showInputDialogFor = null
@@ -339,18 +350,19 @@ fun ScenarioExperimentScreen(
             )
         }
 
-        if (showResultDialog) {
+        // Result Dialog
+        showResultDialog?.let { result ->
             AlertDialog(
-                onDismissRequest = { showResultDialog = false },
-                title = { Text(dialogTitle) },
-                text = { Text(dialogMessage) },
+                onDismissRequest = { showResultDialog = null },
+                title = { Text(result.title) },
+                text = { Text(result.message) },
                 confirmButton = {
                     Button(onClick = {
-                        if (dialogTitle == "Tepkime Başarılı!") {
+                        if (result is ReactionResult.Success) {
                             onComplete(scenario.id)
                         }
-                        showResultDialog = false
-                    }) { Text("Tamam") }
+                        showResultDialog = null
+                    }) { Text(stringResource(id = R.string.ok)) }
                 }
             )
         }
@@ -361,37 +373,44 @@ fun ScenarioExperimentScreen(
 fun ChemicalButton(
     modifier: Modifier = Modifier,
     chemical: String,
-    selectedChemicals: Set<String>,
-    chemicalAmounts: Map<String, Float>,
-    onSelect: (Set<String>, Map<String, Float>) -> Unit
+    isSelected: Boolean,
+    onClick: () -> Unit
 ) {
-    val context = LocalContext.current
-    val isSelected = chemical in selectedChemicals
     Button(
         modifier = modifier.padding(horizontal = 4.dp),
         shape = RoundedCornerShape(12.dp),
-        onClick = {
-            vibrate(context, 50)
-            playSound(context, R.raw.click_sound)
-            val newSelected = if (isSelected) selectedChemicals - chemical else selectedChemicals + chemical
-            val newAmounts = if (isSelected) chemicalAmounts - chemical else chemicalAmounts + (chemical to 0f)
-            onSelect(newSelected, newAmounts)
-        },
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (isSelected) Color.White else Color(0x33FFFFFF),
-            contentColor = if (isSelected) Color(0xFF00586d) else Color.White
+            containerColor = if (isSelected) Color.White else LabX_Button_Transparent,
+            contentColor = if (isSelected) LabX_Primary else Color.White
         )
     ) { Text(chemical) }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InputDialog(title: String, label: String, keyboardType: KeyboardType, onDismiss: () -> Unit, onConfirm: (String) -> Unit) {
+fun InputDialog(
+    title: String,
+    label: String,
+    keyboardType: KeyboardType,
+    onDismiss: () -> Unit,
+    onConfirm: (String) -> Unit
+) {
     var text by remember { mutableStateOf("") }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
-        text = { OutlinedTextField(value = text, onValueChange = { text = it }, label = { Text(label) }, singleLine = true, keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType, imeAction = ImeAction.Done), keyboardActions = KeyboardActions(onDone = { onConfirm(text) })) },
-        confirmButton = { TextButton(onClick = { onConfirm(text) }) { Text("Tamam") } },
-        dismissButton = { TextButton(onClick = onDismiss) { Text("İptal") } }
+        text = {
+            OutlinedTextField(
+                value = text,
+                onValueChange = { text = it },
+                label = { Text(label) },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType, imeAction = ImeAction.Done),
+                keyboardActions = KeyboardActions(onDone = { onConfirm(text) })
+            )
+        },
+        confirmButton = { TextButton(onClick = { onConfirm(text) }) { Text(stringResource(id = R.string.ok)) } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text(stringResource(id = R.string.cancel)) } }
     )
 }

@@ -1,49 +1,32 @@
 package com.ahmetkaraaslan.labx
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ahmetkaraaslan.labx.ui.theme.KimyasalTheme
-import com.ahmetkaraaslan.labx.utils.playSound
-import com.ahmetkaraaslan.labx.utils.vibrate
+import com.ahmetkaraaslan.labx.ui.theme.*
+import com.ahmetkaraaslan.labx.utils.playClickFeedback
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,12 +39,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+private fun <T : ComponentActivity> navigateTo(context: Context, destination: Class<T>) {
+    playClickFeedback(context)
+    context.startActivity(Intent(context, destination))
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
-    val verticalGradientBrush = Brush.verticalGradient(
-        colors = listOf(Color(0xFF00586d), Color(0xFF009b97))
-    )
     val context = LocalContext.current
 
     Scaffold(
@@ -69,14 +54,10 @@ fun MainScreen() {
             TopAppBar(
                 title = {},
                 actions = {
-                    IconButton(onClick = { 
-                        vibrate(context, 50)
-                        playSound(context, R.raw.click_sound)
-                        context.startActivity(Intent(context, SettingsActivity::class.java))
-                    }) {
+                    IconButton(onClick = { navigateTo(context, SettingsActivity::class.java) }) {
                         Icon(
                             imageVector = Icons.Default.Settings,
-                            contentDescription = "Ayarlar",
+                            contentDescription = stringResource(id = R.string.settings),
                             tint = Color.White
                         )
                     }
@@ -90,7 +71,7 @@ fun MainScreen() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(verticalGradientBrush)
+                .background(LabX_Background_Gradient)
                 .padding(innerPadding)
         ) {
             Column(
@@ -100,7 +81,7 @@ fun MainScreen() {
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.main_illustration),
-                    contentDescription = "Kimya İllüstrasyonu",
+                    contentDescription = stringResource(id = R.string.chemistry_illustration),
                     modifier = Modifier.height(300.dp),
                     contentScale = ContentScale.Fit
                 )
@@ -108,31 +89,22 @@ fun MainScreen() {
                 Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
                     ModeButton(
                         icon = painterResource(id = R.drawable.ic_scenario),
-                        title = "Senaryo Modu",
-                        subtitle = "Kimyasal tepkimeleri öğren"
-                    ) {
-                        vibrate(context, 50)
-                        playSound(context, R.raw.click_sound)
-                        context.startActivity(Intent(context, ScenarioActivity::class.java))
-                    }
+                        title = stringResource(id = R.string.scenario_mode),
+                        subtitle = stringResource(id = R.string.scenario_mode_subtitle),
+                        onClick = { navigateTo(context, ScenarioActivity::class.java) }
+                    )
                     ModeButton(
                         icon = painterResource(id = R.drawable.ic_sandbox),
-                        title = "Serbest Mod",
-                        subtitle = "Kimyasallarla özgürce deney yap"
-                    ) {
-                        vibrate(context, 50)
-                        playSound(context, R.raw.click_sound)
-                        context.startActivity(Intent(context, FreeModeActivity::class.java))
-                    }
+                        title = stringResource(id = R.string.free_mode),
+                        subtitle = stringResource(id = R.string.free_mode_subtitle),
+                        onClick = { navigateTo(context, FreeModeActivity::class.java) }
+                    )
                     ModeButton(
                         icon = painterResource(id = R.drawable.ic_quiz),
-                        title = "Test Modu",
-                        subtitle = "Bilgini test et"
-                    ) {
-                        vibrate(context, 50)
-                        playSound(context, R.raw.click_sound)
-                        context.startActivity(Intent(context, TestActivity::class.java))
-                    }
+                        title = stringResource(id = R.string.test_mode),
+                        subtitle = stringResource(id = R.string.test_mode_subtitle),
+                        onClick = { navigateTo(context, TestActivity::class.java) }
+                    )
                 }
             }
         }
@@ -147,7 +119,7 @@ fun ModeButton(icon: Painter, title: String, subtitle: String, onClick: () -> Un
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = Color(0x33FFFFFF))
+        colors = ButtonDefaults.buttonColors(containerColor = LabX_Button_Transparent)
     ) {
         Row(
             modifier = Modifier
@@ -163,7 +135,7 @@ fun ModeButton(icon: Painter, title: String, subtitle: String, onClick: () -> Un
             Spacer(modifier = Modifier.size(16.dp))
             Column {
                 Text(text = title, fontWeight = FontWeight.Bold, fontSize = 20.sp, color = Color.White)
-                Text(text = subtitle, fontSize = 14.sp, color = Color.White.copy(alpha = 0.8f))
+                Text(text = subtitle, fontSize = 14.sp, color = LabX_White_80)
             }
         }
     }

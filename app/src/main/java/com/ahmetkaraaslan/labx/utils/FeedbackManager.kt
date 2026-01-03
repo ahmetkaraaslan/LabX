@@ -41,7 +41,6 @@ fun loadAvatarUrl(context: Context): String? {
 }
 
 fun deleteAvatarUrl(context: Context) {
-    // The most direct and guaranteed way to remove a single key.
     context.getSharedPreferences("labx_progress", Context.MODE_PRIVATE).edit().remove("avatar_url").apply()
 }
 
@@ -92,7 +91,23 @@ fun loadCompletedQuizzes(context: Context): Set<Int> {
 }
 
 // --- Feedback (Sound/Vibration) ---
-fun playSound(context: Context, soundResId: Int) {
+
+fun playClickFeedback(context: Context) {
+    playSound(context, R.raw.click_sound)
+    vibrate(context, 50)
+}
+
+fun playSuccessFeedback(context: Context) {
+    playSound(context, R.raw.success_sound)
+    vibrate(context, 500)
+}
+
+fun playErrorFeedback(context: Context) {
+    playSound(context, R.raw.error_sound)
+    vibrate(context, 1000)
+}
+
+private fun playSound(context: Context, soundResId: Int) {
     if (loadSoundSetting(context)) {
         MediaPlayer.create(context, soundResId).apply {
             setOnCompletionListener { it.release() }
@@ -101,7 +116,7 @@ fun playSound(context: Context, soundResId: Int) {
     }
 }
 
-fun vibrate(context: Context, duration: Long) {
+private fun vibrate(context: Context, duration: Long) {
     if (loadVibrationSetting(context)) {
         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

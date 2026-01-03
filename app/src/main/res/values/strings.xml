@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">LabX</string>
+
+    <!-- Main Screen -->
+    <string name="settings">Ayarlar</string>
+    <string name="chemistry_illustration">Kimya İllüstrasyonu</string>
+    <string name="scenario_mode">Senaryo Modu</string>
+    <string name="scenario_mode_subtitle">Kimyasal tepkimeleri öğren</string>
+    <string name="free_mode">Serbest Mod</string>
+    <string name="free_mode_subtitle">Kimyasallarla özgürce deney yap</string>
+    <string name="test_mode">Test Modu</string>
+    <string name="test_mode_subtitle">Bilgini test et</string>
+
+    <!-- Test Screen -->
+    <string name="test_selection">Test Seçimi</string>
+    <string name="back">Geri</string>
+    <string name="completed">Tamamlandı</string>
+    <string name="locked">Kilitli</string>
+    <string name="next_question">Sonraki Soru</string>
+    <string name="finish_test">Testi Bitir</string>
+    <string name="test_completed">Test Tamamlandı!</string>
+    <string name="your_score">Skorun:</string>
+    <string name="return_to_menu">Menüye Dön</string>
+
+    <!-- Scenario Screen -->
+    <string name="scenario_selection">Senaryo Seçimi</string>
+    <string name="required_chemicals">Gerekli Kimyasallar:</string>
+    <string name="substance_amounts_mol">Madde Miktarları (mol):</string>
+    <string name="temperature">Sıcaklık</string>
+    <string name="pressure">Basınç</string>
+    <string name="show_formula">Formülü Göster</string>
+    <string name="hide_formula">Formülü Gizle</string>
+    <string name="start_reaction">Tepkimeyi Başlat</string>
+    <string name="reaction_successful">Tepkime Başarılı!</string>
+    <string name="reaction_failed">Tepkime Başarısız</string>
+    <string name="something_went_wrong">Bir şeyler ters gitti.</string>
+    <string name="enter_temperature">Sıcaklık Girin</string>
+    <string name="enter_pressure">Basınç Girin</string>
+    <string name="enter_amount">Miktarı Girin</string>
+    <string name="temperature_celsius">Sıcaklık (°C)</string>
+    <string name="pressure_atm">Basınç (atm)</string>
+    <string name="amount_mol">Miktar (mol)</string>
+    <string name="ok">Tamam</string>
+    <string name="cancel">İptal</string>
+    
+    <!-- Settings Screen -->
+    <string name="app_sound">Uygulama Sesi</string>
+    <string name="vibration">Titreşim</string>
+    <string name="data_management">Veri Yönetimi</string>
+    <string name="reset_character">Karakteri Sıfırla</string>
+    <string name="avatar_data_cleared">Tüm avatar verileri temizlendi!</string>
+    <string name="reset_character_confirmation_title">Karakteri Sıfırla</string>
+    <string name="reset_character_confirmation_message">Bu işlem tüm avatar verilerinizi kalıcı olarak silecektir. Emin misiniz?</string>
+    <string name="delete">Sil</string>
+
+    <!-- FreeModeActivity -->
+    <string name="rpm_avatar_url">https://demo.readyplayer.me/avatar?frameApi&amp;clearCache=true</string>
 </resources>

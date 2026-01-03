@@ -3,7 +3,6 @@ package com.ahmetkaraaslan.labx
 import android.os.Bundle
 import android.webkit.CookieManager
 import android.webkit.WebStorage
-import android.webkit.WebView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,12 +15,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ahmetkaraaslan.labx.ui.theme.KimyasalTheme
+import com.ahmetkaraaslan.labx.ui.theme.*
 import com.ahmetkaraaslan.labx.utils.*
 
 class SettingsActivity : ComponentActivity() {
@@ -29,9 +28,7 @@ class SettingsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             KimyasalTheme {
-                SettingsScreen {
-                    finish()
-                }
+                SettingsScreen { finish() }
             }
         }
     }
@@ -41,32 +38,58 @@ class SettingsActivity : ComponentActivity() {
 @Composable
 fun SettingsScreen(onBackPressed: () -> Unit) {
     val context = LocalContext.current
-    val verticalGradientBrush = Brush.verticalGradient(colors = listOf(Color(0xFF00586d), Color(0xFF009b97)))
-    
     var soundEnabled by remember { mutableStateOf(loadSoundSetting(context)) }
     var vibrationEnabled by remember { mutableStateOf(loadVibrationSetting(context)) }
+    var showResetDialog by remember { mutableStateOf(false) }
+
+    if (showResetDialog) {
+        ResetConfirmationDialog(
+            onConfirm = {
+                playClickFeedback(context)
+                // 1. Clear SharedPreferences for avatar URL
+                deleteAvatarUrl(context)
+
+                // 2. Clear all WebView data globally
+                // No need to create a WebView instance. These methods work globally.
+                CookieManager.getInstance().removeAllCookies(null)
+                CookieManager.getInstance().flush()
+                WebStorage.getInstance().deleteAllData()
+
+                Toast.makeText(context, context.getString(R.string.avatar_data_cleared), Toast.LENGTH_SHORT).show()
+                showResetDialog = false
+            },
+            onDismiss = { showResetDialog = false }
+        )
+    }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Ayarlar", color = Color.White) },
-                navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.AutoMirrored.Filled.ArrowBack, "Geri", tint = Color.White) } },
+                title = { Text(stringResource(id = R.string.settings), color = Color.White) },
+                navigationIcon = { 
+                    IconButton(onClick = {
+                        playClickFeedback(context)
+                        onBackPressed()
+                    }) { 
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(id = R.string.back), tint = Color.White) 
+                    } 
+                },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
         containerColor = Color.Transparent,
-        modifier = Modifier.background(verticalGradientBrush)
+        modifier = Modifier.background(LabX_Background_Gradient)
     ) { padding ->
         Column(
             modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            SettingSwitch(title = "Uygulama Sesi", checked = soundEnabled, onCheckedChange = { 
+            SettingSwitch(title = stringResource(id = R.string.app_sound), checked = soundEnabled, onCheckedChange = { 
                 soundEnabled = it
                 saveSoundSetting(context, it)
             })
             Spacer(modifier = Modifier.height(16.dp))
-            SettingSwitch(title = "Titreşim", checked = vibrationEnabled, onCheckedChange = { 
+            SettingSwitch(title = stringResource(id = R.string.vibration), checked = vibrationEnabled, onCheckedChange = { 
                 vibrationEnabled = it 
                 saveVibrationSetting(context, it)
             })
@@ -74,42 +97,48 @@ fun SettingsScreen(onBackPressed: () -> Unit) {
             Spacer(modifier = Modifier.weight(1f))
 
             // Danger Zone
-            Text("Veri Yönetimi", color = Color.White.copy(alpha = 0.7f), fontSize = 12.sp)
+            Text(stringResource(id = R.string.data_management), color = LabX_White_70, fontSize = 12.sp)
             Spacer(modifier = Modifier.height(8.dp))
             Button(
-                onClick = {
-                    // 1. Clear SharedPreferences
-                    deleteAvatarUrl(context)
-
-                    // 2. Clear all WebView data
-                    try {
-                        CookieManager.getInstance().removeAllCookies(null)
-                        CookieManager.getInstance().flush()
-                        WebStorage.getInstance().deleteAllData()
-                        val webView = WebView(context)
-                        webView.clearCache(true)
-                        webView.clearFormData()
-                        webView.clearHistory()
-                        webView.clearSslPreferences()
-                    } catch (e: Exception) {
-                        // Handle exceptions if necessary
-                    }
-
-                    Toast.makeText(context, "Tüm avatar verileri temizlendi!", Toast.LENGTH_SHORT).show()
+                onClick = { 
+                    playClickFeedback(context)
+                    showResetDialog = true 
                 },
                 modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFB00020))
+                colors = ButtonDefaults.buttonColors(containerColor = LabX_Button_Red)
             ) {
-                Text("Karakteri Sıfırla", color = Color.White)
+                Text(stringResource(id = R.string.reset_character), color = Color.White)
             }
         }
     }
 }
 
 @Composable
+private fun ResetConfirmationDialog(onConfirm: () -> Unit, onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(id = R.string.reset_character_confirmation_title)) },
+        text = { Text(stringResource(id = R.string.reset_character_confirmation_message)) },
+        confirmButton = {
+            TextButton(onClick = onConfirm) {
+                Text(stringResource(id = R.string.delete))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(id = R.string.cancel))
+            }
+        }
+    )
+}
+
+@Composable
 fun SettingSwitch(title: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
     Row(
-        modifier = Modifier.fillMaxWidth().background(Color(0x33FFFFFF), RoundedCornerShape(12.dp)).padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(LabX_Button_Transparent, RoundedCornerShape(12.dp))
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -118,7 +147,7 @@ fun SettingSwitch(title: String, checked: Boolean, onCheckedChange: (Boolean) ->
             checked = checked,
             onCheckedChange = onCheckedChange,
             colors = SwitchDefaults.colors(
-                checkedThumbColor = Color(0xFF00586d),
+                checkedThumbColor = LabX_Primary,
                 checkedTrackColor = Color.White,
                 uncheckedThumbColor = Color.Gray,
                 uncheckedTrackColor = Color.LightGray

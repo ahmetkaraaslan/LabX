@@ -1,5 +1,0 @@
-package com.ahmetkaraaslan.labx
-
-import androidx.lifecycle.ViewModel
-
-class MainViewModel : ViewModel()
