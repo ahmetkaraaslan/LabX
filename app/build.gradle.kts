@@ -103,7 +103,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     implementation(project(":unityLibrary"))
     implementation(files("../unityLibrary/libs/unity-classes.jar"))
-    implementation(files("../unityLibrary/libs/common.aar"))
+    // common.aar kaldırıldı - unityLibrary modülü üzerinden zaten geliyor
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
