@@ -86,10 +86,19 @@ fun TestNavigator(onFinishActivity: () -> Unit) {
             }
         )
     } else {
-        val viewModel: TestViewModel = viewModel(factory = TestViewModelFactory(selectedQuiz))
+        // ÖNEMLİ: Her test için farklı ViewModel key'i kullan (test ID'sine göre)
+        // Böylece önceki test'in state'i yeni teste karışmaz
+        val viewModel: TestViewModel = viewModel(
+            key = "test_${selectedQuiz.id}",
+            factory = TestViewModelFactory(selectedQuiz)
+        )
         QuizScreen(
             viewModel = viewModel,
-            onComplete = { onQuizComplete(selectedQuiz.id) }
+            onComplete = { 
+                onQuizComplete(selectedQuiz.id)
+                // Test tamamlandığında state temizle
+                // currentQuiz = null yapıldığında Compose otomatik olarak ViewModel'i dispose eder
+            }
         )
     }
 }

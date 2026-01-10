@@ -92,11 +92,21 @@ fun ScenarioNavigator(onFinishActivity: () -> Unit) {
             }
         )
     } else {
-        val viewModel: ScenarioViewModel = viewModel(factory = ScenarioViewModelFactory(selectedScenario))
+        // ÖNEMLİ: Her senaryo için farklı ViewModel key'i kullan (scenario ID'sine göre)
+        // Böylece önceki senaryo'nun cevap verileri (selectedChemicals, amounts, temperature, pressure) 
+        // yeni senaryoya karışmaz
+        val viewModel: ScenarioViewModel = viewModel(
+            key = "scenario_${selectedScenario.id}",
+            factory = ScenarioViewModelFactory(selectedScenario)
+        )
         ScenarioExperimentScreen(
             scenario = selectedScenario,
             viewModel = viewModel,
-            onComplete = onScenarioComplete,
+            onComplete = { scenarioId ->
+                onScenarioComplete(scenarioId)
+                // Senaryo tamamlandığında state temizle
+                // currentScenario = null yapıldığında Compose otomatik olarak ViewModel'i dispose eder
+            },
             onBackPressed = {
                 playClickFeedback(context)
                 currentScenario = null // Go back to selection screen
