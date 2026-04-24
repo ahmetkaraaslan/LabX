@@ -6,18 +6,20 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
         flatDir {
-            dirs("unityLibrary/libs")
+            dirs("unityLibrary/unityLibrary/libs")
         }
     }
 }
 
-rootProject.name = "LabX"
+rootProject.name = "Kimyasal"
 
-include(":app")
+include(":launcher")
+project(":launcher").projectDir = File("app")
+
 include(":unityLibrary")
-project(":unityLibrary").projectDir = File("unityLibrary")
+project(":unityLibrary").projectDir = File("unityLibrary/unityLibrary")

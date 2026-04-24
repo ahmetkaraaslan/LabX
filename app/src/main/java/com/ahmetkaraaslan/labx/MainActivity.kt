@@ -22,7 +22,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ahmetkaraaslan.labx.ui.theme.*
@@ -57,7 +56,7 @@ fun MainScreen() {
                     IconButton(onClick = { navigateTo(context, SettingsActivity::class.java) }) {
                         Icon(
                             imageVector = Icons.Default.Settings,
-                            contentDescription = stringResource(id = R.string.settings),
+                            contentDescription = null,
                             tint = Color.White
                         )
                     }
@@ -81,7 +80,7 @@ fun MainScreen() {
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.main_illustration),
-                    contentDescription = stringResource(id = R.string.chemistry_illustration),
+                    contentDescription = null,
                     modifier = Modifier.height(300.dp),
                     contentScale = ContentScale.Fit
                 )
@@ -129,7 +128,7 @@ fun ModeButton(icon: Painter, title: String, subtitle: String, onClick: () -> Un
         ) {
             Image(
                 painter = icon,
-                contentDescription = title,
+                contentDescription = null,
                 modifier = Modifier.size(40.dp)
             )
             Spacer(modifier = Modifier.size(16.dp))
@@ -138,13 +137,5 @@ fun ModeButton(icon: Painter, title: String, subtitle: String, onClick: () -> Un
                 Text(text = subtitle, fontSize = 14.sp, color = LabX_White_80)
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MainScreenPreview() {
-    KimyasalTheme {
-        MainScreen()
     }
 }

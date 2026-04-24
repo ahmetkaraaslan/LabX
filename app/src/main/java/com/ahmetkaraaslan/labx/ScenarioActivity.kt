@@ -15,7 +15,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.*
@@ -65,8 +65,9 @@ class ScenarioActivity : ComponentActivity() {
 @Composable
 fun ScenarioNavigator(onFinishActivity: () -> Unit) {
     val context = LocalContext.current
-    val allScenarios = remember { loadScenariosFromJson(context) }
-    var completedScenarioIds by remember { mutableStateOf(loadCompletedScenarios(context)) }
+    // Explicit type added to fix inference
+    val allScenarios: List<Scenario> = remember { loadScenariosFromJson(context) }
+    var completedScenarioIds by remember { mutableStateOf<Set<Int>>(loadCompletedScenarios(context)) }
     var currentScenario by remember { mutableStateOf<Scenario?>(null) }
 
     val onScenarioComplete: (Int) -> Unit = { scenarioId ->
@@ -92,9 +93,6 @@ fun ScenarioNavigator(onFinishActivity: () -> Unit) {
             }
         )
     } else {
-        // ÖNEMLİ: Her senaryo için farklı ViewModel key'i kullan (scenario ID'sine göre)
-        // Böylece önceki senaryo'nun cevap verileri (selectedChemicals, amounts, temperature, pressure) 
-        // yeni senaryoya karışmaz
         val viewModel: ScenarioViewModel = viewModel(
             key = "scenario_${selectedScenario.id}",
             factory = ScenarioViewModelFactory(selectedScenario)
@@ -104,8 +102,6 @@ fun ScenarioNavigator(onFinishActivity: () -> Unit) {
             viewModel = viewModel,
             onComplete = { scenarioId ->
                 onScenarioComplete(scenarioId)
-                // Senaryo tamamlandığında state temizle
-                // currentScenario = null yapıldığında Compose otomatik olarak ViewModel'i dispose eder
             },
             onBackPressed = {
                 playClickFeedback(context)
@@ -129,7 +125,7 @@ fun ScenarioSelectionScreen(
                 title = { Text(stringResource(id = R.string.scenario_selection), color = Color.White) },
                 navigationIcon = {
                     IconButton(onClick = onBackPressed) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(id = R.string.back), tint = Color.White)
+                        Icon(Icons.Default.ArrowBack, stringResource(id = R.string.back), tint = Color.White)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
@@ -194,7 +190,6 @@ fun ScenarioExperimentScreen(
     var showResultDialog by remember { mutableStateOf<ReactionResult?>(null) }
     var showInputDialogFor by remember { mutableStateOf<String?>(null) }
 
-    // Listen for reaction results from the ViewModel
     LaunchedEffect(Unit) {
         viewModel.reactionResult.collectLatest { result ->
             when(result) {
@@ -209,7 +204,7 @@ fun ScenarioExperimentScreen(
         topBar = {
             TopAppBar(
                 title = { Text(scenario.title, color = Color.White, fontSize = 18.sp) },
-                navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(id = R.string.back), tint = Color.White) } },
+                navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.Default.ArrowBack, stringResource(id = R.string.back), tint = Color.White) } },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
@@ -244,7 +239,6 @@ fun ScenarioExperimentScreen(
                                 }
                             )
                         }
-                        // Add spacers to keep layout consistent
                         repeat(3 - rowChemicals.size) {
                             Spacer(modifier = Modifier.weight(1f).padding(horizontal = 4.dp))
                         }
@@ -252,7 +246,6 @@ fun ScenarioExperimentScreen(
                 }
             }
 
-            // Sliders for selected chemicals
             if (uiState.selectedChemicals.isNotEmpty()) {
                 Text(
                     text = stringResource(id = R.string.substance_amounts_mol),
@@ -274,7 +267,6 @@ fun ScenarioExperimentScreen(
                 }
             }
 
-            // Temperature Slider
             val tempLabel = stringResource(id = R.string.temperature)
             Text(text = "$tempLabel: ${uiState.temperature.toInt()} °C", color = Color.White, modifier = Modifier.clickable {
                 playClickFeedback(context)
@@ -282,7 +274,6 @@ fun ScenarioExperimentScreen(
             })
             Slider(value = uiState.temperature, onValueChange = { viewModel.onEvent(ScenarioEvent.TemperatureChanged(it)) }, valueRange = 0f..1000f)
 
-            // Pressure Slider
             val pressureLabel = stringResource(id = R.string.pressure)
             Text(text = "$pressureLabel: ${uiState.pressure.toInt()} atm", color = Color.White, modifier = Modifier.clickable {
                 playClickFeedback(context)
@@ -292,7 +283,6 @@ fun ScenarioExperimentScreen(
 
             Spacer(modifier = Modifier.weight(1f, fill = false))
 
-            // Reaction Equation
             AnimatedVisibility(visible = uiState.showReactionEquation) {
                 Text(
                     text = scenario.reactionEquation,
@@ -315,7 +305,6 @@ fun ScenarioExperimentScreen(
                 )
             }
 
-            // Start Reaction Button
             Button(
                 onClick = {
                     playClickFeedback(context)
@@ -330,14 +319,13 @@ fun ScenarioExperimentScreen(
 
         // --- Dialogs ---
 
-        // Input Dialog
         showInputDialogFor?.let { editingKey ->
             val isDecimal = editingKey !in listOf("temperature", "pressure")
             InputDialog(
                 title = when (editingKey) {
                     "temperature" -> stringResource(R.string.enter_temperature)
                     "pressure" -> stringResource(R.string.enter_pressure)
-                    else -> stringResource(R.string.enter_amount, editingKey)
+                    else -> stringResource(R.string.enter_amount)
                 },
                 label = when (editingKey) {
                     "temperature" -> stringResource(R.string.temperature_celsius)
@@ -360,7 +348,6 @@ fun ScenarioExperimentScreen(
             )
         }
 
-        // Result Dialog
         showResultDialog?.let { result ->
             AlertDialog(
                 onDismissRequest = { showResultDialog = null },

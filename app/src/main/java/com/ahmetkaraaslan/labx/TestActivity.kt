@@ -1,25 +1,19 @@
 package com.ahmetkaraaslan.labx
 
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -30,11 +24,11 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ahmetkaraaslan.labx.model.Question
 import com.ahmetkaraaslan.labx.model.Quiz
 import com.ahmetkaraaslan.labx.ui.theme.*
 import com.ahmetkaraaslan.labx.utils.*
 
-// ViewModel Factory to pass the quiz to the ViewModel
 class TestViewModelFactory(private val quiz: Quiz) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(TestViewModel::class.java)) {
@@ -59,214 +53,203 @@ class TestActivity : ComponentActivity() {
 @Composable
 fun TestNavigator(onFinishActivity: () -> Unit) {
     val context = LocalContext.current
-    val allQuizzes = remember { loadQuizzesFromJson(context) }
-    var completedQuizIds by remember { mutableStateOf(loadCompletedQuizzes(context)) }
-    var currentQuiz by remember { mutableStateOf<Quiz?>(null) }
-
-    val onQuizComplete: (Int) -> Unit = { quizId ->
-        val newCompletedIds = completedQuizIds + quizId
-        saveCompletedQuizzes(context, newCompletedIds)
-        completedQuizIds = newCompletedIds
-        currentQuiz = null
-    }
-
-    val selectedQuiz = currentQuiz
-
-    if (selectedQuiz == null) {
-        TestSelectionScreen(
-            quizzes = allQuizzes,
-            completedIds = completedQuizIds,
-            onQuizSelected = {
-                playClickFeedback(context)
-                currentQuiz = it
-            },
-            onBackPressed = { 
-                playClickFeedback(context)
-                onFinishActivity()
-            }
-        )
+    // FeedbackManager içindeki loadQuizzesFromJson fonksiyonunu kullanıyoruz
+    val quiz = remember { loadQuizzesFromJson(context).firstOrNull() }
+    
+    if (quiz != null) {
+        TestScreen(quiz = quiz, onFinish = onFinishActivity)
     } else {
-        // ÖNEMLİ: Her test için farklı ViewModel key'i kullan (test ID'sine göre)
-        // Böylece önceki test'in state'i yeni teste karışmaz
-        val viewModel: TestViewModel = viewModel(
-            key = "test_${selectedQuiz.id}",
-            factory = TestViewModelFactory(selectedQuiz)
-        )
-        QuizScreen(
-            viewModel = viewModel,
-            onComplete = { 
-                onQuizComplete(selectedQuiz.id)
-                // Test tamamlandığında state temizle
-                // currentQuiz = null yapıldığında Compose otomatik olarak ViewModel'i dispose eder
-            }
-        )
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text("Quiz verisi yüklenemedi.", color = Color.White)
+        }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TestSelectionScreen(
-    quizzes: List<Quiz>,
-    completedIds: Set<Int>,
-    onQuizSelected: (Quiz) -> Unit,
-    onBackPressed: () -> Unit
-) {
+fun TestScreen(quiz: Quiz, onFinish: () -> Unit) {
+    val context = LocalContext.current
+    val viewModel: TestViewModel = viewModel(factory = TestViewModelFactory(quiz))
+    val uiState by viewModel.uiState.collectAsState()
+
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(id = R.string.test_selection), color = Color.White) },
-                navigationIcon = { 
-                    IconButton(onClick = onBackPressed) { 
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(id = R.string.back), tint = Color.White) 
-                    } 
+                navigationIcon = {
+                    IconButton(onClick = {
+                        playClickFeedback(context)
+                        onFinish()
+                    }) {
+                        Icon(Icons.Default.ArrowBack, stringResource(id = R.string.back), tint = Color.White)
+                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
             )
         },
         containerColor = Color.Transparent
     ) { padding ->
-        LazyColumn(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(LabX_Background_Gradient)
                 .padding(padding)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(quizzes, key = { it.id }) { quiz ->
-                val isUnlocked = quiz.id == 1 || (quiz.id - 1) in completedIds
-                val alpha = if (isUnlocked) 1f else 0.6f
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .alpha(alpha)
-                        .background(LabX_Button_Transparent, RoundedCornerShape(12.dp))
-                        .clickable(enabled = isUnlocked) { onQuizSelected(quiz) }
-                        .padding(16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(text = quiz.title, color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
-                    Spacer(modifier = Modifier.width(8.dp))
-                    when {
-                        quiz.id in completedIds -> {
-                            Icon(imageVector = Icons.Default.CheckCircle, contentDescription = stringResource(id = R.string.completed), tint = LabX_Success)
-                        }
-                        !isUnlocked -> {
-                            Icon(imageVector = Icons.Default.Lock, contentDescription = stringResource(id = R.string.locked), tint = Color.White, modifier = Modifier.size(20.dp))
-                        }
+            if (uiState.isQuizFinished) {
+                QuizResultScreen(
+                    score = uiState.score,
+                    total = uiState.totalQuestions,
+                    onRestart = {
+                        playClickFeedback(context)
+                        onFinish()
+                    },
+                    onFinish = {
+                        playClickFeedback(context)
+                        onFinish()
                     }
-                }
+                )
+            } else {
+                QuizQuestionScreen(
+                    question = uiState.currentQuestion,
+                    currentIndex = uiState.currentQuestionIndex,
+                    totalQuestions = uiState.totalQuestions,
+                    selectedOption = uiState.selectedOptionIndex,
+                    isAnswered = uiState.isAnswered,
+                    onOptionSelected = { index ->
+                        playClickFeedback(context)
+                        viewModel.onEvent(TestEvent.AnswerSelected(index))
+                    },
+                    onNextQuestion = {
+                        playClickFeedback(context)
+                        viewModel.onEvent(TestEvent.NextQuestionClicked)
+                    }
+                )
             }
         }
     }
 }
 
 @Composable
-fun QuizScreen(viewModel: TestViewModel, onComplete: () -> Unit) {
-    val uiState by viewModel.uiState.collectAsState()
-    val context = LocalContext.current
-
-    if (uiState.isQuizFinished) {
-        ResultScreen(score = uiState.score, totalQuestions = uiState.totalQuestions, onDone = onComplete)
-    } else {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(LabX_Background_Gradient)
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                LinearProgressIndicator(
-                    progress = (uiState.currentQuestionIndex + 1) / uiState.totalQuestions.toFloat(),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp)
-                )
-                Text(
-                    text = uiState.currentQuestion.questionText,
-                    color = Color.White, 
-                    fontSize = 20.sp, 
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(vertical = 24.dp)
-                )
-                uiState.currentQuestion.options.forEachIndexed { index, option ->
-                    AnswerOption(
-                        optionText = option,
-                        index = index,
-                        isSelected = index == uiState.selectedOptionIndex,
-                        isCorrect = index == uiState.currentQuestion.correctAnswerIndex,
-                        isAnswered = uiState.isAnswered,
-                        onOptionSelected = { selectedIndex ->
-                            val isCorrect = selectedIndex == uiState.currentQuestion.correctAnswerIndex
-                            if (isCorrect) playSuccessFeedback(context) else playErrorFeedback(context)
-                            viewModel.onEvent(TestEvent.AnswerSelected(selectedIndex))
-                        }
-                    )
-                }
-            }
-            Button(
-                onClick = { viewModel.onEvent(TestEvent.NextQuestionClicked) },
-                enabled = uiState.isAnswered,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(if (uiState.currentQuestionIndex < uiState.totalQuestions - 1) R.string.next_question else R.string.finish_test))
-            }
-        }
-    }
-}
-
-@Composable
-fun AnswerOption(
-    optionText: String,
-    index: Int,
-    isSelected: Boolean,
-    isCorrect: Boolean,
+fun QuizQuestionScreen(
+    question: Question,
+    currentIndex: Int,
+    totalQuestions: Int,
+    selectedOption: Int?,
     isAnswered: Boolean,
-    onOptionSelected: (Int) -> Unit
+    onOptionSelected: (Int) -> Unit,
+    onNextQuestion: () -> Unit
 ) {
-    val (borderColor, backgroundColor) = when {
-        !isAnswered -> LabX_White_50 to Color.Transparent
-        isSelected && !isCorrect -> LabX_Error to LabX_Error_Bg
-        isCorrect -> LabX_Success to LabX_Success_Bg
-        else -> LabX_White_50 to Color.Transparent
-    }
-
-    Row(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 6.dp)
-            .border(2.dp, borderColor, RoundedCornerShape(12.dp))
-            .background(backgroundColor, RoundedCornerShape(12.dp))
-            .clickable(enabled = !isAnswered) { onOptionSelected(index) }
-            .padding(16.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(optionText, color = Color.White, fontSize = 16.sp)
+        LinearProgressIndicator(
+            progress = (currentIndex + 1).toFloat() / totalQuestions,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(8.dp)
+                .background(Color.White.copy(alpha = 0.2f), RoundedCornerShape(4.dp)),
+            color = LabX_Primary
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = "${currentIndex + 1} / $totalQuestions",
+            color = Color.White,
+            fontSize = 14.sp
+        )
+        Spacer(modifier = Modifier.height(24.dp))
+        Text(
+            text = question.questionText,
+            color = Color.White,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(32.dp))
+
+        question.options.forEachIndexed { index, option ->
+            val isSelected = selectedOption == index
+            val backgroundColor = when {
+                isAnswered && index == question.correctAnswerIndex -> LabX_Success
+                isAnswered && isSelected && index != question.correctAnswerIndex -> LabX_Error
+                isSelected -> Color.White
+                else -> LabX_Button_Transparent
+            }
+            val contentColor = if (isSelected || (isAnswered && (index == question.correctAnswerIndex || (isSelected && index != question.correctAnswerIndex)))) {
+                if (backgroundColor == Color.White) LabX_Primary else Color.White
+            } else {
+                Color.White
+            }
+
+            Button(
+                onClick = { if (!isAnswered) onOptionSelected(index) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 6.dp),
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = backgroundColor,
+                    contentColor = contentColor
+                ),
+                enabled = !isAnswered || isSelected || index == question.correctAnswerIndex
+            ) {
+                Text(
+                    text = option,
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    textAlign = TextAlign.Center
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.weight(1f))
+        if (isAnswered) {
+            Button(
+                onClick = onNextQuestion,
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+            ) {
+                Text(
+                    text = if (currentIndex < totalQuestions - 1) stringResource(id = R.string.next_question) else stringResource(id = R.string.finish_test),
+                    color = LabX_Primary,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
     }
 }
 
-
 @Composable
-fun ResultScreen(score: Int, totalQuestions: Int, onDone: () -> Unit) {
-    val context = LocalContext.current
+fun QuizResultScreen(score: Int, total: Int, onRestart: () -> Unit, onFinish: () -> Unit) {
     Column(
-        modifier = Modifier.fillMaxSize().background(LabX_Background_Gradient).padding(16.dp),
+        modifier = Modifier.fillMaxSize().padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(stringResource(id = R.string.test_completed), fontSize = 32.sp, fontWeight = FontWeight.Bold, color = Color.White)
-        Spacer(modifier = Modifier.height(32.dp))
-        Text(stringResource(id = R.string.your_score), fontSize = 24.sp, color = LabX_White_80)
-        Text("$score / $totalQuestions", fontSize = 48.sp, fontWeight = FontWeight.Bold, color = Color.White)
+        Text(stringResource(id = R.string.test_completed), color = Color.White, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = "${stringResource(id = R.string.your_score)} $score / $total",
+            color = Color.White,
+            fontSize = 20.sp
+        )
         Spacer(modifier = Modifier.height(48.dp))
-        Button(onClick = {
-            playClickFeedback(context)
-            onDone()
-        }, modifier = Modifier.fillMaxWidth()) {
-            Text(stringResource(id = R.string.return_to_menu))
+        Button(
+            onClick = onRestart,
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.White)
+        ) {
+            Text("Tekrarla", color = LabX_Primary)
+        }
+        Spacer(modifier = Modifier.height(12.dp))
+        OutlinedButton(
+            onClick = onFinish,
+            modifier = Modifier.fillMaxWidth(),
+            border = androidx.compose.foundation.BorderStroke(1.dp, Color.White)
+        ) {
+            Text(stringResource(id = R.string.return_to_menu), color = Color.White)
         }
     }
 }

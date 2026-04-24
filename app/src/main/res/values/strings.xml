@@ -53,6 +53,6 @@
     <string name="reset_character_confirmation_message">Bu işlem tüm avatar verilerinizi kalıcı olarak silecektir. Emin misiniz?</string>
     <string name="delete">Sil</string>
 
-    <!-- FreeModeActivity -->
-    <string name="rpm_avatar_url">https://demo.readyplayer.me/avatar?frameApi&amp;clearCache=true</string>
+    <!-- Avaturn Config -->
+    <string name="avaturn_url">https://labx.avaturn.dev/iframe?export_type=httpURL&amp;file_format=glb</string>
 </resources>
